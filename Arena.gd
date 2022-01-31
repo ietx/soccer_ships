@@ -1,0 +1,180 @@
+extends Node2D
+
+signal reset
+signal Dash_PowUp
+signal Still_PowUp
+signal Dash_PowUp2
+signal Still_PowUp2
+var Blue_Goal = 0
+var Red_Goal = 0
+var start = false
+var time 
+var match_time
+var minu
+var sec
+var gol_frame
+const PU_Xmax = 750
+const PU_Ymax = 100
+const PU_Xmin = 170
+const PU_Ymin = 400
+
+
+var PU_X = RandomNumberGenerator.new()
+var PU_Y = RandomNumberGenerator.new()
+var PU_RandomNum123 = RandomNumberGenerator.new()
+var PU_RandomType
+var PU_out = Vector2(-100,-100)
+
+#onready var hud = get_node("HUD")
+func _ready():
+	$StartTimer.start()
+	$Gol_Animation.playing = false
+	$Lightning_Animation.play("Thunder")
+#	$Shine_Star/Blue_Shine.set_visible(false)
+#	$Shine_Star/Red_Shine.set_visible(false)
+	#$Gol_Animation.set_visible(false)
+	 #continua
+
+
+
+#	hud.get_node("HUD/CenterContainer/CountDown").set_text((round($StartTimer.time_left)))
+	
+func _process(delta):
+	
+	
+#	print(int($Shine_Star/Timer_PU.time_left))
+	
+	gol_frame = $Gol_Animation.get_frame()
+	time = int($StartTimer.get_time_left())
+	match_time = int($TimeNormal.time_left)#
+	
+	#Para o cronômetro durante o gol
+	if start == false:
+		if time == 0:
+			$TimeNormal.start()
+			start = true
+	else:
+		if time == 0:
+			$TimeNormal.set_paused(false)
+	
+	#CountDown
+	
+	if $StartTimer.time_left > 1:
+		$HUD/PanelContainer/CenterContainer/CountDown.text = String(int($StartTimer.time_left))
+	else:
+		$HUD/PanelContainer/CenterContainer/CountDown.text = ("Go!")
+	
+	#Cronômetro do tempo da partida
+	
+	minu = match_time/60
+	sec = match_time - minu * 60
+	if sec > 9:
+		$HUD/Time.text = (String(minu) + ":" + String(sec))
+	else:
+		$HUD/Time.text = (String(minu) + ":0" + String(sec))
+	# Vermelho piscante
+	if match_time < 30:
+		$HUD/Time/AnimationPlayer.play("Blink_Red")
+	else:
+		$HUD/Time.modulate = (Color(1,1,1,1))
+	
+	#Anmiação do gol
+	if gol_frame == 23:
+		$Gol_Animation.stop()
+		$Gol_Animation.set_frame(0)
+		$Gol_Animation.set_visible(false)
+	
+
+		
+func _on_Blue_Goal_body_entered(body):
+	Blue_Goal += 1
+	$HUD/Red.text = String(Blue_Goal)
+	emit_signal("reset") #Emite sinal pras naves e bola reseteram a posição
+	$HUD/PanelContainer.set_visible(true)
+	$StartTimer.start()
+	$TimeNormal.set_paused(true)
+	$Gol_Animation.set_visible(true)
+	$Gol_Animation.play("Gol_R")
+	
+
+
+func _on_Red_Goal_body_entered(body):
+	Red_Goal += 1
+	$HUD/Blue.text = String(Red_Goal)
+	emit_signal("reset")
+	$HUD/PanelContainer.set_visible(true)
+	$StartTimer.start()
+	$TimeNormal.set_paused(true)
+	$Gol_Animation.set_visible(true)
+	$Gol_Animation.play("Gol_B")
+	
+
+
+
+func _on_StartTimer_timeout():
+	$HUD/PanelContainer.set_visible(false)
+
+
+
+func _on_TimeNormal_timeout():
+	get_tree().change_scene("res://Menu.tscn")
+
+
+
+func _on_Blue_Shine_body_entered(body):
+	if body == $Ship:
+		emit_signal("Dash_PowUp")
+		$HUD/PU_Light_Red.play("Green")
+	elif body == $Ship2:
+		emit_signal("Dash_PowUp2")
+		$HUD/PU_Light_Blue.play("Green")
+	$Shine_Star/Blue_Shine.position = PU_out
+	$Shine_Star/Timer_PU.start()
+	$Shine_Star/Blue_Shine/AnimatedSprite.stop()
+	$Shine_Star/Blue_Shine/AnimatedSprite.set_frame(0)
+	print (body)
+	pass # Replace with function body.
+
+
+func _on_Red_Shine_body_entered(body):
+	if body == $Ship:
+		emit_signal("Still_PowUp")
+		$HUD/PU_Light_Red.play("Red")
+	elif body == $Ship2:
+		emit_signal("Still_PowUp2")
+		$HUD/PU_Light_Blue.play("Red")
+	$Shine_Star/Red_Shine.position = PU_out
+	$Shine_Star/Timer_PU.start()
+	$Shine_Star/Red_Shine/AnimatedSprite.stop()
+	$Shine_Star/Red_Shine/AnimatedSprite.set_frame(0)
+	print (body)
+	pass # Replace with function body.
+
+
+func _on_Timer_PU_timeout():
+	PU_RandomNum123.randomize()
+	PU_RandomType = PU_RandomNum123.randi_range(0,1)
+	PU_X.randomize()
+	PU_Y.randomize()
+	if PU_RandomType == 0:
+		$Shine_Star/Blue_Shine.position = Vector2(PU_X.randi_range(PU_Xmin , PU_Xmax),PU_Y.randi_range(PU_Ymin , PU_Ymax))
+		$Shine_Star/Blue_Shine/AnimatedSprite.play("Blue")
+	elif PU_RandomType == 1:
+		$Shine_Star/Red_Shine.position = Vector2(PU_X.randi_range(PU_Xmin , PU_Xmax),PU_Y.randi_range(PU_Ymin , PU_Ymax))
+		$Shine_Star/Red_Shine/AnimatedSprite.play("Red")
+	
+	print ($Shine_Star/Blue_Shine.position)
+	print ($Shine_Star/Red_Shine.position)
+	print (PU_RandomType)
+
+
+#Desliga a luz do HUB do PU
+
+func _on_Ship_PU_Used_Red():
+	$HUD/PU_Light_Red.play("Off")
+
+func _on_Ship2_PU_Used_Blue():
+	$HUD/PU_Light_Blue.play("Off")
+
+
+	

@@ -1,0 +1,568 @@
+[gd_scene load_steps=113 format=2]
+
+[ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_HUB_PC.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_PC_GOL.png" type="Texture" id=4]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Arena.gd" type="Script" id=6]
+[ext_resource path="res://Ship - Copia.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Fonts/Pixel/FreePixel.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Ball.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho22.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho23.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho6.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho11.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul3.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho16.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho21.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho9.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho1.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho3.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho4.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho5.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho7.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho8.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho10.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho14.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho19.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho15.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho18.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho12.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho13.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho17.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho20.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho24.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul13.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul12.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul17.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul24.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul14.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul22.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul7.png" type="Texture" id=43]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul15.png" type="Texture" id=44]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul11.png" type="Texture" id=45]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul21.png" type="Texture" id=46]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul23.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul5.png" type="Texture" id=48]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul8.png" type="Texture" id=49]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul9.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul10.png" type="Texture" id=51]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul19.png" type="Texture" id=52]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul6.png" type="Texture" id=53]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul4.png" type="Texture" id=54]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul18.png" type="Texture" id=55]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul20.png" type="Texture" id=56]
+[ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul16.png" type="Texture" id=57]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp2.png" type="Texture" id=58]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp3.png" type="Texture" id=59]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp1.png" type="Texture" id=60]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp7.png" type="Texture" id=61]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp8.png" type="Texture" id=62]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp4.png" type="Texture" id=63]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp5.png" type="Texture" id=64]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp7.png" type="Texture" id=65]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp4.png" type="Texture" id=66]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp8.png" type="Texture" id=67]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp6.png" type="Texture" id=68]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp6.png" type="Texture" id=69]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp3.png" type="Texture" id=70]
+[ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp5.png" type="Texture" id=71]
+[ext_resource path="res://Assets/Sounds/john8bit.wav" type="AudioStream" id=72]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Esttrelas_PC.png" type="Texture" id=73]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_1_PC.png" type="Texture" id=74]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_2_PC.png" type="Texture" id=75]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_3_PC.png" type="Texture" id=76]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Planetas_PC.png" type="Texture" id=77]
+[ext_resource path="res://ParallaxBackground.gd" type="Script" id=78]
+[ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub2.png" type="Texture" id=79]
+[ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub3.png" type="Texture" id=80]
+[ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub4.png" type="Texture" id=81]
+[ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub1.png" type="Texture" id=82]
+[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC1.png" type="Texture" id=83]
+[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC2.png" type="Texture" id=84]
+[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC6.png" type="Texture" id=85]
+[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC5.png" type="Texture" id=86]
+[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC4.png" type="Texture" id=87]
+[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC3.png" type="Texture" id=88]
+[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC9.png" type="Texture" id=89]
+[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC8.png" type="Texture" id=90]
+[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC7.png" type="Texture" id=91]
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+bounce = 0.5
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ ExtResource( 83 ), ExtResource( 84 ), ExtResource( 88 ), ExtResource( 87 ), ExtResource( 86 ), ExtResource( 85 ), ExtResource( 91 ), ExtResource( 90 ), ExtResource( 89 ) ],
+"loop": true,
+"name": "Thunder",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 15 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 16 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 18 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "Gol_B",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 54 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 57 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "Gol_R",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3208.39, 97.8572 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40.5358, 2056.07 )
+
+[sub_resource type="CapsuleShape2D" id=16]
+radius = 8.0
+height = 30.0
+
+[sub_resource type="CapsuleShape2D" id=17]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id=18]
+radius = 8.0
+height = 30.0
+
+[sub_resource type="CapsuleShape2D" id=19]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 3.75, 74.25 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 0.745098 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 20
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "Blink_Red"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.941176, 0.501961, 0.501961, 1 ), Color( 0.941176, 0.501961, 0.501961, 0.164706 ), Color( 0.941176, 0.501961, 0.501961, 1 ), Color( 0.941176, 0.501961, 0.501961, 0.164706 ), Color( 0.941176, 0.501961, 0.501961, 1 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 80 ) ],
+"loop": true,
+"name": "Green",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 80 ) ],
+"loop": true,
+"name": "Green",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 60 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 69 ), ExtResource( 65 ), ExtResource( 67 ) ],
+"loop": false,
+"name": "Blue",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 11.0454
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 11.0
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ ExtResource( 60 ), ExtResource( 58 ), ExtResource( 70 ), ExtResource( 66 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 61 ), ExtResource( 62 ) ],
+"loop": false,
+"name": "Red_Shine",
+"speed": 10.0
+} ]
+
+[node name="Arena" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 78 )
+
+[node name="Space" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Space"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Stars"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 73 )
+centered = false
+
+[node name="PLanets" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/PLanets"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 77 )
+centered = false
+
+[node name="Nebulosa1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa1"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 74 )
+centered = false
+
+[node name="Nebulosa2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa2"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 75 )
+centered = false
+
+[node name="Nebulosa3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa3"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 76 )
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Ship" parent="." instance=ExtResource( 1 )]
+position = Vector2( 775, 256 )
+physics_material_override = SubResource( 3 )
+power_up = 1
+
+[node name="Ship2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 135, 256 )
+collision_layer = 1
+
+[node name="Ball" parent="." instance=ExtResource( 5 )]
+position = Vector2( 455, 256 )
+collision_mask = 3
+mass = 0.0510204
+script = ExtResource( 9 )
+
+[node name="Goals" type="Sprite" parent="."]
+position = Vector2( 0.000610352, 0 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="HUB" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Lightning_Animation" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 22 )
+animation = "Thunder"
+centered = false
+
+[node name="Gol_Animation" type="AnimatedSprite" parent="."]
+position = Vector2( 455, 256 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 10 )
+animation = "Gol_R"
+__meta__ = {
+"_editor_description_": "'"
+}
+
+[node name="Areana Limits" type="StaticBody2D" parent="."]
+position = Vector2( 181, 14 )
+scale = Vector2( 0.14, 0.14 )
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areana Limits"]
+position = Vector2( 1914.29, -121.429 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Areana Limits"]
+position = Vector2( 1914.29, 3578.57 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Areana Limits"]
+position = Vector2( -1250, 1807.14 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Areana Limits"]
+position = Vector2( 5178.57, 1707.14 )
+shape = SubResource( 2 )
+
+[node name="Goal" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 23, 174 )
+rotation = 1.5708
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 26, 338 )
+rotation = 1.5708
+shape = SubResource( 17 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 887, 174 )
+rotation = 1.5708
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 884, 338 )
+rotation = 1.5708
+shape = SubResource( 19 )
+
+[node name="Blue Goal" type="Area2D" parent="."]
+position = Vector2( 137, 3 )
+collision_layer = 8
+collision_mask = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blue Goal"]
+position = Vector2( -120.75, 252.75 )
+shape = SubResource( 5 )
+
+[node name="Red Goal" type="Area2D" parent="."]
+position = Vector2( 137, 559 )
+collision_layer = 8
+collision_mask = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Red Goal"]
+position = Vector2( 759, -303 )
+shape = SubResource( 5 )
+
+[node name="HUD" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blue" type="Label" parent="HUD"]
+margin_left = 455.0
+margin_top = 7.0
+margin_right = 478.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 6 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Red" type="Label" parent="HUD"]
+margin_left = 481.0
+margin_top = 7.0
+margin_right = 504.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 6 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD"]
+anchor_left = 10.375
+anchor_top = 1.275
+anchor_right = 11.925
+anchor_bottom = 2.75
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/PanelContainer"]
+margin_right = 62.0
+margin_bottom = 59.0
+
+[node name="CountDown" type="Label" parent="HUD/PanelContainer/CenterContainer"]
+margin_left = 23.0
+margin_top = 14.0
+margin_right = 38.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 7 )
+text = "3"
+
+[node name="Time" type="Label" parent="HUD"]
+modulate = Color( 0.941176, 0.501961, 0.501961, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 379.0
+margin_top = -8.0
+margin_right = 419.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 9 )
+text = "120"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Time"]
+reset_on_save = false
+anims/Blink_Red = SubResource( 11 )
+
+[node name="PU_Light_Blue" type="AnimatedSprite" parent="HUD"]
+position = Vector2( 357, 27 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 20 )
+animation = "Off"
+
+[node name="PU_Light_Red" type="AnimatedSprite" parent="HUD"]
+position = Vector2( 542, 26 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 21 )
+animation = "Off"
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="TimeNormal" type="Timer" parent="."]
+wait_time = 260.0
+one_shot = true
+
+[node name="Shine_Star" type="Node2D" parent="."]
+
+[node name="Blue_Shine" type="Area2D" parent="Shine_Star"]
+position = Vector2( -26, 196 )
+collision_layer = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Shine_Star/Blue_Shine"]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 13 )
+animation = "Blue"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shine_Star/Blue_Shine"]
+shape = SubResource( 12 )
+
+[node name="Red_Shine" type="Area2D" parent="Shine_Star"]
+position = Vector2( -26, 173 )
+collision_layer = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shine_Star/Red_Shine"]
+shape = SubResource( 14 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Shine_Star/Red_Shine"]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 15 )
+animation = "Red_Shine"
+
+[node name="Timer_PU" type="Timer" parent="Shine_Star"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="75" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 72 )
+volume_db = -1.0
+
+[connection signal="Dash_PowUp" from="." to="Ship" method="_on_Arena_Dash_PowUp"]
+[connection signal="Dash_PowUp2" from="." to="Ship2" method="_on_Arena_Dash_PowUp2"]
+[connection signal="Still_PowUp" from="." to="Ship" method="_on_Arena_Still_PowUp"]
+[connection signal="Still_PowUp2" from="." to="Ship2" method="_on_Arena_Still_PowUp2"]
+[connection signal="reset" from="." to="Ship" method="_on_Arena_reset"]
+[connection signal="reset" from="." to="Ship2" method="_on_Arena_reset"]
+[connection signal="reset" from="." to="Ball" method="_on_Arena_reset"]
+[connection signal="PU_Used_Red" from="Ship" to="." method="_on_Ship_PU_Used_Red"]
+[connection signal="body_entered" from="Ship" to="." method="_on_Ship_body_entered"]
+[connection signal="PU_Used_Blue" from="Ship2" to="." method="_on_Ship2_PU_Used_Blue"]
+[connection signal="body_entered" from="Ball" to="." method="_on_Ball_body_entered"]
+[connection signal="animation_finished" from="Gol_Animation" to="." method="_on_Gol_Animation_animation_finished"]
+[connection signal="frame_changed" from="Gol_Animation" to="." method="_on_Gol_Animation_frame_changed"]
+[connection signal="body_entered" from="Blue Goal" to="." method="_on_Blue_Goal_body_entered"]
+[connection signal="body_entered" from="Red Goal" to="." method="_on_Red_Goal_body_entered"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]
+[connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
+[connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
