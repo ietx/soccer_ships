@@ -12,6 +12,7 @@ var reset = false
 export var power_up = 0
 var PU_Switch = false
 signal PU_Used_Blue
+var GG = false
 
 func _ready():
 
@@ -23,6 +24,10 @@ func _on_Arena_reset():
 	reset = true
 	
 func _physics_process(delta):
+	
+	if GG == true:
+		PU_Switch == true
+	
 	if Input.is_action_pressed("Seta"):
 		thrust = Vector2(0, - engine_thrust)
 		$Sprite.play("Thrust")
@@ -33,13 +38,15 @@ func _physics_process(delta):
 		if power_up == 0 and PU_Switch == true:
 			thrust = Vector2(0, -300 * engine_thrust)
 			$Sprite.play("Dash")
-			PU_Switch = false
-			emit_signal("PU_Used_Blue")
+			if GG == false:
+				PU_Switch = false
+				emit_signal("PU_Used_Blue")
 		elif power_up == 1 and PU_Switch == true:
 			sleeping = true
 			$Sprite.play("Stop")
-			PU_Switch = false
-			emit_signal("PU_Used_Blue")
+			if GG == false:
+				PU_Switch = false
+				emit_signal("PU_Used_Blue")
 	else:
 		thrust = Vector2()
 		$Sprite.play("Still")
@@ -73,3 +80,8 @@ func _on_Arena_Dash_PowUp2():
 func _on_Arena_Still_PowUp2():
 	power_up = 1
 	PU_Switch = true
+
+
+func _on_Golden_Gol_Golden_Gol():
+	GG == true
+	

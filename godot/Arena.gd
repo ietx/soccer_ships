@@ -27,6 +27,7 @@ var PU_out = Vector2(-100,-100)
 
 #onready var hud = get_node("HUD")
 func _ready():
+	$John.play()
 	$StartTimer.start()
 	$Gol_Animation.playing = false
 	$Lightning_Animation.play("Thunder")
@@ -117,7 +118,11 @@ func _on_StartTimer_timeout():
 
 
 func _on_TimeNormal_timeout():
-	get_tree().change_scene("res://Menu.tscn")
+	if Blue_Goal == Red_Goal:
+		get_tree().change_scene("res://Golden Gol.tscn")
+	else:
+		get_tree().change_scene("res://Menu.tscn")
+		
 
 
 

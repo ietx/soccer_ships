@@ -1,11 +1,11 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_HUB_PC.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_PC_GOL.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN1.png" type="Texture" id=4]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Arena.gd" type="Script" id=6]
+[ext_resource path="res://Golden_Gol.gd" type="Script" id=6]
 [ext_resource path="res://Ship - Copia.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Fonts/Pixel/FreePixel.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Ball.gd" type="Script" id=9]
@@ -78,19 +78,14 @@
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_3_PC.png" type="Texture" id=76]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Planetas_PC.png" type="Texture" id=77]
 [ext_resource path="res://ParallaxBackground.gd" type="Script" id=78]
-[ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub2.png" type="Texture" id=79]
-[ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub3.png" type="Texture" id=80]
-[ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub4.png" type="Texture" id=81]
-[ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub1.png" type="Texture" id=82]
-[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC1.png" type="Texture" id=83]
-[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC2.png" type="Texture" id=84]
-[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC6.png" type="Texture" id=85]
-[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC5.png" type="Texture" id=86]
-[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC4.png" type="Texture" id=87]
-[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC3.png" type="Texture" id=88]
-[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC9.png" type="Texture" id=89]
-[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC8.png" type="Texture" id=90]
-[ext_resource path="res://Assets/Fundos/Raios/Soccer_Ships_Arena_RAIOS_PC7.png" type="Texture" id=91]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN4.png" type="Texture" id=83]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN5.png" type="Texture" id=84]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN6.png" type="Texture" id=85]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN3.png" type="Texture" id=86]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Power_Hub_GOLDEN1.png" type="Texture" id=87]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Power_Hub_GOLDEN3.png" type="Texture" id=88]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Power_Hub_GOLDEN4.png" type="Texture" id=89]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Power_Hub_GOLDEN2.png" type="Texture" id=90]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
@@ -98,10 +93,10 @@ bounce = 0.5
 
 [sub_resource type="SpriteFrames" id=22]
 animations = [ {
-"frames": [ ExtResource( 83 ), ExtResource( 84 ), ExtResource( 88 ), ExtResource( 87 ), ExtResource( 86 ), ExtResource( 85 ), ExtResource( 91 ), ExtResource( 90 ), ExtResource( 89 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 86 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ) ],
 "loop": true,
-"name": "Thunder",
-"speed": 12.0
+"name": "Gold_Shine",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=10]
@@ -147,51 +142,28 @@ size = 20
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0, 0, 0, 0.745098 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 30
-font_data = ExtResource( 8 )
-
 [sub_resource type="DynamicFont" id=9]
 size = 20
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=11]
-resource_name = "Blink_Red"
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0.941176, 0.501961, 0.501961, 1 ), Color( 0.941176, 0.501961, 0.501961, 0.164706 ), Color( 0.941176, 0.501961, 0.501961, 1 ), Color( 0.941176, 0.501961, 0.501961, 0.164706 ), Color( 0.941176, 0.501961, 0.501961, 1 ) ]
-}
-
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 82 ) ],
+"frames": [ ExtResource( 87 ) ],
 "loop": true,
 "name": "Off",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 80 ) ],
+"frames": [ ExtResource( 88 ) ],
 "loop": true,
 "name": "Green",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 79 ) ],
+"frames": [ ExtResource( 90 ) ],
 "loop": true,
 "name": "Red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 81 ) ],
+"frames": [ ExtResource( 89 ) ],
 "loop": true,
 "name": "Blue",
 "speed": 5.0
@@ -199,22 +171,22 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 82 ) ],
+"frames": [ ExtResource( 87 ) ],
 "loop": true,
 "name": "Off",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 80 ) ],
+"frames": [ ExtResource( 88 ) ],
 "loop": true,
 "name": "Green",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 79 ) ],
+"frames": [ ExtResource( 90 ) ],
 "loop": true,
 "name": "Red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 81 ) ],
+"frames": [ ExtResource( 89 ) ],
 "loop": true,
 "name": "Blue",
 "speed": 5.0
@@ -242,7 +214,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Arena" type="Node2D"]
+[node name="Golden Gol" type="Node2D"]
 script = ExtResource( 6 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -312,24 +284,14 @@ collision_mask = 3
 mass = 0.0510204
 script = ExtResource( 9 )
 
-[node name="Goals" type="Sprite" parent="."]
+[node name="Goals" type="AnimatedSprite" parent="."]
 position = Vector2( 0.000610352, 0 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="HUB" type="Sprite" parent="."]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
-centered = false
-
-[node name="Lightning_Animation" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 22 )
-animation = "Thunder"
+animation = "Gold_Shine"
 centered = false
 
-[node name="Gol_Animation" type="AnimatedSprite" parent="."]
+[node name="GG_Animation" type="AnimatedSprite" parent="."]
 position = Vector2( 455, 256 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 10 )
@@ -414,6 +376,7 @@ __meta__ = {
 }
 
 [node name="Blue" type="Label" parent="HUD"]
+visible = false
 margin_left = 455.0
 margin_top = 7.0
 margin_right = 478.0
@@ -427,6 +390,7 @@ __meta__ = {
 }
 
 [node name="Red" type="Label" parent="HUD"]
+visible = false
 margin_left = 481.0
 margin_top = 7.0
 margin_right = 504.0
@@ -439,38 +403,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="HUD"]
-anchor_left = 10.375
-anchor_top = 1.275
-anchor_right = 11.925
-anchor_bottom = 2.75
-custom_styles/panel = SubResource( 8 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": true
-}
-
-[node name="CenterContainer" type="CenterContainer" parent="HUD/PanelContainer"]
-margin_right = 62.0
-margin_bottom = 59.0
-
-[node name="CountDown" type="Label" parent="HUD/PanelContainer/CenterContainer"]
-margin_left = 23.0
-margin_top = 14.0
-margin_right = 38.0
-margin_bottom = 45.0
-custom_fonts/font = SubResource( 7 )
-text = "3"
-
 [node name="Time" type="Label" parent="HUD"]
+visible = false
 modulate = Color( 0.941176, 0.501961, 0.501961, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 379.0
+margin_left = 410.0
 margin_top = -8.0
-margin_right = 419.0
+margin_right = 450.0
 margin_bottom = 15.0
 custom_fonts/font = SubResource( 9 )
 text = "120"
@@ -478,10 +420,6 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Time"]
-reset_on_save = false
-anims/Blink_Red = SubResource( 11 )
 
 [node name="PU_Light_Blue" type="AnimatedSprite" parent="HUD"]
 position = Vector2( 357, 27 )
@@ -495,16 +433,12 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 21 )
 animation = "Off"
 
-[node name="StartTimer" type="Timer" parent="."]
-wait_time = 4.0
-one_shot = true
-autostart = true
-
 [node name="TimeNormal" type="Timer" parent="."]
-wait_time = 260.0
+wait_time = 3.0
 one_shot = true
 
 [node name="Shine_Star" type="Node2D" parent="."]
+visible = false
 
 [node name="Blue_Shine" type="Area2D" parent="Shine_Star"]
 position = Vector2( -26, 196 )
@@ -541,12 +475,14 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="John" type="AudioStreamPlayer" parent="."]
+[node name="75" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 72 )
 volume_db = -1.0
 
 [connection signal="Dash_PowUp" from="." to="Ship" method="_on_Arena_Dash_PowUp"]
 [connection signal="Dash_PowUp2" from="." to="Ship2" method="_on_Arena_Dash_PowUp2"]
+[connection signal="Golden_Gol" from="." to="Ship" method="_on_Golden_Gol_Golden_Gol"]
+[connection signal="Golden_Gol" from="." to="Ship2" method="_on_Golden_Gol_Golden_Gol"]
 [connection signal="Still_PowUp" from="." to="Ship" method="_on_Arena_Still_PowUp"]
 [connection signal="Still_PowUp2" from="." to="Ship2" method="_on_Arena_Still_PowUp2"]
 [connection signal="reset" from="." to="Ship" method="_on_Arena_reset"]
@@ -556,11 +492,10 @@ volume_db = -1.0
 [connection signal="body_entered" from="Ship" to="." method="_on_Ship_body_entered"]
 [connection signal="PU_Used_Blue" from="Ship2" to="." method="_on_Ship2_PU_Used_Blue"]
 [connection signal="body_entered" from="Ball" to="." method="_on_Ball_body_entered"]
-[connection signal="animation_finished" from="Gol_Animation" to="." method="_on_Gol_Animation_animation_finished"]
-[connection signal="frame_changed" from="Gol_Animation" to="." method="_on_Gol_Animation_frame_changed"]
+[connection signal="animation_finished" from="GG_Animation" to="." method="_on_Gol_Animation_animation_finished"]
+[connection signal="frame_changed" from="GG_Animation" to="." method="_on_Gol_Animation_frame_changed"]
 [connection signal="body_entered" from="Blue Goal" to="." method="_on_Blue_Goal_body_entered"]
 [connection signal="body_entered" from="Red Goal" to="." method="_on_Red_Goal_body_entered"]
-[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
