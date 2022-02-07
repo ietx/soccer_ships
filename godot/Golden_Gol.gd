@@ -11,15 +11,13 @@ signal Golden_Gol
 var Blue_Goal = 0
 var Red_Goal = 0
 var start = false
-var time 
-var match_time
+var time = 0
 var minu
 var sec
 var gol_frame
-const PU_Xmax = 750
-const PU_Ymax = 100
-const PU_Xmin = 170
-const PU_Ymin = 400
+
+
+
 
 
 var PU_RandomNum123 = RandomNumberGenerator.new()
@@ -32,7 +30,6 @@ func _ready():
 	PU_RandomNum123.randomize()
 	PU_RandomType = PU_RandomNum123.randi_range(0,1)
 	
-	print (PU_RandomType)
 	emit_signal("Golden_Gol")
 	if PU_RandomType == 0:
 		emit_signal("Dash_PowUp")
@@ -47,9 +44,17 @@ func _ready():
 
 	
 func _process(delta):
-	pass
+	time += delta
 	
-
+	minu = int(int(time)/60)
+	sec = int(time)- minu * 60
+	if sec > 9:
+		$HUD/Time.text = String(minu) + ":" + String(sec)
+	else:
+		$HUD/Time.text = String(minu) + ":0" + String(sec)
+	
+	
+	
 		
 func _on_Blue_Goal_body_entered(body):
 	get_tree().change_scene("res://Menu.tscn")

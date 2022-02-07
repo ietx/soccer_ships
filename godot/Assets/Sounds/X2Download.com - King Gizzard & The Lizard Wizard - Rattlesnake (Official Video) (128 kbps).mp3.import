@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/X2Download.com - King Gizzard & The Lizard Wizard - Rattlesnake (Official Video) (128 kbps).mp3-b6ee75ad22fb0727c264c80878c214c3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/X2Download.com - King Gizzard & The Lizard Wizard - Rattlesnake (Official Video) (128 kbps).mp3"
+dest_files=[ "res://.import/X2Download.com - King Gizzard & The Lizard Wizard - Rattlesnake (Official Video) (128 kbps).mp3-b6ee75ad22fb0727c264c80878c214c3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

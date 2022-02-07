@@ -83,5 +83,5 @@ func _on_Arena_Still_PowUp2():
 
 
 func _on_Golden_Gol_Golden_Gol():
-	GG == true
+	GG = true
 	

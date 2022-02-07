@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/X2Download.com - Frantic 2 - Boss (128 kbps).mp3-6606a7caf391fcda79b6f81fa0c09247.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/X2Download.com - Frantic 2 - Boss (128 kbps).mp3"
+dest_files=[ "res://.import/X2Download.com - Frantic 2 - Boss (128 kbps).mp3-6606a7caf391fcda79b6f81fa0c09247.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
