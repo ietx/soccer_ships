@@ -1,7 +1,7 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=124 format=2]
 
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_Stars_1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN1.png" type="Texture" id=4]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=5]
@@ -71,13 +71,17 @@
 [ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp6.png" type="Texture" id=69]
 [ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp3.png" type="Texture" id=70]
 [ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp5.png" type="Texture" id=71]
-[ext_resource path="res://Assets/Sounds/john8bit.wav" type="AudioStream" id=72]
-[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Esttrelas_PC.png" type="Texture" id=73]
+[ext_resource path="res://Assets/Sounds/Flying.mp3" type="AudioStream" id=72]
+[ext_resource path="res://GG_ParallaxBackground.gd" type="Script" id=73]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_1_PC.png" type="Texture" id=74]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_2_PC.png" type="Texture" id=75]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_3_PC.png" type="Texture" id=76]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Planetas_PC.png" type="Texture" id=77]
-[ext_resource path="res://ParallaxBackground.gd" type="Script" id=78]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_Stars_2.png" type="Texture" id=78]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL6.png" type="Texture" id=79]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL11.png" type="Texture" id=80]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL12.png" type="Texture" id=81]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL3.png" type="Texture" id=82]
 [ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN4.png" type="Texture" id=83]
 [ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN5.png" type="Texture" id=84]
 [ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Arena_PC_GOLDEN6.png" type="Texture" id=85]
@@ -86,10 +90,46 @@
 [ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Power_Hub_GOLDEN3.png" type="Texture" id=88]
 [ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Power_Hub_GOLDEN4.png" type="Texture" id=89]
 [ext_resource path="res://Assets/Fundos/GOLDEN/Soccer_Ships_Power_Hub_GOLDEN2.png" type="Texture" id=90]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL1.png" type="Texture" id=91]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL4.png" type="Texture" id=92]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL7.png" type="Texture" id=93]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL10.png" type="Texture" id=94]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL8.png" type="Texture" id=95]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL9.png" type="Texture" id=96]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL2.png" type="Texture" id=97]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL5.png" type="Texture" id=98]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta2.png" type="Texture" id=99]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta3.png" type="Texture" id=100]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta4.png" type="Texture" id=101]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta5.png" type="Texture" id=102]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta1.png" type="Texture" id=103]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
 bounce = 0.5
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ ExtResource( 101 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 100 ) ],
+"loop": true,
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 102 ) ],
+"loop": true,
+"name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 103 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ) ],
+"loop": false,
+"name": "Rolling",
+"speed": 5.0
+} ]
 
 [sub_resource type="SpriteFrames" id=22]
 animations = [ {
@@ -110,6 +150,14 @@ animations = [ {
 "loop": false,
 "name": "Gol_B",
 "speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ ExtResource( 91 ), ExtResource( 97 ), ExtResource( 82 ), ExtResource( 92 ), ExtResource( 98 ), ExtResource( 79 ), ExtResource( 93 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 94 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 93 ), ExtResource( 79 ), ExtResource( 98 ) ],
+"loop": false,
+"name": "Golden_Gol",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -217,51 +265,56 @@ animations = [ {
 [node name="Golden Gol" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource( 78 )
+[node name="GG_ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 73 )
 
-[node name="Space" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Space" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Space"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Space"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Stars" type="ParallaxLayer" parent="GG_ParallaxBackground"]
 motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Stars"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Stars"]
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 73 )
+texture = ExtResource( 78 )
 centered = false
 
-[node name="PLanets" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="PLanets" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+visible = false
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/PLanets"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/PLanets"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 77 )
 centered = false
 
-[node name="Nebulosa1" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Nebulosa1" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa1"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Nebulosa1"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 74 )
 centered = false
 
-[node name="Nebulosa2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Nebulosa2" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa2"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Nebulosa2"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 75 )
 centered = false
 
-[node name="Nebulosa3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Nebulosa3" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa3"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Nebulosa3"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 76 )
 centered = false
@@ -284,6 +337,13 @@ collision_mask = 3
 mass = 0.0510204
 script = ExtResource( 9 )
 
+[node name="Roleta" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 456, 227 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 24 )
+animation = "Rolling"
+
 [node name="Goals" type="AnimatedSprite" parent="."]
 position = Vector2( 0.000610352, 0 )
 scale = Vector2( 0.2, 0.2 )
@@ -291,7 +351,7 @@ frames = SubResource( 22 )
 animation = "Gold_Shine"
 centered = false
 
-[node name="GG_Animation" type="AnimatedSprite" parent="."]
+[node name="Gol_Animation" type="AnimatedSprite" parent="."]
 position = Vector2( 455, 256 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 10 )
@@ -299,6 +359,13 @@ animation = "Gol_R"
 __meta__ = {
 "_editor_description_": "'"
 }
+
+[node name="Start_Animation" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+animation = "Golden_Gol"
+centered = false
 
 [node name="Areana Limits" type="StaticBody2D" parent="."]
 position = Vector2( 181, 14 )
@@ -474,7 +541,7 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="75" type="AudioStreamPlayer" parent="."]
+[node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 72 )
 volume_db = -1.0
 
@@ -482,6 +549,7 @@ volume_db = -1.0
 [connection signal="Dash_PowUp2" from="." to="Ship2" method="_on_Arena_Dash_PowUp2"]
 [connection signal="Golden_Gol" from="." to="Ship" method="_on_Golden_Gol_Golden_Gol"]
 [connection signal="Golden_Gol" from="." to="Ship2" method="_on_Golden_Gol_Golden_Gol"]
+[connection signal="Golden_Gol" from="." to="Ball" method="_on_Golden_Gol_Golden_Gol"]
 [connection signal="Still_PowUp" from="." to="Ship" method="_on_Arena_Still_PowUp"]
 [connection signal="Still_PowUp2" from="." to="Ship2" method="_on_Arena_Still_PowUp2"]
 [connection signal="reset" from="." to="Ship" method="_on_Arena_reset"]
@@ -491,8 +559,8 @@ volume_db = -1.0
 [connection signal="body_entered" from="Ship" to="." method="_on_Ship_body_entered"]
 [connection signal="PU_Used_Blue" from="Ship2" to="." method="_on_Ship2_PU_Used_Blue"]
 [connection signal="body_entered" from="Ball" to="." method="_on_Ball_body_entered"]
-[connection signal="animation_finished" from="GG_Animation" to="." method="_on_Gol_Animation_animation_finished"]
-[connection signal="frame_changed" from="GG_Animation" to="." method="_on_Gol_Animation_frame_changed"]
+[connection signal="animation_finished" from="Gol_Animation" to="." method="_on_Gol_Animation_animation_finished"]
+[connection signal="frame_changed" from="Gol_Animation" to="." method="_on_Gol_Animation_frame_changed"]
 [connection signal="body_entered" from="Blue Goal" to="." method="_on_Blue_Goal_body_entered"]
 [connection signal="body_entered" from="Red Goal" to="." method="_on_Red_Goal_body_entered"]
 [connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]

@@ -186,14 +186,14 @@ animations = [ {
 "name": "Blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 82 ) ],
-"loop": true,
-"name": "Off",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "Off",
 "speed": 5.0
 } ]
 
@@ -209,14 +209,14 @@ animations = [ {
 "name": "Blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 82 ) ],
-"loop": true,
-"name": "Off",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "Off",
 "speed": 5.0
 } ]
 

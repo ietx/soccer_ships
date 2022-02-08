@@ -10,6 +10,8 @@ var inicial_position
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	
+	
 	inicial_position = get_global_transform().origin
 	print (inicial_position)
 
@@ -25,3 +27,8 @@ func _integrate_forces(state):
 		reset = false
 #		sleeping = false
 	
+
+
+func _on_Golden_Gol_Golden_Gol():
+	$Sprite.play("Gold")
+	pass # Replace with function body.

@@ -42,13 +42,11 @@ func _ready():
 	
 func _process(delta):
 	
-	
-#	print(int($Shine_Star/Timer_PU.time_left))
-	
 	gol_frame = $Gol_Animation.get_frame()
 	time = int($StartTimer.get_time_left())
 	match_time = int($TimeNormal.time_left)#
 	
+		
 	#Para o cronômetro durante o gol
 	if start == false:
 		if time == 0:
