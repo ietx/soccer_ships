@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=2]
+[gd_scene load_steps=125 format=2]
 
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_Stars_1.png" type="Texture" id=2]
@@ -98,11 +98,12 @@
 [ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL9.png" type="Texture" id=96]
 [ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL2.png" type="Texture" id=97]
 [ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL5.png" type="Texture" id=98]
-[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta2.png" type="Texture" id=99]
-[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta3.png" type="Texture" id=100]
-[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta4.png" type="Texture" id=101]
-[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta5.png" type="Texture" id=102]
-[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta1.png" type="Texture" id=103]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta1.png" type="Texture" id=99]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta2.png" type="Texture" id=100]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta6.png" type="Texture" id=101]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta4.png" type="Texture" id=102]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta3.png" type="Texture" id=103]
+[ext_resource path="res://Assets/Fundos/GOLDEN/Roleta5.png" type="Texture" id=104]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
@@ -110,22 +111,22 @@ bounce = 0.5
 
 [sub_resource type="SpriteFrames" id=24]
 animations = [ {
-"frames": [ ExtResource( 101 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 100 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 102 ) ],
+"frames": [ ExtResource( 104 ) ],
 "loop": true,
 "name": "Green",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 103 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ) ],
+"frames": [ ExtResource( 102 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 103 ) ],
+"loop": true,
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 99 ), ExtResource( 100 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ) ],
 "loop": false,
 "name": "Rolling",
 "speed": 5.0
@@ -196,16 +197,6 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 90 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 89 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 88 ) ],
 "loop": true,
 "name": "Green",
@@ -214,21 +205,21 @@ animations = [ {
 "frames": [ ExtResource( 87 ) ],
 "loop": true,
 "name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 90 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 90 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 89 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 88 ) ],
 "loop": true,
 "name": "Green",
@@ -237,6 +228,16 @@ animations = [ {
 "frames": [ ExtResource( 87 ) ],
 "loop": true,
 "name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 90 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 } ]
 
@@ -339,10 +340,16 @@ script = ExtResource( 9 )
 
 [node name="Roleta" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 456, 227 )
+position = Vector2( 359, 125 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 24 )
 animation = "Rolling"
+frame = 1
+centered = false
+
+[node name="Roleta_Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="Goals" type="AnimatedSprite" parent="."]
 position = Vector2( 0.000610352, 0 )
@@ -494,7 +501,7 @@ frames = SubResource( 20 )
 animation = "Off"
 
 [node name="PU_Light_Red" type="AnimatedSprite" parent="HUD"]
-position = Vector2( 542, 26 )
+position = Vector2( 540, 22 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 21 )
 animation = "Off"
@@ -552,13 +559,13 @@ volume_db = -1.0
 [connection signal="Golden_Gol" from="." to="Ball" method="_on_Golden_Gol_Golden_Gol"]
 [connection signal="Still_PowUp" from="." to="Ship" method="_on_Arena_Still_PowUp"]
 [connection signal="Still_PowUp2" from="." to="Ship2" method="_on_Arena_Still_PowUp2"]
-[connection signal="reset" from="." to="Ship" method="_on_Arena_reset"]
-[connection signal="reset" from="." to="Ship2" method="_on_Arena_reset"]
-[connection signal="reset" from="." to="Ball" method="_on_Arena_reset"]
+[connection signal="Unfreeze_1" from="." to="Ship" method="_on_Golden_Gol_Unfreeze_1"]
+[connection signal="Unfreeze_2" from="." to="Ship2" method="_on_Golden_Gol_Unfreeze_2"]
 [connection signal="PU_Used_Red" from="Ship" to="." method="_on_Ship_PU_Used_Red"]
 [connection signal="body_entered" from="Ship" to="." method="_on_Ship_body_entered"]
 [connection signal="PU_Used_Blue" from="Ship2" to="." method="_on_Ship2_PU_Used_Blue"]
 [connection signal="body_entered" from="Ball" to="." method="_on_Ball_body_entered"]
+[connection signal="timeout" from="Roleta_Timer" to="." method="_on_Roleta_Timer_timeout"]
 [connection signal="animation_finished" from="Gol_Animation" to="." method="_on_Gol_Animation_animation_finished"]
 [connection signal="frame_changed" from="Gol_Animation" to="." method="_on_Gol_Animation_frame_changed"]
 [connection signal="body_entered" from="Blue Goal" to="." method="_on_Blue_Goal_body_entered"]
@@ -566,5 +573,5 @@ volume_db = -1.0
 [connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
-[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]

@@ -176,16 +176,6 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
@@ -194,21 +184,21 @@ animations = [ {
 "frames": [ ExtResource( 82 ) ],
 "loop": true,
 "name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
@@ -217,6 +207,16 @@ animations = [ {
 "frames": [ ExtResource( 82 ) ],
 "loop": true,
 "name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 } ]
 
@@ -547,8 +547,12 @@ volume_db = -1.0
 
 [connection signal="Dash_PowUp" from="." to="Ship" method="_on_Arena_Dash_PowUp"]
 [connection signal="Dash_PowUp2" from="." to="Ship2" method="_on_Arena_Dash_PowUp2"]
+[connection signal="Freeze_1" from="." to="Ship" method="_on_Arena_Freeze_1"]
+[connection signal="Freeze_2" from="." to="Ship2" method="_on_Arena_Freeze_2"]
 [connection signal="Still_PowUp" from="." to="Ship" method="_on_Arena_Still_PowUp"]
 [connection signal="Still_PowUp2" from="." to="Ship2" method="_on_Arena_Still_PowUp2"]
+[connection signal="Unfreeze_1" from="." to="Ship" method="_on_Arena_Unfreeze_1"]
+[connection signal="Unfreeze_2" from="." to="Ship2" method="_on_Arena_Unfreeze_2"]
 [connection signal="reset" from="." to="Ship" method="_on_Arena_reset"]
 [connection signal="reset" from="." to="Ship2" method="_on_Arena_reset"]
 [connection signal="reset" from="." to="Ball" method="_on_Arena_reset"]
@@ -564,5 +568,5 @@ volume_db = -1.0
 [connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
-[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]

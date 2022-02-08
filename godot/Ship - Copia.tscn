@@ -25,11 +25,6 @@ animations = [ {
 "name": "Stop",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Thrust",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Break",
@@ -44,6 +39,11 @@ animations = [ {
 "loop": true,
 "name": "Still",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Thrust",
+"speed": 10.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -67,8 +67,7 @@ spin_thrust = 2200
 position = Vector2( 2.53518e-06, -1 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
-animation = "Stop"
-frame = 2
+animation = "Still"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

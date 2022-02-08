@@ -5,6 +5,10 @@ signal Dash_PowUp
 signal Still_PowUp
 signal Dash_PowUp2
 signal Still_PowUp2
+signal Unfreeze_1
+signal Unfreeze_2
+signal Freeze_1
+signal Freeze_2
 var Blue_Goal = 0
 var Red_Goal = 0
 var start = false
@@ -48,18 +52,24 @@ func _process(delta):
 	
 		
 	#Para o cronômetro durante o gol
-	if start == false:
-		if time == 0:
-			$TimeNormal.start()
+	if start == false: #Se for o comeco da partida PRIMEIRO 3 2 1 GO
+		if time == 0: 
+			$TimeNormal.start() 
 			start = true
-	else:
-		if time == 0:
+			emit_signal("Unfreeze_1")
+			emit_signal("Unfreeze_2")
+	else: #Se for durante a partida qualquer 321 GO
+		if time == 0: 
 			$TimeNormal.set_paused(false)
+			emit_signal("Unfreeze_1")
+			emit_signal("Unfreeze_2")
 	
 	#CountDown
 	
 	if $StartTimer.time_left > 1:
 		$HUD/PanelContainer/CenterContainer/CountDown.text = String(int($StartTimer.time_left))
+		emit_signal("Freeze_1")
+		emit_signal("Freeze_2")
 	else:
 		$HUD/PanelContainer/CenterContainer/CountDown.text = ("Go!")
 	
