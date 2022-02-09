@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=2]
+[gd_scene load_steps=145 format=2]
 
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_Stars_1.png" type="Texture" id=2]
@@ -104,6 +104,25 @@
 [ext_resource path="res://Assets/Fundos/GOLDEN/Roleta4.png" type="Texture" id=102]
 [ext_resource path="res://Assets/Fundos/GOLDEN/Roleta3.png" type="Texture" id=103]
 [ext_resource path="res://Assets/Fundos/GOLDEN/Roleta5.png" type="Texture" id=104]
+[ext_resource path="res://Assets/321/Gold/321_Golden2.png" type="Texture" id=105]
+[ext_resource path="res://Assets/321/Gold/321_Golden3.png" type="Texture" id=106]
+[ext_resource path="res://Assets/321/Gold/321_Golden9.png" type="Texture" id=107]
+[ext_resource path="res://Assets/321/Gold/321_Golden1.png" type="Texture" id=108]
+[ext_resource path="res://Assets/321/Gold/321_Golden10.png" type="Texture" id=109]
+[ext_resource path="res://Assets/321/Gold/321_Golden11.png" type="Texture" id=110]
+[ext_resource path="res://Assets/321/Gold/321_Golden12.png" type="Texture" id=111]
+[ext_resource path="res://Assets/321/Gold/321_Golden13.png" type="Texture" id=112]
+[ext_resource path="res://Assets/321/Gold/321_Golden20.png" type="Texture" id=113]
+[ext_resource path="res://Assets/321/Gold/321_Golden4.png" type="Texture" id=114]
+[ext_resource path="res://Assets/321/Gold/321_Golden5.png" type="Texture" id=115]
+[ext_resource path="res://Assets/321/Gold/321_Golden21.png" type="Texture" id=116]
+[ext_resource path="res://Assets/321/Gold/321_Golden6.png" type="Texture" id=117]
+[ext_resource path="res://Assets/321/Gold/321_Golden7.png" type="Texture" id=118]
+[ext_resource path="res://Assets/321/Gold/321_Golden8.png" type="Texture" id=119]
+[ext_resource path="res://Assets/321/Gold/321_Golden15.png" type="Texture" id=120]
+[ext_resource path="res://Assets/321/Gold/321_Golden17.png" type="Texture" id=121]
+[ext_resource path="res://Assets/321/Gold/321_Golden16.png" type="Texture" id=122]
+[ext_resource path="res://Assets/321/Gold/321_Golden14.png" type="Texture" id=123]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
@@ -111,9 +130,9 @@ bounce = 0.5
 
 [sub_resource type="SpriteFrames" id=24]
 animations = [ {
-"frames": [ ExtResource( 104 ) ],
+"frames": [ ExtResource( 103 ) ],
 "loop": true,
-"name": "Green",
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 102 ) ],
@@ -121,9 +140,9 @@ animations = [ {
 "name": "Red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 103 ) ],
+"frames": [ ExtResource( 104 ) ],
 "loop": true,
-"name": "Blue",
+"name": "Green",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 99 ), ExtResource( 100 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ) ],
@@ -197,6 +216,16 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
+"frames": [ ExtResource( 89 ) ],
+"loop": true,
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 90 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 88 ) ],
 "loop": true,
 "name": "Green",
@@ -205,21 +234,21 @@ animations = [ {
 "frames": [ ExtResource( 87 ) ],
 "loop": true,
 "name": "Off",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 90 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 89 ) ],
-"loop": true,
-"name": "Blue",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
+"frames": [ ExtResource( 89 ) ],
+"loop": true,
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 90 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 88 ) ],
 "loop": true,
 "name": "Green",
@@ -228,16 +257,6 @@ animations = [ {
 "frames": [ ExtResource( 87 ) ],
 "loop": true,
 "name": "Off",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 90 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 89 ) ],
-"loop": true,
-"name": "Blue",
 "speed": 5.0
 } ]
 
@@ -261,6 +280,29 @@ animations = [ {
 "loop": false,
 "name": "Red_Shine",
 "speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 123 ) ],
+"loop": false,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 117 ) ],
+"loop": false,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 109 ) ],
+"loop": false,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 116 ) ],
+"loop": false,
+"name": "Go",
+"speed": 5.0
 } ]
 
 [node name="Golden Gol" type="Node2D"]
@@ -552,6 +594,17 @@ autostart = true
 stream = ExtResource( 72 )
 volume_db = -1.0
 
+[node name="Start_Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="Start_Timer_Animation" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 451, 89 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 25 )
+animation = "1"
+
 [connection signal="Dash_PowUp" from="." to="Ship" method="_on_Arena_Dash_PowUp"]
 [connection signal="Dash_PowUp2" from="." to="Ship2" method="_on_Arena_Dash_PowUp2"]
 [connection signal="Golden_Gol" from="." to="Ship" method="_on_Golden_Gol_Golden_Gol"]
@@ -573,5 +626,6 @@ volume_db = -1.0
 [connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
-[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]

@@ -31,7 +31,7 @@ var PU_out = Vector2(-100,-100)
 
 #onready var hud = get_node("HUD")
 func _ready():
-	$John.play()
+#	$John.play()
 	$StartTimer.start()
 	$Gol_Animation.playing = false
 	$Lightning_Animation.play("Thunder")
@@ -48,7 +48,8 @@ func _process(delta):
 	
 	gol_frame = $Gol_Animation.get_frame()
 	time = int($StartTimer.get_time_left())
-	match_time = int($TimeNormal.time_left)#
+	
+
 	
 		
 	#Para o cronômetro durante o gol
@@ -75,17 +76,24 @@ func _process(delta):
 	
 	#Cronômetro do tempo da partida
 	
-	minu = match_time/60
-	sec = match_time - minu * 60
-	if sec > 9:
-		$HUD/Time.text = (String(minu) + ":" + String(sec))
-	else:
-		$HUD/Time.text = (String(minu) + ":0" + String(sec))
-	# Vermelho piscante
-	if match_time < 30:
-		$HUD/Time/AnimationPlayer.play("Blink_Red")
-	else:
+	if start == false:
+		$HUD/Time.text = "4:20"
 		$HUD/Time.modulate = (Color(1,1,1,1))
+	else:
+		match_time = int($TimeNormal.time_left)
+	
+	if start == true:
+		minu = match_time/60
+		sec = match_time - minu * 60
+		if sec > 9 :
+			$HUD/Time.text = (String(minu) + ":" + String(sec))
+		else:
+			$HUD/Time.text = (String(minu) + ":0" + String(sec))
+		# Vermelho piscante
+		if match_time < 30:
+			$HUD/Time/AnimationPlayer.play("Blink_Red")
+		else:
+			$HUD/Time.modulate = (Color(1,1,1,1))
 	
 	#Anmiação do gol
 	if gol_frame == 23:

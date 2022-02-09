@@ -10,11 +10,11 @@ signal Unfreeze_2
 signal Golden_Gol
 
 var start = false
-var time = -6 #Cronometro do jogo.- 6 é o tempo que demora a animacao do Start e Roleta
+var time = -10 #Cronometro do jogo.- 10 é o tempo que demora a animacao do Start e Roleta
 var minu
 var sec
 var gol_frame
-
+var Tree_Two_One_GO
 
 
 
@@ -25,10 +25,10 @@ var PU_RandomType
 #onready var hud = get_node("HUD")
 func _ready():
 	$Start_Animation.set_visible(true)
-	$Sound.play()
+#	$Sound.play()
 	$Goals.play("Gold_Shine")
 	$Start_Animation.play("Golden_Gol")
-		
+
 	
 	PU_RandomNum123.randomize()
 	PU_RandomType = PU_RandomNum123.randi_range(0,1)
@@ -65,6 +65,7 @@ func _process(delta):
 		$Roleta.set_visible(true)
 		$Roleta.play("Rolling")
 	
+	#ROLETA ANIMATION
 	if Roleta_Frame == 10 and Roleta_Animation == "Rolling":
 		$Roleta_Timer.start()
 		if PU_RandomType == 0:
@@ -77,21 +78,24 @@ func _process(delta):
 			$HUD/PU_Light_Blue.play("Red")
 	
 	var Roleta_Timer = $Roleta_Timer.get_time_left()
-	print (Roleta_Animation)
-	print (Roleta_Timer)
-#		$Roleta.set_visible(false)
-		
-#		if PU_RandomType == 0:
-#			$Roleta.set_visible(false)
-#			$Roleta.play("Green")
-#			$Roleta.stop()
-#			$Roleta.set_visible(false)
-#		elif PU_RandoType == 1:
-#			$Roleta.play("Red")
-#			$Roleta.stop()
-#			$Roleta.set_visible(false)
-		
-		
+#	
+	#3 2 1 GO! START TIMER
+	
+
+	Tree_Two_One_GO = int($Start_Timer.get_time_left())
+	
+	print(Tree_Two_One_GO )
+	
+	if Tree_Two_One_GO == 3:
+		$Start_Timer_Animation.play("3")
+	elif Tree_Two_One_GO == 2:
+		$Start_Timer_Animation.play("2")
+	elif Tree_Two_One_GO == 1:
+		$Start_Timer_Animation.play("1")
+	elif Tree_Two_One_GO == 0:
+		$Start_Timer_Animation.play("Go")
+	
+	
 		
 	#CRONOMETRO 
 	time += delta 
@@ -126,9 +130,14 @@ func _on_Red_Goal_body_entered(body):
 
 
 func _on_Roleta_Timer_timeout():
-	start = true
 	$Roleta.set_visible(false)
+	$Start_Timer_Animation.set_visible(true)
+	$Start_Timer.start()
+	
+
+func _on_Start_Timer_timeout():
+	$Start_Timer_Animation.set_visible(false)
+	start = true
 	emit_signal("Unfreeze_1")
 	emit_signal("Unfreeze_2")
-	
 	pass # Replace with function body.

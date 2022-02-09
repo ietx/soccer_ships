@@ -176,6 +176,16 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
@@ -184,21 +194,21 @@ animations = [ {
 "frames": [ ExtResource( 82 ) ],
 "loop": true,
 "name": "Off",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
@@ -207,16 +217,6 @@ animations = [ {
 "frames": [ ExtResource( 82 ) ],
 "loop": true,
 "name": "Off",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
 "speed": 5.0
 } ]
 
@@ -463,7 +463,6 @@ custom_fonts/font = SubResource( 7 )
 text = "3"
 
 [node name="Time" type="Label" parent="HUD"]
-modulate = Color( 0.941176, 0.501961, 0.501961, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -473,7 +472,7 @@ margin_top = -8.0
 margin_right = 419.0
 margin_bottom = 15.0
 custom_fonts/font = SubResource( 9 )
-text = "120"
+text = "4:20"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -568,5 +567,5 @@ volume_db = -1.0
 [connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
-[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]

@@ -121,13 +121,17 @@ func _on_Arena_Unfreeze_1():
 func _on_Arena_Freeze_1():
 	Freeze = true
 	if Freeze == true:
+		sleeping = true
 		if Input.is_action_pressed("Thrust"):
 				thrust = Vector2(0, 0)
 				$Sprite.play("Still")
 		elif Input.is_action_pressed("Break"):
 				thrust = Vector2(0,  0)
 				$Sprite.play("Still")
-		
+		if Input.is_action_pressed("Rotate_Right"):
+			rot = 0
+		if Input.is_action_pressed("Rotate_Left"):
+			rot = 0
 #		sleeping = true
 		
 	
