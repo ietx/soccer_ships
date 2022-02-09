@@ -98,4 +98,11 @@ func _on_Arena_Unfreeze_2():
 
 func _on_Arena_Freeze_2():
 	Freeze = true
+#	sleeping = true
+	if Input.is_action_pressed("Seta"):
+		thrust = Vector2(0, 0)
+		$Sprite.play("Still")
+	elif Input.is_action_pressed("Break_2"):
+		thrust = Vector2(0,  0)
+		$Sprite.play("Still")
 	
