@@ -12,7 +12,7 @@ signal Freeze_2
 var Blue_Goal = 0
 var Red_Goal = 0
 var start = false
-var time 
+var Tree_Two_One_GO 
 var match_time
 var minu
 var sec
@@ -47,32 +47,40 @@ func _ready():
 func _process(delta):
 	
 	gol_frame = $Gol_Animation.get_frame()
-	time = int($StartTimer.get_time_left())
+	Tree_Two_One_GO = stepify($StartTimer.get_time_left(), 0.1)
 	
 
 	
 		
 	#Para o cronômetro durante o gol
 	if start == false: #Se for o comeco da partida PRIMEIRO 3 2 1 GO
-		if time == 0: 
+		if Tree_Two_One_GO == 0: 
 			$TimeNormal.start() 
 			start = true
-			emit_signal("Unfreeze_1")
-			emit_signal("Unfreeze_2")
+			$StartTimerAnimation.set_visible(false)
 	else: #Se for durante a partida qualquer 321 GO
-		if time == 0: 
-			$TimeNormal.set_paused(false)
-			emit_signal("Unfreeze_1")
-			emit_signal("Unfreeze_2")
+		if Tree_Two_One_GO == 0: 
+			$StartTimerAnimation.set_visible(false)
 	
 	#CountDown
+	if Tree_Two_One_GO == 4.5:
+		$StartTimerAnimation.play("3")
+	elif Tree_Two_One_GO == 3.2:
+		$StartTimerAnimation.play("2")
+	elif Tree_Two_One_GO == 2.2:
+		$StartTimerAnimation.play("1")
+	elif Tree_Two_One_GO == 1.1:
+		$StartTimerAnimation.play("Go")
+		$TimeNormal.set_paused(false)
+		emit_signal("Unfreeze_1")
+		emit_signal("Unfreeze_2")
 	
-	if $StartTimer.time_left > 1:
-		$HUD/PanelContainer/CenterContainer/CountDown.text = String(int($StartTimer.time_left))
-		emit_signal("Freeze_1")
-		emit_signal("Freeze_2")
-	else:
-		$HUD/PanelContainer/CenterContainer/CountDown.text = ("Go!")
+#	if $StartTimer.time_left > 1:
+#		$HUD/PanelContainer/CenterContainer/CountDown.text = String(int($StartTimer.time_left))
+#		emit_signal("Freeze_1")
+#		emit_signal("Freeze_2")
+#	else:
+#		$HUD/PanelContainer/CenterContainer/CountDown.text = ("Go!")
 	
 	#Cronômetro do tempo da partida
 	
@@ -100,6 +108,8 @@ func _process(delta):
 		$Gol_Animation.stop()
 		$Gol_Animation.set_frame(0)
 		$Gol_Animation.set_visible(false)
+		$StartTimerAnimation.set_visible(true)
+		$StartTimer.start()
 	
 
 		
@@ -107,24 +117,26 @@ func _on_Blue_Goal_body_entered(body):
 	Blue_Goal += 1
 	$HUD/Red.text = String(Blue_Goal)
 	emit_signal("reset") #Emite sinal pras naves e bola reseteram a posição
-	$HUD/PanelContainer.set_visible(true)
-	$StartTimer.start()
+#	$StartTimerAnimation.set_visible(true)
+#	$StartTimer.start()
 	$TimeNormal.set_paused(true)
 	$Gol_Animation.set_visible(true)
 	$Gol_Animation.play("Gol_R")
-	
+	emit_signal("Freeze_1")
+	emit_signal("Freeze_2")
 
 
 func _on_Red_Goal_body_entered(body):
 	Red_Goal += 1
 	$HUD/Blue.text = String(Red_Goal)
 	emit_signal("reset")
-	$HUD/PanelContainer.set_visible(true)
-	$StartTimer.start()
+#	$StartTimerAnimation.set_visible(true)
+#	$StartTimer.start()
 	$TimeNormal.set_paused(true)
 	$Gol_Animation.set_visible(true)
 	$Gol_Animation.play("Gol_B")
-	
+	emit_signal("Freeze_1")
+	emit_signal("Freeze_2")
 
 
 

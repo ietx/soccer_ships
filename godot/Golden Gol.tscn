@@ -284,25 +284,25 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
-"frames": [ ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 123 ) ],
-"loop": false,
-"name": "1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 117 ) ],
+"frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 117 ) ],
 "loop": false,
 "name": "3",
-"speed": 5.0
+"speed": 8.0
 }, {
-"frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 109 ) ],
+"frames": [ ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 123 ) ],
+"loop": false,
+"name": "1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 109 ) ],
 "loop": false,
 "name": "2",
-"speed": 5.0
+"speed": 8.0
 }, {
-"frames": [ ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 116 ) ],
+"frames": [ ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 116 ) ],
 "loop": false,
 "name": "Go",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [node name="Golden Gol" type="Node2D"]
@@ -543,7 +543,7 @@ frames = SubResource( 20 )
 animation = "Off"
 
 [node name="PU_Light_Red" type="AnimatedSprite" parent="HUD"]
-position = Vector2( 540, 22 )
+position = Vector2( 540, 27 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 21 )
 animation = "Off"
@@ -595,7 +595,7 @@ stream = ExtResource( 72 )
 volume_db = -1.0
 
 [node name="Start_Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 4.5
 one_shot = true
 
 [node name="Start_Timer_Animation" type="AnimatedSprite" parent="."]

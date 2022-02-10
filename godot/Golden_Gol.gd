@@ -10,7 +10,7 @@ signal Unfreeze_2
 signal Golden_Gol
 
 var start = false
-var time = -10 #Cronometro do jogo.- 10 é o tempo que demora a animacao do Start e Roleta
+var time = -11 #Cronometro do jogo.- 11 é o tempo que demora a animacao do Start e Roleta
 var minu
 var sec
 var gol_frame
@@ -82,18 +82,20 @@ func _process(delta):
 	#3 2 1 GO! START TIMER
 	
 
-	Tree_Two_One_GO = int($Start_Timer.get_time_left())
+	Tree_Two_One_GO = stepify($Start_Timer.get_time_left(), 0.1)
 	
 	print(Tree_Two_One_GO )
 	
-	if Tree_Two_One_GO == 3:
+	if Tree_Two_One_GO == 4.5:
 		$Start_Timer_Animation.play("3")
-	elif Tree_Two_One_GO == 2:
+	elif Tree_Two_One_GO == 3.2:
 		$Start_Timer_Animation.play("2")
-	elif Tree_Two_One_GO == 1:
+	elif Tree_Two_One_GO == 2.2:
 		$Start_Timer_Animation.play("1")
-	elif Tree_Two_One_GO == 0:
+	elif Tree_Two_One_GO == 1.1:
 		$Start_Timer_Animation.play("Go")
+		emit_signal("Unfreeze_1")
+		emit_signal("Unfreeze_2")
 	
 	
 		
@@ -138,6 +140,4 @@ func _on_Roleta_Timer_timeout():
 func _on_Start_Timer_timeout():
 	$Start_Timer_Animation.set_visible(false)
 	start = true
-	emit_signal("Unfreeze_1")
-	emit_signal("Unfreeze_2")
 	pass # Replace with function body.
