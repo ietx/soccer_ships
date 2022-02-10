@@ -25,7 +25,7 @@ var PU_RandomType
 #onready var hud = get_node("HUD")
 func _ready():
 	$Start_Animation.set_visible(true)
-#	$Sound.play()
+	$Sound.play()
 	$Goals.play("Gold_Shine")
 	$Start_Animation.play("Golden_Gol")
 

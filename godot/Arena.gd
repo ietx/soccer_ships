@@ -31,7 +31,7 @@ var PU_out = Vector2(-100,-100)
 
 #onready var hud = get_node("HUD")
 func _ready():
-#	$John.play()
+	$John.play()
 	$StartTimer.start()
 	$Gol_Animation.playing = false
 	$Lightning_Animation.play("Thunder")
