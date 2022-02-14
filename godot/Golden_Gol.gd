@@ -21,6 +21,7 @@ var Tree_Two_One_GO
 
 var PU_RandomNum123 = RandomNumberGenerator.new()
 var PU_RandomType
+var Winner 
 
 #onready var hud = get_node("HUD")
 func _ready():
@@ -52,7 +53,11 @@ func _process(delta):
 	#GOL ANIMATION
 	gol_frame = $Gol_Animation.get_frame()
 	if gol_frame == 23:
-		get_tree().change_scene("res://Menu.tscn")
+		if Winner == "Red":
+			get_tree().change_scene("res://Red_Wins.tscn")
+		else:
+			get_tree().change_scene("res://Blue_Wins.tscn")
+
 	
 	#START ANIMATION
 	var Roleta_Frame = $Roleta.get_frame()
@@ -117,12 +122,14 @@ func _on_Blue_Goal_body_entered(body):
 	$Gol_Animation.set_visible(true)
 	$Gol_Animation.play("Gol_R")
 	$Ball.queue_free()
+	Winner = "Red"
 	pass
 	
 func _on_Red_Goal_body_entered(body):
 	$Gol_Animation.set_visible(true)
 	$Gol_Animation.play("Gol_B")
 	$Ball.queue_free()
+	Winner = "Blue"
 	pass
 	
 

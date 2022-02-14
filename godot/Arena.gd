@@ -148,8 +148,11 @@ func _on_StartTimer_timeout():
 func _on_TimeNormal_timeout():
 	if Blue_Goal == Red_Goal:
 		get_tree().change_scene("res://Golden Gol.tscn")
-	else:
-		get_tree().change_scene("res://Menu.tscn")
+	elif Blue_Goal > Red_Goal:
+		get_tree().change_scene("res://Red_Wins.tscn")
+	elif Blue_Goal < Red_Goal:
+		get_tree().change_scene("res://Blue_Wins.tscn")
+	
 		
 
 

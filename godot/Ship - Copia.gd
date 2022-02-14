@@ -109,3 +109,31 @@ func _on_Arena_Freeze_2():
 		rot = 0
 	if Input.is_action_pressed("Rot_R_2"):
 		rot = 0
+
+
+func _on_Red_Wins_Unfreeze_2():
+	Freeze = false
+	#POSSIBILITAM DETECTAR COLISÕES
+	set_max_contacts_reported(10)
+	set_contact_monitor(true)
+	
+
+func _on_Ship_2_body_entered(body):
+	var Body = str(body)
+	print (Body)
+	print("OPA")
+	if Body == "Ship:[RigidBody2D:1390]":
+		$Sprite.set_visible(false)
+		$Explode.set_visible(true)
+		$Explode.play("Explode")
+
+
+
+func _on_Explode_animation_finished():
+	queue_free()
+	pass # Replace with function body.
+
+
+func _on_Blue_Wins_Unfreeze_2():
+	Freeze = false
+	pass # Replace with function body.

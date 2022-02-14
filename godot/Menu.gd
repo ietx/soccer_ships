@@ -8,17 +8,29 @@ var ani_end = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Ship/Animation.play("Ship-X")
-	$Ship2/Animation.play("Ship-X")
-	$Ship3/Animation.play("Ship-X")
-	$Ship4/Animation.play("Ship-X")
-	$Ship5/Animation.play("Ship-X")
+	$Ships/Ship/Animation.play("Ship-X")
+	$Ships/Ship2/Animation.play("Ship-X")
+	$Ships/Ship3/Animation.play("Ship-X")
+	$Ships/Ship4/Animation.play("Ship-X")
+	$Ships/Ship5/Animation.play("Ship-X")
+	
+	$Ships2/Ship/Animation.play("Ship-X")
+	$Ships2/Ship2/Animation.play("Ship-X")
+	$Ships2/Ship3/Animation.play("Ship-X")
+	$Ships2/Ship4/Animation.play("Ship-X")
+	$Ships2/Ship5/Animation.play("Ship-X")
 	pass
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $Ship3/Animation.is_playing() == false:
-		$Ship/Animation.play("Ship-X")
-		$Ship2/Animation.play("Ship-X")
-		$Ship3/Animation.play("Ship-X")
-		$Ship4/Animation.play("Ship-X")
-		$Ship5/Animation.play("Ship-X")
+	if $Ships/Ship3/Animation.is_playing() == false:
+		$Ships/Ship/Animation.play("Ship-X")
+		$Ships/Ship2/Animation.play("Ship-X")
+		$Ships/Ship3/Animation.play("Ship-X")
+		$Ships/Ship4/Animation.play("Ship-X")
+		$Ships/Ship5/Animation.play("Ship-X")
+		
+		$Ships2/Ship/Animation.play("Ship-X")
+		$Ships2/Ship2/Animation.play("Ship-X")
+		$Ships2/Ship3/Animation.play("Ship-X")
+		$Ships2/Ship4/Animation.play("Ship-X")
+		$Ships2/Ship5/Animation.play("Ship-X")

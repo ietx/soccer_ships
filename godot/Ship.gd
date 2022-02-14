@@ -135,3 +135,28 @@ func _on_Arena_Freeze_1():
 #		sleeping = true
 		
 	
+
+
+func _on_Red_Wins_Unfreeze_1():
+	Freeze = false
+	pass # Replace with function body.
+
+
+func _on_Ship_body_entered(body):
+	var Body = str(body)
+	print (Body)
+	if Body == "Ship 2:[RigidBody2D:1394]":
+		$Sprite.set_visible(false)
+		$Explode.set_visible(true)
+		$Explode.play("Explode")
+
+
+func _on_Blue_Wins_Unfreeze_1():
+	Freeze = false
+	set_max_contacts_reported(10)
+	set_contact_monitor(true)
+
+
+func _on_Explode_animation_finished():
+	queue_free()
+	pass # Replace with function body.

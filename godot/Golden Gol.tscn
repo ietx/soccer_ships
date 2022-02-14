@@ -289,11 +289,6 @@ animations = [ {
 "name": "3",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 123 ) ],
-"loop": false,
-"name": "1",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 109 ) ],
 "loop": false,
 "name": "2",
@@ -302,6 +297,11 @@ animations = [ {
 "frames": [ ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 116 ) ],
 "loop": false,
 "name": "Go",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 123 ) ],
+"loop": false,
+"name": "1",
 "speed": 8.0
 } ]
 
@@ -626,6 +626,6 @@ animation = "1"
 [connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
-[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
 [connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]
