@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=2]
+[gd_scene load_steps=155 format=2]
 
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_Stars_1.png" type="Texture" id=2]
@@ -123,21 +123,45 @@
 [ext_resource path="res://Assets/321/Gold/321_Golden17.png" type="Texture" id=121]
 [ext_resource path="res://Assets/321/Gold/321_Golden16.png" type="Texture" id=122]
 [ext_resource path="res://Assets/321/Gold/321_Golden14.png" type="Texture" id=123]
+[ext_resource path="res://Assets/FX/Explosion_RED2.png" type="Texture" id=124]
+[ext_resource path="res://Assets/FX/Explosion_RED3.png" type="Texture" id=125]
+[ext_resource path="res://Assets/FX/Explosion_RED1.png" type="Texture" id=126]
+[ext_resource path="res://Assets/FX/Explosion_BLUE4.png" type="Texture" id=127]
+[ext_resource path="res://Assets/FX/Explosion_BLUE2.png" type="Texture" id=128]
+[ext_resource path="res://Assets/FX/Explosion_BLUE1.png" type="Texture" id=129]
+[ext_resource path="res://Assets/FX/Explosion_BLUE3.png" type="Texture" id=130]
+[ext_resource path="res://Assets/FX/Explosion_RED4.png" type="Texture" id=131]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
 bounce = 0.5
 
+[sub_resource type="SpriteFrames" id=26]
+animations = [ {
+"frames": [ ExtResource( 126 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 131 ), ExtResource( 131 ) ],
+"loop": false,
+"name": "Explode",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=27]
+animations = [ {
+"frames": [ ExtResource( 129 ), ExtResource( 128 ), ExtResource( 130 ), ExtResource( 127 ), ExtResource( 127 ) ],
+"loop": false,
+"name": "Explode2",
+"speed": 12.0
+} ]
+
 [sub_resource type="SpriteFrames" id=24]
 animations = [ {
-"frames": [ ExtResource( 103 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 102 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 103 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 104 ) ],
@@ -216,47 +240,47 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 89 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 90 ) ],
 "loop": true,
 "name": "Red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 88 ) ],
+"frames": [ ExtResource( 89 ) ],
 "loop": true,
-"name": "Green",
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 87 ) ],
 "loop": true,
 "name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 88 ) ],
+"loop": true,
+"name": "Green",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 89 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 90 ) ],
 "loop": true,
 "name": "Red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 88 ) ],
+"frames": [ ExtResource( 89 ) ],
 "loop": true,
-"name": "Green",
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 87 ) ],
 "loop": true,
 "name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 88 ) ],
+"loop": true,
+"name": "Green",
 "speed": 5.0
 } ]
 
@@ -284,14 +308,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
-"frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 117 ) ],
-"loop": false,
-"name": "3",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 109 ) ],
 "loop": false,
 "name": "2",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 117 ) ],
+"loop": false,
+"name": "3",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 116 ) ],
@@ -373,6 +397,18 @@ power_up = 1
 [node name="Ship2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 135, 256 )
 collision_layer = 1
+
+[node name="Explode" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 26 )
+animation = "Explode"
+
+[node name="Explode2" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 27 )
+animation = "Explode2"
 
 [node name="Ball" parent="." instance=ExtResource( 5 )]
 position = Vector2( 455, 256 )
@@ -610,13 +646,21 @@ animation = "1"
 [connection signal="Golden_Gol" from="." to="Ship" method="_on_Golden_Gol_Golden_Gol"]
 [connection signal="Golden_Gol" from="." to="Ship2" method="_on_Golden_Gol_Golden_Gol"]
 [connection signal="Golden_Gol" from="." to="Ball" method="_on_Golden_Gol_Golden_Gol"]
+[connection signal="Shoot_PowUp" from="." to="Ship" method="_on_Arena_Shoot_PowUp"]
+[connection signal="Shoot_PowUp2" from="." to="Ship2" method="_on_Arena_Shoot_PowUp2"]
 [connection signal="Still_PowUp" from="." to="Ship" method="_on_Arena_Still_PowUp"]
 [connection signal="Still_PowUp2" from="." to="Ship2" method="_on_Arena_Still_PowUp2"]
 [connection signal="Unfreeze_1" from="." to="Ship" method="_on_Golden_Gol_Unfreeze_1"]
 [connection signal="Unfreeze_2" from="." to="Ship2" method="_on_Golden_Gol_Unfreeze_2"]
+[connection signal="Explode" from="Ship" to="." method="_on_Ship_Explode"]
 [connection signal="PU_Used_Red" from="Ship" to="." method="_on_Ship_PU_Used_Red"]
+[connection signal="Shoot" from="Ship" to="." method="_on_Ship_Shoot"]
 [connection signal="body_entered" from="Ship" to="." method="_on_Ship_body_entered"]
+[connection signal="Explode2" from="Ship2" to="." method="_on_Ship2_Explode2"]
 [connection signal="PU_Used_Blue" from="Ship2" to="." method="_on_Ship2_PU_Used_Blue"]
+[connection signal="Shoot2" from="Ship2" to="." method="_on_Ship2_Shoot2"]
+[connection signal="animation_finished" from="Explode" to="." method="_on_Explode_animation_finished"]
+[connection signal="animation_finished" from="Explode2" to="." method="_on_Explode2_animation_finished"]
 [connection signal="body_entered" from="Ball" to="." method="_on_Ball_body_entered"]
 [connection signal="timeout" from="Roleta_Timer" to="." method="_on_Roleta_Timer_timeout"]
 [connection signal="animation_finished" from="Gol_Animation" to="." method="_on_Gol_Animation_animation_finished"]
@@ -626,6 +670,6 @@ animation = "1"
 [connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
-[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]

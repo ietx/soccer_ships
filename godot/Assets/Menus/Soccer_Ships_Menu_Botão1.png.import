@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Soccer_Ships_Menu_Botão1.png-62db7414056d26151de57ac28a6edd1a.stex"
+path="res://.import/Soccer_Ships_Menu_Botão1.png-db8a2c97103e0f9ea90581eb1075b78e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/Soccer_Ships_Menu_Botão1.png"
-dest_files=[ "res://.import/Soccer_Ships_Menu_Botão1.png-62db7414056d26151de57ac28a6edd1a.stex" ]
+source_file="res://Assets/Menus/Soccer_Ships_Menu_Botão1.png"
+dest_files=[ "res://.import/Soccer_Ships_Menu_Botão1.png-db8a2c97103e0f9ea90581eb1075b78e.stex" ]
 
 [params]
 

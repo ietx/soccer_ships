@@ -14,6 +14,12 @@ var PU_Switch = false
 signal PU_Used_Blue
 var GG = false
 var Freeze = true
+signal Shoot2
+onready var bullet = preload("res://Bullet.tscn")
+var angel = false
+var reborn = false
+signal Explode2
+
 
 func _ready():
 
@@ -49,6 +55,11 @@ func _physics_process(delta):
 				if GG == false:
 					PU_Switch = false
 					emit_signal("PU_Used_Blue")
+			elif power_up == 2 and PU_Switch == true:
+				shoot()
+				if GG == false:
+					PU_Switch = false
+					emit_signal("PU_Used_Blue")
 		else:
 			thrust = Vector2()
 			$Sprite.play("Still")
@@ -64,14 +75,30 @@ func _physics_process(delta):
 	set_applied_torque(rot * spin_thrust)
 
 func _integrate_forces(state):
-	if reset:
-		state.transform = Transform2D (inicial_rot, inicial_position)
+	if (reset or reborn) == true:
+		state.transform = Transform2D(inicial_rot, inicial_position)
 		state.linear_velocity = Vector2()
 		reset = false
 		sleeping = false
+		reborn = false
 		
-	
+	if angel == true:
+		state.transform = Transform2D(0, Vector2(-100, -100_))
+		state.linear_velocity = Vector2()
+		
+func shoot():
+	var rot = get_rotation()
+	var ship = "Blue"
+	var muz_pos = $Muzzle.get_global_position()
+	var dir = Vector2(0, -1).rotated(rot) 
+	emit_signal("Shoot2", bullet, muz_pos, rot, dir, ship)
 
+func get_shoot():
+	angel = true
+	$Angel_Timer.start()
+	var pos = get_global_position()
+	var rot = get_rotation()
+	emit_signal("Explode2", pos, rot)
 
 func _on_Arena_Dash_PowUp2():
 	power_up = 0
@@ -82,6 +109,9 @@ func _on_Arena_Still_PowUp2():
 	power_up = 1
 	PU_Switch = true
 
+func _on_Arena_Shoot_PowUp2():
+	power_up = 2
+	PU_Switch = true
 
 func _on_Golden_Gol_Golden_Gol():
 	GG = true
@@ -119,10 +149,8 @@ func _on_Red_Wins_Unfreeze_2():
 	
 
 func _on_Ship_2_body_entered(body):
-	var Body = str(body)
-	print (Body)
-	print("OPA")
-	if Body == "Ship:[RigidBody2D:1390]":
+
+	if body is RigidBody2D:
 		$Sprite.set_visible(false)
 		$Explode.set_visible(true)
 		$Explode.play("Explode")
@@ -137,3 +165,9 @@ func _on_Explode_animation_finished():
 func _on_Blue_Wins_Unfreeze_2():
 	Freeze = false
 	pass # Replace with function body.
+
+
+func _on_Angel_Timer_timeout():
+	angel = false
+	reborn = true
+

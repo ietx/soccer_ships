@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/John Frusciante - Stage.mp3-ed536b825bc0df90cd6fae413ace2860.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/John Frusciante - Stage.mp3"
+dest_files=[ "res://.import/John Frusciante - Stage.mp3-ed536b825bc0df90cd6fae413ace2860.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -9,6 +9,7 @@ signal Unfreeze_2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Stage.play()
 	emit_signal("Unfreeze_1")
 	emit_signal("Unfreeze_2")
 

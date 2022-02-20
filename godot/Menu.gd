@@ -8,6 +8,7 @@ var ani_end = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Blind.play()
 	$Ships/Ship/Animation.play("Ship-X")
 	$Ships/Ship2/Animation.play("Ship-X")
 	$Ships/Ship3/Animation.play("Ship-X")

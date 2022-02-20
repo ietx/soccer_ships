@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Soccer_Ships_Menu_BG1.png-c0d50d91f7d14d964ef6a024fc63a33c.stex"
+path="res://.import/Soccer_Ships_Menu_BG1.png-6505237ab44768912b34d12d29907782.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/Soccer_Ships_Menu_BG1.png"
-dest_files=[ "res://.import/Soccer_Ships_Menu_BG1.png-c0d50d91f7d14d964ef6a024fc63a33c.stex" ]
+source_file="res://Assets/Menus/Soccer_Ships_Menu_BG1.png"
+dest_files=[ "res://.import/Soccer_Ships_Menu_BG1.png-6505237ab44768912b34d12d29907782.stex" ]
 
 [params]
 

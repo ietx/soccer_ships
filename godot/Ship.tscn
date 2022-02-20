@@ -50,15 +50,15 @@ animations = [ {
 "name": "Still",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Dash",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Thrust",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Dash",
+"speed": 10.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -77,12 +77,16 @@ animations = [ {
 
 [node name="Ship" type="RigidBody2D"]
 rotation = 4.71239
-collision_mask = 6
+collision_mask = 54
 physics_material_override = SubResource( 6 )
 gravity_scale = 0.0
 script = ExtResource( 1 )
 engine_thrust = -160
 spin_thrust = 2200
+
+[node name="Angel_Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.199841, -0.800163 )
@@ -111,5 +115,9 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 8 )
 animation = "Explode"
 
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( -3.47616e-05, -36 )
+
 [connection signal="body_entered" from="." to="." method="_on_Ship_body_entered"]
+[connection signal="timeout" from="Angel_Timer" to="." method="_on_Angel_Timer_timeout"]
 [connection signal="animation_finished" from="Explode" to="." method="_on_Explode_animation_finished"]

@@ -3,8 +3,10 @@ extends Node2D
 signal reset
 signal Dash_PowUp
 signal Still_PowUp
+signal Shoot_PowUp
 signal Dash_PowUp2
 signal Still_PowUp2
+signal Shoot_PowUp2
 signal Unfreeze_1
 signal Unfreeze_2
 signal Freeze_1
@@ -157,17 +159,17 @@ func _on_TimeNormal_timeout():
 
 
 
-func _on_Blue_Shine_body_entered(body):
+func _on_Green_Shine_body_entered(body):
 	if body == $Ship:
 		emit_signal("Dash_PowUp")
 		$HUD/PU_Light_Red.play("Green")
 	elif body == $Ship2:
 		emit_signal("Dash_PowUp2")
 		$HUD/PU_Light_Blue.play("Green")
-	$Shine_Star/Blue_Shine.position = PU_out
+	$Shine_Star/Green_Shine.position = PU_out
 	$Shine_Star/Timer_PU.start()
-	$Shine_Star/Blue_Shine/AnimatedSprite.stop()
-	$Shine_Star/Blue_Shine/AnimatedSprite.set_frame(0)
+	$Shine_Star/Green_Shine/AnimatedSprite.stop()
+	$Shine_Star/Green_Shine/AnimatedSprite.set_frame(0)
 	print (body)
 	pass # Replace with function body.
 
@@ -186,21 +188,37 @@ func _on_Red_Shine_body_entered(body):
 	print (body)
 	pass # Replace with function body.
 
-
+func _on_Blue_Shine_body_entered(body):
+	if body == $Ship:
+		emit_signal("Shoot_PowUp")
+		$HUD/PU_Light_Red.play("Blue")
+	elif body == $Ship2:
+		emit_signal("Shoot_PowUp2")
+		$HUD/PU_Light_Blue.play("Blue")
+	$Shine_Star/Blue_Shine.position = PU_out
+	$Shine_Star/Timer_PU.start()
+	$Shine_Star/Blue_Shine/AnimatedSprite.stop()
+	$Shine_Star/Blue_Shine/AnimatedSprite.set_frame(0)
+	print (body) 
+	
 func _on_Timer_PU_timeout():
 	PU_RandomNum123.randomize()
-	PU_RandomType = PU_RandomNum123.randi_range(0,1)
+	PU_RandomType = PU_RandomNum123.randi_range(0,2)
 	PU_X.randomize()
 	PU_Y.randomize()
 	if PU_RandomType == 0:
-		$Shine_Star/Blue_Shine.position = Vector2(PU_X.randi_range(PU_Xmin , PU_Xmax),PU_Y.randi_range(PU_Ymin , PU_Ymax))
-		$Shine_Star/Blue_Shine/AnimatedSprite.play("Blue")
+		$Shine_Star/Green_Shine.position = Vector2(PU_X.randi_range(PU_Xmin , PU_Xmax),PU_Y.randi_range(PU_Ymin , PU_Ymax))
+		$Shine_Star/Green_Shine/AnimatedSprite.play("Green")
 	elif PU_RandomType == 1:
 		$Shine_Star/Red_Shine.position = Vector2(PU_X.randi_range(PU_Xmin , PU_Xmax),PU_Y.randi_range(PU_Ymin , PU_Ymax))
 		$Shine_Star/Red_Shine/AnimatedSprite.play("Red")
+	elif PU_RandomType == 2:
+		$Shine_Star/Blue_Shine.position = Vector2(PU_X.randi_range(PU_Xmin , PU_Xmax),PU_Y.randi_range(PU_Ymin , PU_Ymax))
+		$Shine_Star/Blue_Shine/AnimatedSprite.play("Blue")
 	
-	print ($Shine_Star/Blue_Shine.position)
+	print ($Shine_Star/Green_Shine.position)
 	print ($Shine_Star/Red_Shine.position)
+	print ($Shine_Star/Blue_Shine.position)
 	print (PU_RandomType)
 
 
@@ -213,4 +231,41 @@ func _on_Ship2_PU_Used_Blue():
 	$HUD/PU_Light_Blue.play("Off")
 
 
+########## SHOOTING ###########
+
+func _on_Ship_Shoot(bullet, muz_pos, rot, dir, ship):
+	var b = bullet.instance()
+	add_child(b)
+	b.start(muz_pos, rot, dir, ship)
 	
+
+func _on_Ship2_Shoot2(bullet, muz_pos, rot, dir, ship):
+	var b = bullet.instance()
+	add_child(b)
+	b.start(muz_pos, rot, dir, ship)
+	pass # Replace with function body.
+
+
+func _on_Ship_Explode(pos, rot):
+	$Explode.set_visible(true)
+	$Explode.position = pos
+	$Explode.rotation = rot
+	$Explode.play("Explode")
+func _on_Explode_animation_finished():
+	$Explode.set_visible(false)
+	$Explode.stop()
+	$Explode.set_frame(0)
+
+func _on_Ship2_Explode2(pos, rot):
+	$Explode2.set_visible(true)
+	$Explode2.position = pos
+	$Explode2.rotation = rot
+	$Explode2.play("Explode2")
+func _on_Explode2_animation_finished():
+	$Explode2.set_visible(false)
+	$Explode2.stop()
+	$Explode2.set_frame(0)
+	
+#######################################################
+
+

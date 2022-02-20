@@ -2,8 +2,11 @@ extends Node2D
 
 signal Dash_PowUp
 signal Still_PowUp
+signal Shoot_PowUp
 signal Dash_PowUp2
 signal Still_PowUp2
+signal Shoot_PowUp2
+
 signal Unfreeze_1
 signal Unfreeze_2
 
@@ -32,21 +35,18 @@ func _ready():
 
 	
 	PU_RandomNum123.randomize()
-	PU_RandomType = PU_RandomNum123.randi_range(0,1)
+	PU_RandomType = PU_RandomNum123.randi_range(0,2)
 	
 	emit_signal("Golden_Gol")
 	if PU_RandomType == 0:
 		emit_signal("Dash_PowUp")
 		emit_signal("Dash_PowUp2")
-#		$HUD/PU_Light_Blue.play("Green")
-#		$HUD/PU_Light_Red.play("Green")
 	elif PU_RandomType == 1:
 		emit_signal("Still_PowUp")
 		emit_signal("Still_PowUp2")
-#		$HUD/PU_Light_Red.play("Red")
-#		$HUD/PU_Light_Blue.play("Red")
-
-	
+	elif PU_RandomType == 2:
+		emit_signal("Shoot_PowUp")
+		emit_signal("Shoot_PowUp2")
 func _process(delta):
 	
 	
@@ -81,6 +81,10 @@ func _process(delta):
 			$Roleta.play("Red")
 			$HUD/PU_Light_Red.play("Red")
 			$HUD/PU_Light_Blue.play("Red")
+		if PU_RandomType == 2:
+			$Roleta.play("Blue")
+			$HUD/PU_Light_Red.play("Blue")
+			$HUD/PU_Light_Blue.play("Blue")
 	
 	var Roleta_Timer = $Roleta_Timer.get_time_left()
 #	
@@ -148,3 +152,35 @@ func _on_Start_Timer_timeout():
 	$Start_Timer_Animation.set_visible(false)
 	start = true
 	pass # Replace with function body.
+
+func _on_Ship_Shoot(bullet, muz_pos, rot, dir, ship):
+	var b = bullet.instance()
+	add_child(b)
+	b.start(muz_pos, rot, dir, ship)
+
+func _on_Ship2_Shoot2(bullet, muz_pos, rot, dir, ship):
+	var b = bullet.instance()
+	add_child(b)
+	b.start(muz_pos, rot, dir, ship)
+	
+
+
+func _on_Ship_Explode(pos, rot):
+	$Explode.set_visible(true)
+	$Explode.position = pos
+	$Explode.rotation = rot
+	$Explode.play("Explode")
+func _on_Explode_animation_finished():
+	$Explode.set_visible(false)
+	$Explode.stop()
+	$Explode.set_frame(0)
+
+func _on_Ship2_Explode2(pos, rot):
+	$Explode2.set_visible(true)
+	$Explode2.position = pos
+	$Explode2.rotation = rot
+	$Explode2.play("Explode2")
+func _on_Explode2_animation_finished():
+	$Explode2.set_visible(false)
+	$Explode2.stop()
+	$Explode2.set_frame(0)
