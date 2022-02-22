@@ -20,6 +20,8 @@ var angel = false
 var reborn = false
 signal Explode
 
+var ani_power_up = "OFF"
+
 func _ready():
 
 	inicial_position = get_global_transform().origin
@@ -32,30 +34,35 @@ func _on_Arena_reset():
 	
 
 	
+	
 func _physics_process(delta):
-#	var timer = $Angel_Timer.get_time_left()
-#	print(timer)
-#	print(reborn)
+	
 	if GG == true:
 		PU_Switch == true
 	if Freeze == false:
 		if Input.is_action_pressed("Thrust"):
 			thrust = Vector2(0, engine_thrust)
 			$Sprite.play("Thrust")
+			ani_power_up = "OFF"
 		elif Input.is_action_pressed("Break"):
 			thrust = Vector2(0, - engine_thrust)
 			$Sprite.play("Break")
+			ani_power_up = "OFF"
 	
 		elif Input.is_action_just_pressed("Dash"):
 			if power_up == 0 and PU_Switch == true:
 				thrust = Vector2(0, 300 * engine_thrust)
-				$Sprite.play("Dash")
+				ani_power_up = "Dash"
+				$Sprite.set_frame(0)
+#				$Sprite.play("Dash")
 				if GG == false:
 					PU_Switch = false
 					emit_signal("PU_Used_Red")
 			elif power_up == 1 and PU_Switch == true:
 				sleeping = true
-				$Sprite.play("Stop")
+				ani_power_up = "Stop"
+				$Sprite.set_frame(0)
+#				$Sprite.play("Stop")
 				if GG == false:
 					PU_Switch = false
 					emit_signal("PU_Used_Red")
@@ -65,15 +72,14 @@ func _physics_process(delta):
 					PU_Switch = false
 					emit_signal("PU_Used_Red")
 			
-#		power_up == 2 and PU_Switch == true:
-#			var bullet_instance = bullet.instance()
-#			bullet_instance.position = get_global_position() 
-#			bullet_instance.rotation = get_rotation()
-##			bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed,0).rotated(rotation))
-#			get_tree().get_root().add_child(bullet_instance)
 		else:
 			thrust = Vector2()
-			$Sprite.play("Still")
+			if ani_power_up == "OFF":
+				$Sprite.play("Still")
+			elif ani_power_up == "Dash":
+				$Sprite.play("Dash")
+			elif ani_power_up == "OFF":
+				$Sprite.play("Stop")
 			
 		
 		rot = 0
