@@ -22,7 +22,7 @@ signal Explode2
 var ani_power_up = "OFF"
 
 func _ready():
-
+	Freeze = false
 	inicial_position = get_global_transform().origin
 	inicial_rot = get_rotation()
 
