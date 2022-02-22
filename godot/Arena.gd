@@ -23,28 +23,24 @@ const PU_Xmax = 750
 const PU_Ymax = 100
 const PU_Xmin = 170
 const PU_Ymin = 400
-
-
 var PU_X = RandomNumberGenerator.new()
 var PU_Y = RandomNumberGenerator.new()
 var PU_RandomNum123 = RandomNumberGenerator.new()
 var PU_RandomType
 var PU_out = Vector2(-100,-100)
+export (int) var  Red_Player 
+export (int) var  Blue_Player 
+var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn")]
+var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn")]
 
-#onready var hud = get_node("HUD")
+
+
 func _ready():
 	$John.play()
 	$StartTimer.start()
 	$Gol_Animation.playing = false
 	$Lightning_Animation.play("Thunder")
-#	$Shine_Star/Blue_Shine.set_visible(false)
-#	$Shine_Star/Red_Shine.set_visible(false)
-	#$Gol_Animation.set_visible(false)
-	 #continua
 
-
-
-#	hud.get_node("HUD/CenterContainer/CountDown").set_text((round($StartTimer.time_left)))
 	
 func _process(delta):
 	

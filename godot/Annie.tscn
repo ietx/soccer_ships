@@ -1,18 +1,12 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Ship.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Naves/Red/Stop/SS_Phoenix_Red_Base_Stop2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Naves/Red/Stop/SS_Phoenix_Red_Base_Stop3.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Naves/Red/Base/SS_Phoenix_Red_Base_Boost2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Naves/Red/Base/SS_Phoenix_Red_Base_Boost3.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base3.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Naves/Red/Base/SS_Phoenix_Red_Base_Boost1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Naves/Red/Stop/SS_Phoenix_Red_Base_Stop1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Naves/Red/Ré/SS_Phoenix_Red_Base_Ré3.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base1.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base2.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Naves/Red/Ré/SS_Phoenix_Red_Base_Ré2.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Naves/Red/Ré/SS_Phoenix_Red_Base_Ré1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Naves/Annie/Annie_Base3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Naves/Annie/Annie_Ré2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Naves/Annie/Annie_Base2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Naves/Annie/Annie_Base1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Naves/Annie/Annie_Ré3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Naves/Annie/Annie_Ré1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/FX/Explosion_BLUE5.png" type="Texture" id=14]
 [ext_resource path="res://Assets/FX/Explosion_BLUE1.png" type="Texture" id=15]
 [ext_resource path="res://Assets/FX/Explosion_BLUE3.png" type="Texture" id=16]
@@ -30,27 +24,27 @@ bounce = 0.5
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 10 ) ],
+"frames": [  ],
 "loop": false,
 "name": "Stop",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 10 ) ],
+"frames": [  ],
 "loop": false,
 "name": "Dash",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Still",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Thrust",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Break",
 "speed": 10.0
@@ -61,11 +55,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=9]
+height = 12.0
+
 [sub_resource type="CanvasItemMaterial" id=4]
 
 [sub_resource type="CapsuleShape2D" id=7]
-radius = 8.19972
-height = 21.6005
+radius = 11.0
+height = 37.6006
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
@@ -82,7 +79,7 @@ physics_material_override = SubResource( 6 )
 gravity_scale = 0.0
 script = ExtResource( 1 )
 engine_thrust = -160
-spin_thrust = 2200
+spin_thrust = 4000
 
 [node name="Angel_Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -95,18 +92,17 @@ frames = SubResource( 2 )
 animation = "Still"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-material = SubResource( 4 )
-position = Vector2( -2.88486e-05, -8 )
-shape = SubResource( 7 )
+position = Vector2( 1.14441e-05, 12 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( 16, 6.99994 )
+position = Vector2( 22, -4.00002 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( -16, 7.00006 )
+position = Vector2( -22, -2.99998 )
 shape = SubResource( 7 )
 
 [node name="Explode" type="AnimatedSprite" parent="."]
