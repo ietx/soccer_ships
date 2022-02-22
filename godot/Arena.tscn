@@ -219,14 +219,9 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
+"frames": [ ExtResource( 80 ) ],
 "loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
+"name": "Green",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
@@ -234,22 +229,22 @@ animations = [ {
 "name": "Off",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 80 ) ],
+"frames": [ ExtResource( 81 ) ],
 "loop": true,
-"name": "Green",
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
+"frames": [ ExtResource( 80 ) ],
 "loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
+"name": "Green",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
@@ -257,9 +252,14 @@ animations = [ {
 "name": "Off",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 80 ) ],
+"frames": [ ExtResource( 81 ) ],
 "loop": true,
-"name": "Green",
+"name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
 "speed": 5.0
 } ]
 
@@ -316,11 +316,6 @@ animations = [ {
 "name": "2",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 102 ) ],
-"loop": false,
-"name": "3",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 95 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 92 ) ],
 "loop": false,
 "name": "Go",
@@ -329,6 +324,11 @@ animations = [ {
 "frames": [ ExtResource( 108 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 107 ) ],
 "loop": false,
 "name": "1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 102 ) ],
+"loop": false,
+"name": "3",
 "speed": 8.0
 } ]
 

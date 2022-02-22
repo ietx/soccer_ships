@@ -19,7 +19,7 @@ onready var bullet = preload("res://Bullet.tscn")
 var angel = false
 var reborn = false
 signal Explode2
-
+var ani_power_up = "OFF"
 
 func _ready():
 
@@ -39,19 +39,23 @@ func _physics_process(delta):
 		if Input.is_action_pressed("Seta"):
 			thrust = Vector2(0, - engine_thrust)
 			$Sprite.play("Thrust")
+			ani_power_up = "OFF"
 		elif Input.is_action_pressed("Break_2"):
 			thrust = Vector2(0,  engine_thrust)
 			$Sprite.play("Break")
+			ani_power_up = "OFF"
 		elif Input.is_action_just_pressed("Dash_2"):
 			if power_up == 0 and PU_Switch == true:
 				thrust = Vector2(0, -300 * engine_thrust)
-				$Sprite.play("Dash")
+				ani_power_up = "Dash"
+#				$Sprite.play("Dash")
 				if GG == false:
 					PU_Switch = false
 					emit_signal("PU_Used_Blue")
 			elif power_up == 1 and PU_Switch == true:
 				sleeping = true
-				$Sprite.play("Stop")
+				ani_power_up = "Stop"
+#				$Sprite.play("Stop")
 				if GG == false:
 					PU_Switch = false
 					emit_signal("PU_Used_Blue")
@@ -62,7 +66,13 @@ func _physics_process(delta):
 					emit_signal("PU_Used_Blue")
 		else:
 			thrust = Vector2()
-			$Sprite.play("Still")
+			if ani_power_up == "OFF":
+				$Sprite.play("Still")
+			elif ani_power_up == "Dash":
+				$Sprite.play("Dash")
+			elif ani_power_up == "OFF":
+				$Sprite.play("Stop")
+		
 		rot = 0
 		if Input.is_action_pressed("Rto_L_2"):
 			rot -= 1
