@@ -342,6 +342,7 @@ animations = [ {
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 6 )
+Blue_ID = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource( 78 )
@@ -396,12 +397,12 @@ centered = false
 anchor_mode = 0
 
 [node name="Ship" parent="." instance=ExtResource( 1 )]
-position = Vector2( 775, 256 )
+position = Vector2( 848, -60 )
 physics_material_override = SubResource( 3 )
 power_up = 1
 
 [node name="Ship2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 135, 256 )
+position = Vector2( 136, -51 )
 collision_layer = 1
 
 [node name="Explode" type="AnimatedSprite" parent="."]
@@ -568,6 +569,7 @@ custom_fonts/font = SubResource( 7 )
 text = "3"
 
 [node name="Time" type="Label" parent="HUD"]
+modulate = Color( 0.941176, 0.501961, 0.501961, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -588,13 +590,13 @@ reset_on_save = false
 anims/Blink_Red = SubResource( 11 )
 
 [node name="PU_Light_Blue" type="AnimatedSprite" parent="HUD"]
-position = Vector2( 357, 27 )
+position = Vector2( 361, 23 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 20 )
 animation = "Off"
 
 [node name="PU_Light_Red" type="AnimatedSprite" parent="HUD"]
-position = Vector2( 542, 27 )
+position = Vector2( 537, 23 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 21 )
 animation = "Off"
@@ -612,7 +614,8 @@ one_shot = true
 
 [node name="Green_Shine" type="Area2D" parent="Shine_Star"]
 position = Vector2( -26, 196 )
-collision_layer = 16
+collision_layer = 64
+collision_mask = 17
 __meta__ = {
 "_edit_group_": true
 }
@@ -627,7 +630,8 @@ shape = SubResource( 12 )
 
 [node name="Red_Shine" type="Area2D" parent="Shine_Star"]
 position = Vector2( -26, 173 )
-collision_layer = 16
+collision_layer = 64
+collision_mask = 17
 __meta__ = {
 "_edit_group_": true
 }
@@ -642,7 +646,8 @@ animation = "Red"
 
 [node name="Blue_Shine" type="Area2D" parent="Shine_Star"]
 position = Vector2( -25, 151 )
-collision_layer = 16
+collision_layer = 64
+collision_mask = 17
 __meta__ = {
 "_edit_group_": true
 }
@@ -693,16 +698,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="Dash_PowUp" from="." to="Ship" method="_on_Arena_Dash_PowUp"]
-[connection signal="Dash_PowUp2" from="." to="Ship2" method="_on_Arena_Dash_PowUp2"]
-[connection signal="Freeze_1" from="." to="Ship" method="_on_Arena_Freeze_1"]
-[connection signal="Freeze_2" from="." to="Ship2" method="_on_Arena_Freeze_2"]
-[connection signal="Shoot_PowUp" from="." to="Ship" method="_on_Arena_Shoot_PowUp"]
-[connection signal="Shoot_PowUp2" from="." to="Ship2" method="_on_Arena_Shoot_PowUp2"]
-[connection signal="Still_PowUp" from="." to="Ship" method="_on_Arena_Still_PowUp"]
-[connection signal="Still_PowUp2" from="." to="Ship2" method="_on_Arena_Still_PowUp2"]
-[connection signal="Unfreeze_1" from="." to="Ship" method="_on_Arena_Unfreeze_1"]
-[connection signal="Unfreeze_2" from="." to="Ship2" method="_on_Arena_Unfreeze_2"]
 [connection signal="reset" from="." to="Ship" method="_on_Arena_reset"]
 [connection signal="reset" from="." to="Ship2" method="_on_Arena_reset"]
 [connection signal="reset" from="." to="Ball" method="_on_Arena_reset"]

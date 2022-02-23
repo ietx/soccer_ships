@@ -1,16 +1,16 @@
 extends Node2D
 
-signal reset
-signal Dash_PowUp
-signal Still_PowUp
-signal Shoot_PowUp
-signal Dash_PowUp2
-signal Still_PowUp2
-signal Shoot_PowUp2
-signal Unfreeze_1
-signal Unfreeze_2
-signal Freeze_1
-signal Freeze_2
+signal reset #Só ta aplicado na bola
+#signal Dash_PowUp
+#signal Still_PowUp
+#signal Shoot_PowUp
+#signal Dash_PowUp2
+#signal Still_PowUp2
+#signal Shoot_PowUp2
+#signal Unfreeze_1
+#signal Unfreeze_2
+#signal Freeze_1
+#signal Freeze_2
 var Blue_Goal = 0
 var Red_Goal = 0
 var start = false
@@ -28,14 +28,33 @@ var PU_Y = RandomNumberGenerator.new()
 var PU_RandomNum123 = RandomNumberGenerator.new()
 var PU_RandomType
 var PU_out = Vector2(-100,-100)
-export (int) var  Red_Player 
-export (int) var  Blue_Player 
+export (int) var  Red_ID 
+export (int) var  Blue_ID
 var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn")]
 var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn")]
-
-
+var Ship
+var Ship2
 
 func _ready():
+	
+	#### SHIP SPAWN ####
+	
+	Ship = Red_choices[Red_ID].instance()
+	Ship.connect("PU_Used_Red", self, "_on_Ship_PU_Used_Red")
+	Ship.connect("Explode", self, "_on_Ship_Explode")
+	Ship.connect("Shoot", self, "_on_Ship_Shoot")
+	add_child(Ship)
+	Ship.position = Vector2(775, 256)
+	
+	Ship2 = Blue_choices[Blue_ID].instance()
+	Ship2.connect("PU_Used_Blue", self, "_on_Ship2_PU_Used_Blue")
+	Ship2.connect("Explode2", self, "_on_Ship2_Explode2")
+	Ship2.connect("Shoot2", self, "_on_Ship2_Shoot2")
+	add_child(Ship2)
+	Ship2.position = Vector2(135, 256)
+	
+	#####################
+	
 	$John.play()
 	$StartTimer.start()
 	$Gol_Animation.playing = false
@@ -70,8 +89,10 @@ func _process(delta):
 	elif Tree_Two_One_GO == 1.1:
 		$StartTimerAnimation.play("Go")
 		$TimeNormal.set_paused(false)
-		emit_signal("Unfreeze_1")
-		emit_signal("Unfreeze_2")
+		Ship.unfreeze()
+		Ship2.unfreeze()
+#		emit_signal("Unfreeze_1")
+#		emit_signal("Unfreeze_2")
 	
 #	if $StartTimer.time_left > 1:
 #		$HUD/PanelContainer/CenterContainer/CountDown.text = String(int($StartTimer.time_left))
@@ -114,27 +135,35 @@ func _process(delta):
 func _on_Blue_Goal_body_entered(body):
 	Blue_Goal += 1
 	$HUD/Red.text = String(Blue_Goal)
+	Ship.reset_pos()
+	Ship2.reset_pos()
 	emit_signal("reset") #Emite sinal pras naves e bola reseteram a posição
 #	$StartTimerAnimation.set_visible(true)
 #	$StartTimer.start()
 	$TimeNormal.set_paused(true)
 	$Gol_Animation.set_visible(true)
 	$Gol_Animation.play("Gol_R")
-	emit_signal("Freeze_1")
-	emit_signal("Freeze_2")
+	Ship.freeze()
+	Ship2.freeze()
+#	emit_signal("Freeze_1")
+#	emit_signal("Freeze_2")
 
 
 func _on_Red_Goal_body_entered(body):
 	Red_Goal += 1
 	$HUD/Blue.text = String(Red_Goal)
+	Ship.reset_pos()
+	Ship2.reset_pos()
 	emit_signal("reset")
 #	$StartTimerAnimation.set_visible(true)
 #	$StartTimer.start()
 	$TimeNormal.set_paused(true)
 	$Gol_Animation.set_visible(true)
 	$Gol_Animation.play("Gol_B")
-	emit_signal("Freeze_1")
-	emit_signal("Freeze_2")
+	Ship.freeze()
+	Ship2.freeze()
+#	emit_signal("Freeze_1")
+#	emit_signal("Freeze_2")
 
 
 
@@ -156,12 +185,18 @@ func _on_TimeNormal_timeout():
 
 
 func _on_Green_Shine_body_entered(body):
-	if body == $Ship:
-		emit_signal("Dash_PowUp")
-		$HUD/PU_Light_Red.play("Green")
-	elif body == $Ship2:
-		emit_signal("Dash_PowUp2")
+	print (body.name)
+	body.power_up(0)
+	if body.name == "Ship 2":
 		$HUD/PU_Light_Blue.play("Green")
+	else:
+		$HUD/PU_Light_Red.play("Green")
+#	if body == $Ship:
+#		emit_signal("Dash_PowUp")
+#		$HUD/PU_Light_Red.play("Green")
+#	elif body == $Ship2:
+#		emit_signal("Dash_PowUp2")
+#		$HUD/PU_Light_Blue.play("Green")
 	$Shine_Star/Green_Shine.position = PU_out
 	$Shine_Star/Timer_PU.start()
 	$Shine_Star/Green_Shine/AnimatedSprite.stop()
@@ -171,12 +206,18 @@ func _on_Green_Shine_body_entered(body):
 
 
 func _on_Red_Shine_body_entered(body):
-	if body == $Ship:
-		emit_signal("Still_PowUp")
-		$HUD/PU_Light_Red.play("Red")
-	elif body == $Ship2:
-		emit_signal("Still_PowUp2")
+	print (body.name)
+	body.power_up(1)
+	if body.name == "Ship 2":
 		$HUD/PU_Light_Blue.play("Red")
+	else:
+		$HUD/PU_Light_Red.play("Red")
+#	if body == $Ship:
+#		emit_signal("Still_PowUp")
+#		$HUD/PU_Light_Red.play("Red")
+#	elif body == $Ship2:
+#		emit_signal("Still_PowUp2")
+#		$HUD/PU_Light_Blue.play("Red")
 	$Shine_Star/Red_Shine.position = PU_out
 	$Shine_Star/Timer_PU.start()
 	$Shine_Star/Red_Shine/AnimatedSprite.stop()
@@ -185,12 +226,18 @@ func _on_Red_Shine_body_entered(body):
 	pass # Replace with function body.
 
 func _on_Blue_Shine_body_entered(body):
-	if body == $Ship:
-		emit_signal("Shoot_PowUp")
-		$HUD/PU_Light_Red.play("Blue")
-	elif body == $Ship2:
-		emit_signal("Shoot_PowUp2")
+	print (body.name)
+	body.power_up(2)
+	if body.name == "Ship 2":
 		$HUD/PU_Light_Blue.play("Blue")
+	else:
+		$HUD/PU_Light_Red.play("Blue")
+#	if body == $Ship:
+#		emit_signal("Shoot_PowUp")
+#		$HUD/PU_Light_Red.play("Blue")
+#	elif body == $Ship2:
+#		emit_signal("Shoot_PowUp2")
+#		$HUD/PU_Light_Blue.play("Blue")
 	$Shine_Star/Blue_Shine.position = PU_out
 	$Shine_Star/Timer_PU.start()
 	$Shine_Star/Blue_Shine/AnimatedSprite.stop()

@@ -19,12 +19,12 @@ bounce = 0.5
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 2 ) ],
 "loop": false,
 "name": "Stop",
 "speed": 6.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 2 ) ],
 "loop": false,
 "name": "Dash",
 "speed": 10.0

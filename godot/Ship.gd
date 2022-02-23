@@ -25,16 +25,14 @@ var ani_power_up = "OFF"
 func _ready():
 	Freeze = false
 
-	inicial_position = get_global_transform().origin
+	inicial_position = Vector2(775, 256)
+#	get_global_transform().origin
 	inicial_rot = get_rotation()
 	print (inicial_position)
 
-func _on_Arena_reset():
+func reset_pos():
 	sleeping = true
 	reset = true
-	
-
-	
 	
 func _physics_process(delta):
 	
@@ -121,32 +119,21 @@ func get_shoot():
 	var pos = get_global_position()
 	var rot = get_rotation()
 	emit_signal("Explode", pos, rot)
+
+
+########## POWER UP ############
+
+func power_up(type):
+	PU_Switch = true
+	power_up = type
 	
-func _on_Arena_Dash_PowUp():
-	power_up = 0
-	PU_Switch = true
-
-
-func _on_Arena_Still_PowUp():
-	power_up = 1
-	PU_Switch = true
-
-func _on_Arena_Shoot_PowUp():
-	power_up = 2
-	PU_Switch = true
-	
+#################################
 
 func _on_Golden_Gol_Golden_Gol():
 	GG = true
 
 
-func _on_Golden_Gol_Unfreeze_1():
-	Freeze = false
-	
-func _on_Arena_Unfreeze_1():
-	Freeze = false
-	
-func _on_Arena_Freeze_1():
+func freeze():
 	Freeze = true
 	if Freeze == true:
 		sleeping = true
@@ -160,11 +147,35 @@ func _on_Arena_Freeze_1():
 			rot = 0
 		if Input.is_action_pressed("Rotate_Left"):
 			rot = 0
+
+
+func unfreeze():
+	Freeze = false
+########################
+
+func _on_Golden_Gol_Unfreeze_1():
+	Freeze = false
+#
+#func _on_Arena_Unfreeze_1():
+#	Freeze = false
+#
+#func _on_Arena_Freeze_1():
+#	Freeze = true
+#	if Freeze == true:
 #		sleeping = true
-		
-	
-
-
+#		if Input.is_action_pressed("Thrust"):
+#				thrust = Vector2(0, 0)
+#				$Sprite.play("Still")
+#		elif Input.is_action_pressed("Break"):
+#				thrust = Vector2(0,  0)
+#				$Sprite.play("Still")
+#		if Input.is_action_pressed("Rotate_Right"):
+#			rot = 0
+#		if Input.is_action_pressed("Rotate_Left"):
+#			rot = 0
+##		sleeping = true
+#
+#
 func _on_Red_Wins_Unfreeze_1():
 	Freeze = false
 	pass # Replace with function body.
