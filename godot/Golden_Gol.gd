@@ -18,7 +18,7 @@ var Ship2
 signal Golden_Gol
 
 var start = false
-var time = -11 #Cronometro do jogo.- 11 é o tempo que demora a animacao do Start e Roleta
+var time = -9 #Cronometro do jogo.- 11 é o tempo que demora a animacao do Start e Roleta
 var minu
 var sec
 var gol_frame
@@ -111,20 +111,20 @@ func _process(delta):
 	#3 2 1 GO! START TIMER
 	
 
-	Tree_Two_One_GO = stepify($Start_Timer.get_time_left(), 0.1)
-	
-	print(Tree_Two_One_GO )
-	
-	if Tree_Two_One_GO == 4.5:
-		$Start_Timer_Animation.play("3")
-	elif Tree_Two_One_GO == 3.2:
-		$Start_Timer_Animation.play("2")
-	elif Tree_Two_One_GO == 2.2:
-		$Start_Timer_Animation.play("1")
-	elif Tree_Two_One_GO == 1.1:
-		$Start_Timer_Animation.play("Go")
-		Ship.unfreeze()
-		Ship2.unfreeze()
+#	Tree_Two_One_GO = stepify($Start_Timer.get_time_left(), 0.1)
+#
+#	print(Tree_Two_One_GO )
+#
+#	if Tree_Two_One_GO == 4.5:
+#		$Start_Timer_Animation.play("3")
+#	elif Tree_Two_One_GO == 3.2:
+#		$Start_Timer_Animation.play("2")
+#	elif Tree_Two_One_GO == 2.2:
+#		$Start_Timer_Animation.play("1")
+#	elif Tree_Two_One_GO == 1.1:
+#		$Start_Timer_Animation.play("Go")
+#		Ship.unfreeze()
+#		Ship2.unfreeze()
 	
 	
 		
@@ -158,6 +158,7 @@ func _on_Red_Goal_body_entered(body):
 func _on_Roleta_Timer_timeout():
 	$Roleta.set_visible(false)
 	$Start_Timer_Animation.set_visible(true)
+	$Start_Timer_Animation.play("321GO")
 	$Start_Timer.start()
 	
 
@@ -197,3 +198,11 @@ func _on_Explode2_animation_finished():
 	$Explode2.set_visible(false)
 	$Explode2.stop()
 	$Explode2.set_frame(0)
+
+
+func _on_Start_Timer_Animation_animation_finished():
+	Ship.unfreeze()
+	Ship2.unfreeze()
+	$Start_Timer_Animation.set_visible(false)
+	start = true
+	pass # Replace with function body.

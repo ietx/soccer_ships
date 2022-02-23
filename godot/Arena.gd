@@ -141,15 +141,12 @@ func _on_Blue_Goal_body_entered(body):
 	Ship.reset_pos()
 	Ship2.reset_pos()
 	emit_signal("reset") #Emite sinal pras naves e bola reseteram a posição
-#	$StartTimerAnimation.set_visible(true)
-#	$StartTimer.start()
 	$TimeNormal.set_paused(true)
 	$Gol_Animation.set_visible(true)
 	$Gol_Animation.play("Gol_R")
 	Ship.freeze()
 	Ship2.freeze()
-#	emit_signal("Freeze_1")
-#	emit_signal("Freeze_2")
+
 
 
 func _on_Red_Goal_body_entered(body):
@@ -158,20 +155,13 @@ func _on_Red_Goal_body_entered(body):
 	Ship.reset_pos()
 	Ship2.reset_pos()
 	emit_signal("reset")
-#	$StartTimerAnimation.set_visible(true)
-#	$StartTimer.start()
 	$TimeNormal.set_paused(true)
 	$Gol_Animation.set_visible(true)
 	$Gol_Animation.play("Gol_B")
 	Ship.freeze()
 	Ship2.freeze()
-#	emit_signal("Freeze_1")
-#	emit_signal("Freeze_2")
 
 
-
-func _on_StartTimer_timeout():
-	$HUD/PanelContainer.set_visible(false)
 
 
 
