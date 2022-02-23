@@ -1,7 +1,7 @@
 extends Node
 
 var Red_ID = 0
-var Blue_ID = 1
+var Blue_ID = 0
 var GG_Menu = false
 func _ready():
 	pass	

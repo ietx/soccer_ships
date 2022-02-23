@@ -221,47 +221,47 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 81 ) ],
 "loop": true,
 "name": "Blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 80 ) ],
+"frames": [ ExtResource( 79 ) ],
 "loop": true,
-"name": "Green",
+"name": "Red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
 "loop": true,
 "name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 80 ) ],
+"loop": true,
+"name": "Green",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 81 ) ],
 "loop": true,
 "name": "Blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 80 ) ],
+"frames": [ ExtResource( 79 ) ],
 "loop": true,
-"name": "Green",
+"name": "Red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
 "loop": true,
 "name": "Off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 80 ) ],
+"loop": true,
+"name": "Green",
 "speed": 5.0
 } ]
 
@@ -314,7 +314,7 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=23]
 animations = [ {
 "frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 105 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 108 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 107 ), ExtResource( 95 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 133 ), ExtResource( 132 ), ExtResource( 93 ), ExtResource( 92 ) ],
-"loop": true,
+"loop": false,
 "name": "321GO",
 "speed": 6.0
 }, {
@@ -328,14 +328,14 @@ animations = [ {
 "name": "Go",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 102 ) ],
-"loop": false,
-"name": "3",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 108 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 107 ) ],
 "loop": false,
 "name": "1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 102 ) ],
+"loop": false,
+"name": "3",
 "speed": 8.0
 } ]
 
@@ -725,8 +725,8 @@ __meta__ = {
 [connection signal="body_entered" from="Shine_Star/Green_Shine" to="." method="_on_Green_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
-[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
 [connection signal="animation_finished" from="Gol_Animation" to="." method="_on_Gol_Animation_animation_finished"]
 [connection signal="frame_changed" from="Gol_Animation" to="." method="_on_Gol_Animation_frame_changed"]
 [connection signal="animation_finished" from="StartTimerAnimation" to="." method="_on_StartTimerAnimation_animation_finished"]

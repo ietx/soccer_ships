@@ -2,7 +2,7 @@ extends Control
 
 # RED
 var List_ID = 0
-var Last_ID = 3
+var Last_ID = 4
 var First_ID = 0
 
 # BLUE
@@ -35,7 +35,8 @@ func _process(delta):
 		$Red_Sellect.play("Bella")
 	elif List_ID == 3:
 		$Red_Sellect.play("Vi")
-		
+	elif List_ID == 4:
+		$Red_Sellect.play("Mey")
 		
 	
 	## BLUE ##
@@ -60,6 +61,8 @@ func _process(delta):
 		$Blue_Sellect.play("Pearl")
 	elif List2_ID == 3:
 		$Blue_Sellect.play("Hope")
+	elif List2_ID == 4:
+		$Blue_Sellect.play("Wey")
 
 
 

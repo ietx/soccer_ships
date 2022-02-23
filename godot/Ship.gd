@@ -102,7 +102,7 @@ func _integrate_forces(state):
 		reset = false
 		sleeping = false
 		reborn = false
-		
+		$Angel_Timer.stop()
 	if angel == true:
 		state.transform = Transform2D(0, Vector2(-100, -100_))
 		state.linear_velocity = Vector2()
