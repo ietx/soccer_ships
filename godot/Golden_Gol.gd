@@ -1,19 +1,12 @@
 extends Node2D
 
-#signal Dash_PowUp
-#signal Still_PowUp
-#signal Shoot_PowUp
-#signal Dash_PowUp2
-#signal Still_PowUp2
-#signal Shoot_PowUp2
+
 var Red_ID = Global.Red_ID
 var Blue_ID = Global.Blue_ID
-var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), preload ("res://Bella.tscn"), preload ("res://Vi.tscn")]
-var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn")]
+var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), preload ("res://Bella.tscn"), preload ("res://Vi.tscn"), preload ("res://Mey.tscn")]
+var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn"), preload ("res://Wey.tscn")]
 var Ship
 var Ship2
-#signal Unfreeze_1
-#signal Unfreeze_2
 
 signal Golden_Gol
 
@@ -108,25 +101,7 @@ func _process(delta):
 	
 	var Roleta_Timer = $Roleta_Timer.get_time_left()
 #	
-	#3 2 1 GO! START TIMER
-	
-
-#	Tree_Two_One_GO = stepify($Start_Timer.get_time_left(), 0.1)
-#
-#	print(Tree_Two_One_GO )
-#
-#	if Tree_Two_One_GO == 4.5:
-#		$Start_Timer_Animation.play("3")
-#	elif Tree_Two_One_GO == 3.2:
-#		$Start_Timer_Animation.play("2")
-#	elif Tree_Two_One_GO == 2.2:
-#		$Start_Timer_Animation.play("1")
-#	elif Tree_Two_One_GO == 1.1:
-#		$Start_Timer_Animation.play("Go")
-#		Ship.unfreeze()
-#		Ship2.unfreeze()
-	
-	
+	#3 2 1 GO! START TIMER 
 		
 	#CRONOMETRO 
 	time += delta 
@@ -165,7 +140,7 @@ func _on_Roleta_Timer_timeout():
 func _on_Start_Timer_timeout():
 	$Start_Timer_Animation.set_visible(false)
 	start = true
-	pass # Replace with function body.
+	
 
 func _on_Ship_Shoot(bullet, muz_pos, rot, dir, ship):
 	var b = bullet.instance()
@@ -205,4 +180,3 @@ func _on_Start_Timer_Animation_animation_finished():
 	Ship2.unfreeze()
 	$Start_Timer_Animation.set_visible(false)
 	start = true
-	pass # Replace with function body.
