@@ -56,41 +56,44 @@ func _ready():
 	#####################
 	
 	$John.play()
-	$StartTimer.start()
+#	$StartTimer.start()
 	$Gol_Animation.playing = false
 	$Lightning_Animation.play("Thunder")
+	$StartTimerAnimation.set_visible(true)
+	$StartTimerAnimation.play("321GO")
 
 	
 func _process(delta):
 	
+#	GO!_frame = $StartTimerAnimation.get_frame()
 	gol_frame = $Gol_Animation.get_frame()
-	Tree_Two_One_GO = stepify($StartTimer.get_time_left(), 0.1)
+#	Tree_Two_One_GO = stepify($StartTimer.get_time_left(), 0.1)
 	
 
 	
 		
-	#Para o cronômetro durante o gol
-	if start == false: #Se for o comeco da partida PRIMEIRO 3 2 1 GO
-		if Tree_Two_One_GO == 0: 
-			$TimeNormal.start() 
-			start = true
-			$StartTimerAnimation.set_visible(false)
-	else: #Se for durante a partida qualquer 321 GO
-		if Tree_Two_One_GO == 0: 
-			$StartTimerAnimation.set_visible(false)
-	
-	#CountDown
-	if Tree_Two_One_GO == 4.5:
-		$StartTimerAnimation.play("3")
-	elif Tree_Two_One_GO == 3.2:
-		$StartTimerAnimation.play("2")
-	elif Tree_Two_One_GO == 2.2:
-		$StartTimerAnimation.play("1")
-	elif Tree_Two_One_GO == 1.1:
-		$StartTimerAnimation.play("Go")
-		$TimeNormal.set_paused(false)
-		Ship.unfreeze()
-		Ship2.unfreeze()
+#	#Para o cronômetro durante o gol
+#	if start == false: #Se for o comeco da partida PRIMEIRO 3 2 1 GO
+#		if Tree_Two_One_GO == 0: 
+#			$TimeNormal.start() 
+#			start = true
+#			$StartTimerAnimation.set_visible(false)
+#	else: #Se for durante a partida qualquer 321 GO
+#		if Tree_Two_One_GO == 0: 
+#			$StartTimerAnimation.set_visible(false)
+#
+#	#CountDown
+#	if Tree_Two_One_GO == 4.5:
+#		$StartTimerAnimation.play("3")
+#	elif Tree_Two_One_GO == 3.2:
+#		$StartTimerAnimation.play("2")
+#	elif Tree_Two_One_GO == 2.2:
+#		$StartTimerAnimation.play("1")
+#	elif Tree_Two_One_GO == 1.1:
+#		$StartTimerAnimation.play("Go")
+#		$TimeNormal.set_paused(false)
+#		Ship.unfreeze()
+#		Ship2.unfreeze()
 #		emit_signal("Unfreeze_1")
 #		emit_signal("Unfreeze_2")
 	
@@ -128,7 +131,7 @@ func _process(delta):
 		$Gol_Animation.set_frame(0)
 		$Gol_Animation.set_visible(false)
 		$StartTimerAnimation.set_visible(true)
-		$StartTimer.start()
+		$StartTimerAnimation.play("321GO")
 	
 
 		
@@ -312,3 +315,17 @@ func _on_Explode2_animation_finished():
 #######################################################
 
 
+func _on_StartTimerAnimation_animation_finished():
+	$StartTimerAnimation.set_visible(false)
+	$StartTimerAnimation.stop()
+	$StartTimerAnimation.set_frame(0)
+	Ship.unfreeze()
+	Ship2.unfreeze()
+	if start == false: #Se for o comeco da partida PRIMEIRO 3 2 1 GO
+		$TimeNormal.start() 
+		start = true
+	else: #Se for durante a partida qualquer 321 GO
+		$TimeNormal.set_paused(false)
+		
+	
+	

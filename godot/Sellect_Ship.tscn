@@ -26,11 +26,11 @@
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_1_PC.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Naves/Hope/Hope_Base2.png" type="Texture" id=25]
 [ext_resource path="res://Assets/Naves/Bella/Bella_Base3.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button2.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_START3.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/ChapaGames_Logo.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button3.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_START2.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Naves/Bella/Bella_Base2.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button1.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_START1.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Sounds/Blind Aim.mp3" type="AudioStream" id=36]
 
 [sub_resource type="StreamTexture" id=6]
@@ -52,6 +52,11 @@ animations = [ {
 "name": "Ship",
 "speed": 10.0
 }, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "Annie",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 21 ), ExtResource( 30 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "Bella",
@@ -60,11 +65,6 @@ animations = [ {
 "frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "Vi",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
-"loop": true,
-"name": "Annie",
 "speed": 10.0
 } ]
 
@@ -112,14 +112,14 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 377.0
-margin_top = 347.0
-margin_right = 1147.0
-margin_bottom = 707.0
+margin_left = 370.0
+margin_top = 388.0
+margin_right = 1210.0
+margin_bottom = 748.0
 rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 29 )
-texture_hover = ExtResource( 27 )
+texture_normal = ExtResource( 31 )
+texture_pressed = ExtResource( 27 )
+texture_hover = ExtResource( 29 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
