@@ -1,14 +1,19 @@
 extends Node2D
 
-signal Dash_PowUp
-signal Still_PowUp
-signal Shoot_PowUp
-signal Dash_PowUp2
-signal Still_PowUp2
-signal Shoot_PowUp2
-
-signal Unfreeze_1
-signal Unfreeze_2
+#signal Dash_PowUp
+#signal Still_PowUp
+#signal Shoot_PowUp
+#signal Dash_PowUp2
+#signal Still_PowUp2
+#signal Shoot_PowUp2
+var Red_ID = Global.Red_ID
+var Blue_ID = Global.Blue_ID
+var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), preload ("res://Bella.tscn"), preload ("res://Vi.tscn")]
+var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn")]
+var Ship
+var Ship2
+#signal Unfreeze_1
+#signal Unfreeze_2
 
 signal Golden_Gol
 
@@ -28,6 +33,25 @@ var Winner
 
 #onready var hud = get_node("HUD")
 func _ready():
+	
+	Global.GG_Menu = false
+	
+	#### SHIP SPAWN ####
+	
+	Ship = Red_choices[Red_ID].instance()
+	Ship.connect("Explode", self, "_on_Ship_Explode")
+	Ship.connect("Shoot", self, "_on_Ship_Shoot")
+	add_child(Ship)
+	Ship.position = Vector2(775, 256)
+	
+	Ship2 = Blue_choices[Blue_ID].instance()
+	Ship2.connect("Explode2", self, "_on_Ship2_Explode2")
+	Ship2.connect("Shoot2", self, "_on_Ship2_Shoot2")
+	add_child(Ship2)
+	Ship2.position = Vector2(135, 256)
+	
+	#####################
+	
 	$Start_Animation.set_visible(true)
 	$Sound.play()
 	$Goals.play("Gold_Shine")
@@ -38,15 +62,11 @@ func _ready():
 	PU_RandomType = PU_RandomNum123.randi_range(0,2)
 	
 	emit_signal("Golden_Gol")
-	if PU_RandomType == 0:
-		emit_signal("Dash_PowUp")
-		emit_signal("Dash_PowUp2")
-	elif PU_RandomType == 1:
-		emit_signal("Still_PowUp")
-		emit_signal("Still_PowUp2")
-	elif PU_RandomType == 2:
-		emit_signal("Shoot_PowUp")
-		emit_signal("Shoot_PowUp2")
+	Ship.power_up(PU_RandomType)
+	Ship2.power_up(PU_RandomType)
+	Ship.golden_gol()
+	Ship2.golden_gol()
+	
 func _process(delta):
 	
 	
@@ -103,8 +123,8 @@ func _process(delta):
 		$Start_Timer_Animation.play("1")
 	elif Tree_Two_One_GO == 1.1:
 		$Start_Timer_Animation.play("Go")
-		emit_signal("Unfreeze_1")
-		emit_signal("Unfreeze_2")
+		Ship.unfreeze()
+		Ship2.unfreeze()
 	
 	
 		
@@ -134,14 +154,7 @@ func _on_Red_Goal_body_entered(body):
 	$Gol_Animation.play("Gol_B")
 	$Ball.queue_free()
 	Winner = "Blue"
-	pass
 	
-
-
-
-	
-
-
 func _on_Roleta_Timer_timeout():
 	$Roleta.set_visible(false)
 	$Start_Timer_Animation.set_visible(true)

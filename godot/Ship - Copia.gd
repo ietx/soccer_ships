@@ -22,7 +22,7 @@ signal Explode2
 var ani_power_up = "OFF"
 
 func _ready():
-	Freeze = false
+#	Freeze = false
 	inicial_position = Vector2(135, 256)
 #	get_global_transform().origin
 	inicial_rot = get_rotation()
@@ -30,6 +30,7 @@ func _ready():
 func reset_pos():
 	sleeping = true
 	reset = true
+	angel = false
 	
 func _physics_process(delta):
 	
@@ -120,22 +121,22 @@ func power_up(type):
 
 ####################
 
-func _on_Golden_Gol_Golden_Gol():
+func golden_gol():
 	GG = true
 	
 func freeze():
 	Freeze = true
 	if Freeze == true:
 		sleeping = true
-		if Input.is_action_pressed("Thrust"):
+		if Input.is_action_pressed("Seta"):
 				thrust = Vector2(0, 0)
 				$Sprite.play("Still")
-		elif Input.is_action_pressed("Break"):
+		elif Input.is_action_pressed("Break_2"):
 				thrust = Vector2(0,  0)
 				$Sprite.play("Still")
-		if Input.is_action_pressed("Rotate_Right"):
+		if Input.is_action_pressed("Rot_R_2"):
 			rot = 0
-		if Input.is_action_pressed("Rotate_Left"):
+		if Input.is_action_pressed("Rto_L_2"):
 			rot = 0
 
 func unfreeze():
@@ -164,7 +165,7 @@ func _on_Golden_Gol_Unfreeze_2():
 #		rot = 0
 #
 #
-func _on_Red_Wins_Unfreeze_2():
+func red_wins_unfreeze():
 	Freeze = false
 	#POSSIBILITAM DETECTAR COLISÕES
 	set_max_contacts_reported(10)
@@ -185,9 +186,8 @@ func _on_Explode_animation_finished():
 	pass # Replace with function body.
 
 
-func _on_Blue_Wins_Unfreeze_2():
+func blue_wins_unfreeze():
 	Freeze = false
-	pass # Replace with function body.
 
 
 func _on_Angel_Timer_timeout():

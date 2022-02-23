@@ -1,8 +1,6 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://GG_ParallaxBackground.gd" type="Script" id=1]
-[ext_resource path="res://Ship.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Ship - Copia.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Blue_Wins.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fundos/Win_Menu/BG_Preto.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fundos/Win_Menu/Blue_Wins_Stars_2.png" type="Texture" id=6]
@@ -64,12 +62,6 @@ shape = SubResource( 3 )
 position = Vector2( 1991.07, 1940.71 )
 shape = SubResource( 4 )
 
-[node name="Ship" parent="." instance=ExtResource( 2 )]
-position = Vector2( 775, 256 )
-
-[node name="Ship 2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 135, 256 )
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
 one_shot = true
@@ -130,6 +122,4 @@ centered = false
 [node name="Stage" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 
-[connection signal="Unfreeze_1" from="." to="Ship" method="_on_Blue_Wins_Unfreeze_1"]
-[connection signal="Unfreeze_2" from="." to="Ship 2" method="_on_Blue_Wins_Unfreeze_2"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

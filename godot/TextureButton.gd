@@ -17,5 +17,5 @@ func _ready():
 
 
 func _on_TextureButton_pressed():
-	get_tree().change_scene("res://Arena.tscn")
+	get_tree().change_scene("res://Sellect_Ship.tscn")
 	

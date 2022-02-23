@@ -1,0 +1,204 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base1.png" type="Texture" id=3]
+[ext_resource path="res://ParallaxBackground.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_2_PC.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_3_PC.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_Frames+Text.png" type="Texture" id=8]
+[ext_resource path="res://Sellect_Ship.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Naves/Tamir/Tamir_Base1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Naves/Tamir/Tamir_Base2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Naves/Tamir/Tamir_Base3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Naves/Vi/Vi_Base2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Naves/Vi/Vi_Base1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Naves/Hope/Hope_Base3.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Naves/Vi/Vi_Base3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Naves/Hope/Hope_Base1.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Naves/Bella/Bella_Base1.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Planetas_PC.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Esttrelas_PC.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_1_PC.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Naves/Hope/Hope_Base2.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Naves/Bella/Bella_Base3.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button2.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Menus/Menu_Inicial/ChapaGames_Logo.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button3.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Naves/Bella/Bella_Base2.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button1.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Sounds/Blind Aim.mp3" type="AudioStream" id=36]
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/Annie_Base1.png-e8ce21d487c116190e753f06de553012.stex"
+
+[sub_resource type="StreamTexture" id=7]
+flags = 4
+load_path = "res://.import/Annie_Base2.png-298e0ab832aa38e740726a5a781fc885.stex"
+
+[sub_resource type="StreamTexture" id=8]
+flags = 4
+load_path = "res://.import/Annie_Base3.png-c42db9a20a962c5c5257705c918c36f4.stex"
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Ship",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 30 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "Bella",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "Vi",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "Annie",
+"speed": 10.0
+} ]
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/Pearl_Base1.png-86476c7c57f19d6804364bfc98ba5c7e.stex"
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://.import/Pearl_Base2.png-3e356fd4f9f4743df50bcd3ba087ebc3.stex"
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/Pearl_Base3.png-8947ae3471c537060fb895542b39958e.stex"
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Ship2",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 25 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Hope",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Tamir",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "Pearl",
+"speed": 10.0
+} ]
+
+[node name="Sellect_Ship" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 377.0
+margin_top = 347.0
+margin_right = 1147.0
+margin_bottom = 707.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 32 )
+texture_pressed = ExtResource( 29 )
+texture_hover = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 4 )
+
+[node name="Space" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Space"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Stars"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 23 )
+centered = false
+
+[node name="PLanets" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/PLanets"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 22 )
+centered = false
+
+[node name="Nebulosa1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa1"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 24 )
+centered = false
+
+[node name="Nebulosa2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa2"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Nebulosa3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa3"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Logo" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Chapa_Gamens" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 28 )
+centered = false
+
+[node name="Blind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+
+[node name="Red_Sellect" type="AnimatedSprite" parent="."]
+position = Vector2( 523, 192 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+animation = "Vi"
+centered = false
+
+[node name="Blue_Sellect" type="AnimatedSprite" parent="."]
+position = Vector2( 259, 192 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 5 )
+animation = "Ship2"
+centered = false
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

@@ -23,7 +23,7 @@ signal Explode
 var ani_power_up = "OFF"
 
 func _ready():
-	Freeze = false
+#	Freeze = false
 
 	inicial_position = Vector2(775, 256)
 #	get_global_transform().origin
@@ -33,6 +33,7 @@ func _ready():
 func reset_pos():
 	sleeping = true
 	reset = true
+	angel = false
 	
 func _physics_process(delta):
 	
@@ -129,9 +130,8 @@ func power_up(type):
 	
 #################################
 
-func _on_Golden_Gol_Golden_Gol():
+func golden_gol():
 	GG = true
-
 
 func freeze():
 	Freeze = true
@@ -176,7 +176,7 @@ func _on_Golden_Gol_Unfreeze_1():
 ##		sleeping = true
 #
 #
-func _on_Red_Wins_Unfreeze_1():
+func red_wins_unfreeze():
 	Freeze = false
 	pass # Replace with function body.
 
@@ -188,7 +188,7 @@ func _on_Ship_body_entered(body):
 		$Explode.play("Explode")
 
 
-func _on_Blue_Wins_Unfreeze_1():
+func blue_wins_unfreeze():
 	Freeze = false
 	set_max_contacts_reported(10)
 	set_contact_monitor(true)

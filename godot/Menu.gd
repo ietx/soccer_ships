@@ -35,3 +35,9 @@ func _process(delta):
 		$Ships2/Ship3/Animation.play("Ship-X")
 		$Ships2/Ship4/Animation.play("Ship-X")
 		$Ships2/Ship5/Animation.play("Ship-X")
+
+
+func _on_GG_Button_pressed():
+	Global.GG_Menu = true
+	get_tree().change_scene("res://Sellect_Ship.tscn")
+	

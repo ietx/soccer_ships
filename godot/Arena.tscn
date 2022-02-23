@@ -342,7 +342,6 @@ animations = [ {
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 6 )
-Blue_ID = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource( 78 )

@@ -1,18 +1,12 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Ship.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Naves/Red/Stop/SS_Phoenix_Red_Base_Stop2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Naves/Red/Stop/SS_Phoenix_Red_Base_Stop3.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Naves/Red/Base/SS_Phoenix_Red_Base_Boost2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Naves/Red/Base/SS_Phoenix_Red_Base_Boost3.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base3.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Naves/Red/Base/SS_Phoenix_Red_Base_Boost1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Naves/Red/Stop/SS_Phoenix_Red_Base_Stop1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Naves/Red/Ré/SS_Phoenix_Red_Base_Ré3.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base1.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base2.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Naves/Red/Ré/SS_Phoenix_Red_Base_Ré2.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Naves/Red/Ré/SS_Phoenix_Red_Base_Ré1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Naves/Bella/Bella_Ré2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Naves/Bella/Bella_Base1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Naves/Bella/Bella_Ré3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Naves/Bella/Bella_Base3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Naves/Bella/Bella_Base2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Naves/Bella/Bella_Ré1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/FX/Explosion_BLUE5.png" type="Texture" id=14]
 [ext_resource path="res://Assets/FX/Explosion_BLUE1.png" type="Texture" id=15]
 [ext_resource path="res://Assets/FX/Explosion_BLUE3.png" type="Texture" id=16]
@@ -30,27 +24,27 @@ bounce = 0.5
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "Stop",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "Dash",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Still",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Thrust",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Break",
 "speed": 10.0
@@ -64,8 +58,8 @@ animations = [ {
 [sub_resource type="CanvasItemMaterial" id=4]
 
 [sub_resource type="CapsuleShape2D" id=7]
-radius = 8.19972
-height = 21.6005
+radius = 14.0
+height = 14.0
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
@@ -81,7 +75,7 @@ collision_mask = 54
 physics_material_override = SubResource( 6 )
 gravity_scale = 0.0
 script = ExtResource( 1 )
-engine_thrust = -160
+engine_thrust = -260
 spin_thrust = 2200
 
 [node name="Angel_Timer" type="Timer" parent="."]
@@ -96,17 +90,17 @@ animation = "Still"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( -2.88486e-05, -8 )
+position = Vector2( -7.62939e-06, -8 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( 16, 6.99994 )
+position = Vector2( 10, 7.99999 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( -16, 7.00006 )
+position = Vector2( -11, 8.00001 )
 shape = SubResource( 7 )
 
 [node name="Explode" type="AnimatedSprite" parent="."]
@@ -116,7 +110,7 @@ frames = SubResource( 8 )
 animation = "Explode"
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( -3.47616e-05, -36 )
+position = Vector2( -3.8147e-05, -39 )
 
 [connection signal="PU_Used_Red" from="." to="." method="_on_Ship_PU_Used_Red"]
 [connection signal="body_entered" from="." to="." method="_on_Ship_body_entered"]

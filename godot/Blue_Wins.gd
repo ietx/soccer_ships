@@ -1,23 +1,28 @@
 extends Node2D
 
-signal Unfreeze_1
-signal Unfreeze_2
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var Red_ID = Global.Red_ID
+var Blue_ID = Global.Blue_ID
+var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), preload ("res://Bella.tscn"), preload ("res://Vi.tscn")]
+var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn")]
+var Ship
+var Ship2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Stage.play()
-	emit_signal("Unfreeze_1")
-	emit_signal("Unfreeze_2")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	
+#### SHIP SPAWN ####
+	
+	Ship = Red_choices[Red_ID].instance()
+	add_child(Ship)
+	Ship.position = Vector2(775, 256)
+	
+	Ship2 = Blue_choices[Blue_ID].instance()
+	add_child(Ship2)
+	Ship2.position = Vector2(135, 256)
+	
+	Ship.blue_wins_unfreeze()
+	Ship2.blue_wins_unfreeze()
 
 func _on_Timer_timeout():
 	get_tree().change_scene("res://Menu.tscn")
