@@ -58,6 +58,11 @@ animations = [ {
 "name": "Ship",
 "speed": 10.0
 }, {
+"frames": [  ],
+"loop": true,
+"name": "Betty",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "Annie",
@@ -93,14 +98,19 @@ load_path = "res://.import/Pearl_Base3.png-8947ae3471c537060fb895542b39958e.stex
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Ship2",
+"speed": 10.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Sting",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 20 ), ExtResource( 25 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "Hope",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "Tamir",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
@@ -108,9 +118,9 @@ animations = [ {
 "name": "Pearl",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
-"name": "Ship2",
+"name": "Tamir",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 38 ), ExtResource( 35 ), ExtResource( 37 ) ],
@@ -207,14 +217,14 @@ stream = ExtResource( 36 )
 position = Vector2( 523, 192 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
-animation = "Mey"
+animation = "Betty"
 centered = false
 
 [node name="Blue_Sellect" type="AnimatedSprite" parent="."]
 position = Vector2( 259, 192 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 5 )
-animation = "Wey"
+animation = "Sting"
 centered = false
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
