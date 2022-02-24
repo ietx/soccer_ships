@@ -1,18 +1,12 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Assets/Naves/Blue/Ré/SS_Spike_Blue_Ré3.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Naves/Blue/Stop/SS_Spike_Blue_Stop2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Naves/Blue/Boost/SS_Spike_Blue_Boost2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Naves/Sting/Sting_Base3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Naves/Sting/Sting_Base2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Naves/Sting/Sting_Ré2.png" type="Texture" id=3]
 [ext_resource path="res://Ship - Copia.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base2.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base3.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Naves/Blue/Stop/SS_Spike_Blue_Stop3.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Naves/Blue/Boost/SS_Spike_Blue_Boost1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Naves/Blue/Ré/SS_Spike_Blue_Ré2.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base1.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Naves/Blue/Boost/SS_Spike_Blue_Boost3.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Naves/Blue/Ré/SS_Spike_Blue_Ré1.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Naves/Blue/Stop/SS_Spike_Blue_Stop1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Naves/Sting/Sting_Ré3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Naves/Sting/Sting_Base1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Naves/Sting/Sting_Ré1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/FX/Explosion_BLUE4.png" type="Texture" id=14]
 [ext_resource path="res://Assets/FX/Explosion_BLUE5.png" type="Texture" id=15]
 [ext_resource path="res://Assets/FX/Explosion_BLUE1.png" type="Texture" id=16]
@@ -25,27 +19,27 @@ bounce = 0.5
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "Stop",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Thrust",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "Dash",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Still",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Break",
 "speed": 10.0
@@ -59,8 +53,8 @@ animations = [ {
 [sub_resource type="CanvasItemMaterial" id=4]
 
 [sub_resource type="CapsuleShape2D" id=7]
-radius = 7.99998
-height = 40.0
+radius = 6.99997
+height = 16.0
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
@@ -70,6 +64,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 6.41416, 19.8492 )
+
 [node name="Ship 2" type="RigidBody2D"]
 rotation = 1.5708
 collision_layer = 16
@@ -78,8 +75,8 @@ mass = 1.33
 physics_material_override = SubResource( 6 )
 gravity_scale = 0.0
 script = ExtResource( 4 )
-engine_thrust = 180
-spin_thrust = 2200
+engine_thrust = 160
+spin_thrust = 3400
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 2.53518e-06, -1 )
@@ -90,13 +87,7 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( 2.53518e-06, -1 )
-shape = SubResource( 7 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-material = SubResource( 4 )
-position = Vector2( 2.28882e-05, -9 )
-rotation = 1.5708
+position = Vector2( 5.34058e-05, 15 )
 shape = SubResource( 7 )
 
 [node name="Explode" type="AnimatedSprite" parent="."]
@@ -113,6 +104,18 @@ position = Vector2( -0.00013032, -36 )
 [node name="Angel_Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -12.5711, -11.5 )
+rotation = 0.785398
+scale = Vector2( 1, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 12.571, -11.5 )
+rotation = -0.785398
+scale = Vector2( 1, 1 )
+shape = SubResource( 9 )
 
 [connection signal="body_entered" from="." to="." method="_on_Ship_2_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_Ship_2_body_shape_entered"]
