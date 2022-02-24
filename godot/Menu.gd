@@ -39,5 +39,5 @@ func _process(delta):
 
 func _on_GG_Button_pressed():
 	Global.GG_Menu = true
-	get_tree().change_scene("res://Sellect_Ship.tscn")
+	get_tree().change_scene("res://Sellect_Ship GG.tscn")
 	

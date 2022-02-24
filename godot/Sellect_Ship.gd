@@ -78,3 +78,10 @@ func _on_TextureButton_pressed():
 	else:
 		get_tree().change_scene("res://Arena.tscn")
 	pass # Replace with function body.
+
+func _on_Back_pressed():
+	get_tree().change_scene("res://Menu.tscn")
+
+func _on_GoldenBack_button_down():
+	Global.GG_Menu = false
+	get_tree().change_scene("res://Menu.tscn")
