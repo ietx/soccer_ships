@@ -150,14 +150,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=24]
 animations = [ {
-"frames": [ ExtResource( 103 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 102 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 103 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 99 ), ExtResource( 100 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ) ],
@@ -181,14 +181,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 54 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 57 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 40 ) ],
-"loop": false,
-"name": "Gol_R",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 21 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 15 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 16 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 18 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 36 ) ],
 "loop": false,
 "name": "Gol_B",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 54 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 57 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "Gol_R",
 "speed": 12.0
 } ]
 
@@ -236,14 +236,14 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 89 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 90 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 87 ) ],
@@ -259,14 +259,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 89 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 90 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 87 ) ],
@@ -645,7 +645,7 @@ animation = "321GO"
 [connection signal="timeout" from="TimeNormal" to="." method="_on_TimeNormal_timeout"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
-[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]
 [connection signal="animation_finished" from="Start_Timer_Animation" to="." method="_on_Start_Timer_Animation_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=2]
+[gd_scene load_steps=162 format=2]
 
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=2]
@@ -133,6 +133,7 @@
 [ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_GOLDENGOL2.png" type="Texture" id=131]
 [ext_resource path="res://Assets/321/Silver/321_Silver19.png" type="Texture" id=132]
 [ext_resource path="res://Assets/321/Silver/321_Silver18.png" type="Texture" id=133]
+[ext_resource path="res://Pause.gd" type="Script" id=134]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
@@ -221,14 +222,14 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 79 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
@@ -244,14 +245,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 79 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
@@ -300,14 +301,14 @@ radius = 11.0
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 54 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 57 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 40 ) ],
-"loop": false,
-"name": "Gol_R",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 21 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 15 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 16 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 18 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 36 ) ],
 "loop": false,
 "name": "Gol_B",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 54 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 57 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "Gol_R",
 "speed": 12.0
 } ]
 
@@ -699,8 +700,19 @@ animation = "Flash"
 centered = false
 
 [node name="Pause" type="Control" parent="."]
+pause_mode = 2
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 134 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+margin_right = 910.0
+margin_bottom = 512.0
+color = Color( 0.117647, 0, 0.176471, 0.709804 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -725,8 +737,8 @@ __meta__ = {
 [connection signal="body_entered" from="Shine_Star/Green_Shine" to="." method="_on_Green_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Red_Shine" to="." method="_on_Red_Shine_body_entered"]
 [connection signal="body_entered" from="Shine_Star/Blue_Shine" to="." method="_on_Blue_Shine_body_entered"]
-[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_PU_timeout"]
+[connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="Gol_Animation" to="." method="_on_Gol_Animation_animation_finished"]
 [connection signal="frame_changed" from="Gol_Animation" to="." method="_on_Gol_Animation_frame_changed"]
 [connection signal="animation_finished" from="StartTimerAnimation" to="." method="_on_StartTimerAnimation_animation_finished"]

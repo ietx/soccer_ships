@@ -1,13 +1,13 @@
 [gd_scene load_steps=56 format=2]
 
-[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=1]
+[ext_resource path="res://GG_ParallaxBackground.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base3.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base1.png" type="Texture" id=3]
-[ext_resource path="res://ParallaxBackground.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_START_GOLDEN2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_2_PC.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_3_PC.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base2.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_Frames+Text.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_START_GOLDEN1.png" type="Texture" id=8]
 [ext_resource path="res://Sellect_Ship.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base1.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Naves/Red/Boost/SS_Phoenix_Red_Base3.png" type="Texture" id=11]
@@ -22,15 +22,15 @@
 [ext_resource path="res://Assets/Naves/Hope/Hope_Base1.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Naves/Bella/Bella_Base1.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Planetas_PC.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Esttrelas_PC.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_Frames+Text_GOLDEN.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_1_PC.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Naves/Hope/Hope_Base2.png" type="Texture" id=25]
 [ext_resource path="res://Assets/Naves/Bella/Bella_Base3.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_START3.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_START_GOLDEN3.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/ChapaGames_Logo.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_START2.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_Stars_1.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Naves/Bella/Bella_Base2.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Menus/Seleção_Naves/SS_Seleção_Naves_START1.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_Stars_2.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Naves/Mey/Mey_Base2.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Naves/Mey/Mey_Base3.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Naves/Mey/Mey_Base1.png" type="Texture" id=34]
@@ -44,9 +44,9 @@
 [ext_resource path="res://Assets/Naves/Betty/Betty_Base2.png" type="Texture" id=42]
 [ext_resource path="res://Assets/Naves/Betty/Betty_Base3.png" type="Texture" id=43]
 [ext_resource path="res://Assets/Naves/Sting/Sting_Base1.png" type="Texture" id=44]
-[ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back3.png" type="Texture" id=45]
-[ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back1.png" type="Texture" id=46]
-[ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back2.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back_GOLDEN3.png" type="Texture" id=45]
+[ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back_GOLDEN1.png" type="Texture" id=46]
+[ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back_GOLDEN2.png" type="Texture" id=47]
 
 [sub_resource type="StreamTexture" id=6]
 flags = 4
@@ -141,6 +141,7 @@ animations = [ {
 [node name="Sellect_Ship" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -640, -57 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,65 +153,70 @@ margin_top = 388.0
 margin_right = 1210.0
 margin_bottom = 748.0
 rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 31 )
+texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 27 )
-texture_hover = ExtResource( 29 )
+texture_hover = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource( 4 )
+[node name="GG_ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 1 )
 
-[node name="Space" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Space"]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 1 )
-centered = false
-
-[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Space" type="ParallaxLayer" parent="GG_ParallaxBackground"]
 motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Stars"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Space"]
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 23 )
+texture = ExtResource( 29 )
 centered = false
 
-[node name="PLanets" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Stars" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/PLanets"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Stars"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 31 )
+centered = false
+
+[node name="PLanets" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/PLanets"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 22 )
 centered = false
 
-[node name="Nebulosa1" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Nebulosa1" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa1"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Nebulosa1"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 24 )
 centered = false
 
-[node name="Nebulosa2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Nebulosa2" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa2"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Nebulosa2"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="Nebulosa3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Nebulosa3" type="ParallaxLayer" parent="GG_ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 910, 512 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulosa3"]
+[node name="Sprite" type="Sprite" parent="GG_ParallaxBackground/Nebulosa3"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
 centered = false
 
 [node name="Logo" type="Sprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 8 )
+texture = ExtResource( 23 )
 centered = false
 
 [node name="Chapa_Gamens" type="Sprite" parent="."]
@@ -236,18 +242,18 @@ frames = SubResource( 5 )
 animation = "Sting"
 centered = false
 
-[node name="Back" type="TextureButton" parent="."]
+[node name="GoldenBack" type="TextureButton" parent="."]
 margin_left = 10.0
 margin_top = 430.0
 margin_right = 380.0
 margin_bottom = 790.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 46 )
-texture_pressed = ExtResource( 47 )
-texture_hover = ExtResource( 45 )
+texture_pressed = ExtResource( 45 )
+texture_hover = ExtResource( 47 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
-[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="button_down" from="GoldenBack" to="." method="_on_GoldenBack_button_down"]
