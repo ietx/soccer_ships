@@ -317,5 +317,4 @@ func _on_StartTimerAnimation_animation_finished():
 	else: #Se for durante a partida qualquer 321 GO
 		$TimeNormal.set_paused(false)
 		
-	
-	
+
