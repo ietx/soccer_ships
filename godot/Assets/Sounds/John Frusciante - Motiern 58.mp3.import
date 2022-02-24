@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/John Frusciante - Motiern 58.mp3-7cabb95b1186d9807a78e34cde98c9a2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/John Frusciante - Motiern 58.mp3"
+dest_files=[ "res://.import/John Frusciante - Motiern 58.mp3-7cabb95b1186d9807a78e34cde98c9a2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
