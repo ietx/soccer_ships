@@ -1,12 +1,10 @@
-[gd_scene load_steps=168 format=2]
+[gd_scene load_steps=165 format=2]
 
-[ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_HUB_PC.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_PC_GOL.png" type="Texture" id=4]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Arena.gd" type="Script" id=6]
-[ext_resource path="res://Ship - Copia.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Fonts/Pixel/FreePixel.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Ball.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul1.png" type="Texture" id=10]
@@ -140,10 +138,6 @@
 [ext_resource path="res://Assets/Menus/Menu_Pause/Botão_Restart3.png" type="Texture" id=138]
 [ext_resource path="res://Assets/Menus/Menu_Pause/Botão_Restart2.png" type="Texture" id=139]
 [ext_resource path="res://Assets/Menus/Menu_Pause/Botão_Quit1.png" type="Texture" id=140]
-
-[sub_resource type="PhysicsMaterial" id=3]
-friction = 0.0
-bounce = 0.5
 
 [sub_resource type="SpriteFrames" id=24]
 animations = [ {
@@ -409,14 +403,7 @@ centered = false
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="Ship" parent="." instance=ExtResource( 1 )]
-position = Vector2( 848, -60 )
-physics_material_override = SubResource( 3 )
-power_up = 1
-
-[node name="Ship2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 136, -51 )
-collision_layer = 1
+[node name="Ships_Node" type="Node2D" parent="."]
 
 [node name="Explode" type="AnimatedSprite" parent="."]
 visible = false
@@ -743,16 +730,7 @@ texture_normal = ExtResource( 136 )
 texture_pressed = ExtResource( 138 )
 texture_hover = ExtResource( 139 )
 
-[connection signal="reset" from="." to="Ship" method="_on_Arena_reset"]
-[connection signal="reset" from="." to="Ship2" method="_on_Arena_reset"]
 [connection signal="reset" from="." to="Ball" method="_on_Arena_reset"]
-[connection signal="Explode" from="Ship" to="." method="_on_Ship_Explode"]
-[connection signal="PU_Used_Red" from="Ship" to="." method="_on_Ship_PU_Used_Red"]
-[connection signal="Shoot" from="Ship" to="." method="_on_Ship_Shoot"]
-[connection signal="body_entered" from="Ship" to="." method="_on_Ship_body_entered"]
-[connection signal="Explode2" from="Ship2" to="." method="_on_Ship2_Explode2"]
-[connection signal="PU_Used_Blue" from="Ship2" to="." method="_on_Ship2_PU_Used_Blue"]
-[connection signal="Shoot2" from="Ship2" to="." method="_on_Ship2_Shoot2"]
 [connection signal="animation_finished" from="Explode" to="." method="_on_Explode_animation_finished"]
 [connection signal="animation_finished" from="Explode2" to="." method="_on_Explode2_animation_finished"]
 [connection signal="body_entered" from="Ball" to="." method="_on_Ball_body_entered"]

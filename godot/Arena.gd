@@ -34,7 +34,6 @@ var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), pre
 var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn"), preload ("res://Wey.tscn"), preload("res://Sting.tscn")]
 var Ship
 var Ship2
-
 func _ready():
 	
 	#### SHIP SPAWN ####
@@ -43,14 +42,15 @@ func _ready():
 	Ship.connect("PU_Used_Red", self, "_on_Ship_PU_Used_Red")
 	Ship.connect("Explode", self, "_on_Ship_Explode")
 	Ship.connect("Shoot", self, "_on_Ship_Shoot")
-	add_child(Ship)
+	$Ships_Node.add_child(Ship)
 	Ship.position = Vector2(775, 256)
+	
 	
 	Ship2 = Blue_choices[Blue_ID].instance()
 	Ship2.connect("PU_Used_Blue", self, "_on_Ship2_PU_Used_Blue")
 	Ship2.connect("Explode2", self, "_on_Ship2_Explode2")
 	Ship2.connect("Shoot2", self, "_on_Ship2_Shoot2")
-	add_child(Ship2)
+	$Ships_Node.add_child(Ship2)
 	Ship2.position = Vector2(135, 256)
 	
 	#####################
