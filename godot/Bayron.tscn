@@ -29,10 +29,15 @@ animations = [ {
 "name": "Stop",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": false,
-"name": "Dash",
-"speed": 12.0
+"frames": [ ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Explode",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Thrust",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
@@ -44,15 +49,10 @@ animations = [ {
 "name": "Still",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Thrust",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "Explode",
-"speed": 5.0
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "Dash",
+"speed": 12.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -80,7 +80,7 @@ collision_mask = 54
 physics_material_override = SubResource( 6 )
 gravity_scale = 0.0
 script = ExtResource( 1 )
-engine_thrust = -130
+engine_thrust = -110
 spin_thrust = 2400
 
 [node name="Angel_Timer" type="Timer" parent="."]
@@ -88,37 +88,37 @@ wait_time = 10.0
 one_shot = true
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( -0.199841, -0.800163 )
+position = Vector2( -5.72205e-05, 5.00007 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
 animation = "Still"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( 34, -13 )
+position = Vector2( 34.1998, -7.19977 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( -34, -13 )
+position = Vector2( -33.8002, -7.19978 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( 0, -1 )
+position = Vector2( 0.199787, 4.80023 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.23978e-05, -13 )
+position = Vector2( 0.199768, -7.19977 )
 shape = SubResource( 9 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
-position = Vector2( 20, -11 )
+position = Vector2( 20.1998, -5.19977 )
 rotation = -0.070937
 shape = SubResource( 10 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
-position = Vector2( -20, -11 )
+position = Vector2( -19.8002, -5.19977 )
 rotation = 0.141372
 shape = SubResource( 10 )
 
