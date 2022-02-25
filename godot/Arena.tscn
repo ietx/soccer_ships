@@ -593,16 +593,18 @@ reset_on_save = false
 anims/Blink_Red = SubResource( 11 )
 
 [node name="PU_Light_Blue" type="AnimatedSprite" parent="HUD"]
-position = Vector2( 361, 23 )
+position = Vector2( 338, 18 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 20 )
 animation = "Off"
+centered = false
 
 [node name="PU_Light_Red" type="AnimatedSprite" parent="HUD"]
-position = Vector2( 537, 23 )
+position = Vector2( 516, 18 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 21 )
 animation = "Off"
+centered = false
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 4.8

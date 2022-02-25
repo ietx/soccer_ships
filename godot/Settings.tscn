@@ -1,11 +1,14 @@
 [gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Menus/Menu_Settings/Botão_Controls2.png" type="Texture" id=2]
+[ext_resource path="res://Settings.gd" type="Script" id=3]
 [ext_resource path="res://ParallaxBackground.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_2_PC.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_3_PC.png" type="Texture" id=6]
 [ext_resource path="res://TextureButton.gd" type="Script" id=7]
-[ext_resource path="res://Menu.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Menus/Menu_Settings/Botão_On_Off2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Menus/Menu_Settings/Botão_On_Off1.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Planetas_PC.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Esttrelas_PC.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_1_PC.png" type="Texture" id=24]
@@ -15,20 +18,17 @@
 [ext_resource path="res://Assets/Menus/Menu_Inicial/ChapaGames_Logo.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button3.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/SS_Logo_Novo_2.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/How_To_Button1.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button1.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/How_To_Button2.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/How_To_Button3.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/Settings_Button1.png" type="Texture" id=35]
 [ext_resource path="res://Assets/Sounds/Blind Aim.mp3" type="AudioStream" id=36]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/Golden_Button3.png" type="Texture" id=37]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/Golden_Button1.png" type="Texture" id=38]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/Golden_Button2.png" type="Texture" id=39]
 
-[node name="Menu" type="Control"]
+[node name="Setting" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 9 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -39,7 +39,7 @@ margin_top = 320.0
 margin_right = 1056.0
 margin_bottom = 680.0
 rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 32 )
+texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 29 )
 texture_hover = ExtResource( 27 )
 script = ExtResource( 7 )
@@ -48,13 +48,13 @@ __meta__ = {
 }
 
 [node name="How_to_Plat_Button" type="TextureButton" parent="."]
-margin_left = 458.0
-margin_top = 320.0
-margin_right = 828.0
-margin_bottom = 680.0
+margin_left = 652.0
+margin_top = 335.0
+margin_right = 1272.0
+margin_bottom = 695.0
 rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 31 )
-texture_pressed = ExtResource( 34 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 33 )
 __meta__ = {
 "_edit_use_anchors_": false

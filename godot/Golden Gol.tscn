@@ -577,16 +577,18 @@ __meta__ = {
 }
 
 [node name="PU_Light_Blue" type="AnimatedSprite" parent="HUD"]
-position = Vector2( 357, 27 )
+position = Vector2( 338, 18 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 20 )
 animation = "Off"
+centered = false
 
 [node name="PU_Light_Red" type="AnimatedSprite" parent="HUD"]
-position = Vector2( 540, 27 )
+position = Vector2( 517, 18 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 21 )
 animation = "Off"
+centered = false
 
 [node name="TimeNormal" type="Timer" parent="."]
 wait_time = 3.0
