@@ -1,29 +1,23 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Menus/Menu_Settings/Botão_Controls2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Menus/Menu_Settings/Botão_Controls1.png" type="Texture" id=2]
 [ext_resource path="res://Settings.gd" type="Script" id=3]
 [ext_resource path="res://ParallaxBackground.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_2_PC.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_3_PC.png" type="Texture" id=6]
-[ext_resource path="res://TextureButton.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Menus/Menu_Settings/SS_Settings_Menu_Caixas1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Menus/Menu_Settings/Botão_On_Off2.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Menus/Menu_Settings/Botão_On_Off1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Menus/Menu_Settings/Botão_Controls3.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sounds/John Frusciante - Motiern 58.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Planetas_PC.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Esttrelas_PC.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_1_PC.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Settings_Button3.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Settings_Button2.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button2.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/ChapaGames_Logo.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Play_Button3.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/SS_Logo_Novo_2.png" type="Texture" id=30]
 [ext_resource path="res://Assets/Menus/Menu_Inicial/How_To_Button2.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Settings_Button1.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Sounds/Blind Aim.mp3" type="AudioStream" id=36]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Golden_Button3.png" type="Texture" id=37]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Golden_Button1.png" type="Texture" id=38]
-[ext_resource path="res://Assets/Menus/Menu_Inicial/Golden_Button2.png" type="Texture" id=39]
 
 [node name="Setting" type="Control"]
 anchor_right = 1.0
@@ -33,25 +27,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 286.0
-margin_top = 320.0
-margin_right = 1056.0
-margin_bottom = 680.0
+[node name="Controls" type="TextureButton" parent="."]
+margin_left = 296.0
+margin_top = 368.0
+margin_right = 1386.0
+margin_bottom = 728.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 29 )
-texture_hover = ExtResource( 27 )
-script = ExtResource( 7 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="How_to_Plat_Button" type="TextureButton" parent="."]
-margin_left = 652.0
-margin_top = 335.0
-margin_right = 1272.0
-margin_bottom = 695.0
+visible = false
+margin_left = 499.0
+margin_top = 183.0
+margin_right = 1119.0
+margin_bottom = 543.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 8 )
@@ -60,15 +54,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Setting_Button" type="TextureButton" parent="."]
-margin_left = 550.0
-margin_top = 320.0
-margin_right = 920.0
-margin_bottom = 680.0
+[node name="Back" type="TextureButton" parent="."]
+margin_left = 532.0
+margin_top = 368.0
+margin_right = 902.0
+margin_bottom = 728.0
 rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 35 )
-texture_pressed = ExtResource( 25 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -124,29 +118,11 @@ centered = false
 
 [node name="Logo" type="Sprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 30 )
-centered = false
-
-[node name="Chapa_Gamens" type="Sprite" parent="."]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 28 )
+texture = ExtResource( 7 )
 centered = false
 
 [node name="Blind" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 36 )
+stream = ExtResource( 14 )
 
-[node name="GG_Button" type="TextureButton" parent="."]
-margin_left = 846.0
-margin_top = 446.0
-margin_right = 1116.0
-margin_bottom = 716.0
-rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 38 )
-texture_pressed = ExtResource( 37 )
-texture_hover = ExtResource( 39 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_TextureButton_pressed"]
-[connection signal="pressed" from="GG_Button" to="." method="_on_GG_Button_pressed"]
+[connection signal="pressed" from="Controls" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

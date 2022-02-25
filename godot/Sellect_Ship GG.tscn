@@ -35,7 +35,7 @@
 [ext_resource path="res://Assets/Naves/Mey/Mey_Base3.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Naves/Mey/Mey_Base1.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Naves/Wey/Wey_Base2.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Sounds/Blind Aim.mp3" type="AudioStream" id=36]
+[ext_resource path="res://Assets/Sounds/John Frusciante - Motiern 58.mp3" type="AudioStream" id=36]
 [ext_resource path="res://Assets/Naves/Wey/Wey_Base3.png" type="Texture" id=37]
 [ext_resource path="res://Assets/Naves/Wey/Wey_Base1.png" type="Texture" id=38]
 [ext_resource path="res://Assets/Naves/Sting/Sting_Base3.png" type="Texture" id=39]
