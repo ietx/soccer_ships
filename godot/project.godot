@@ -96,6 +96,7 @@ Pause={
 2d_physics/layer_5="Ship2"
 2d_physics/layer_6="Shoot"
 2d_physics/layer_7="Power_Up"
+2d_physics/layer_8="Ball_Zone"
 
 [physics]
 

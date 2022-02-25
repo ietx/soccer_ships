@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://GG_ParallaxBackground.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base3.png" type="Texture" id=2]
@@ -47,6 +47,12 @@
 [ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back_GOLDEN3.png" type="Texture" id=45]
 [ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back_GOLDEN1.png" type="Texture" id=46]
 [ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back_GOLDEN2.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Naves/Bobby/Bobby_Base1.png" type="Texture" id=48]
+[ext_resource path="res://Assets/Naves/Bobby/Bobby_Base2.png" type="Texture" id=49]
+[ext_resource path="res://Assets/Naves/Bobby/Bobby_Base3.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Naves/Jinx/Jinx_Base2.png" type="Texture" id=51]
+[ext_resource path="res://Assets/Naves/Jinx/Jinx_Base1.png" type="Texture" id=52]
+[ext_resource path="res://Assets/Naves/Jinx/Jinx_Base3.png" type="Texture" id=53]
 
 [sub_resource type="StreamTexture" id=6]
 flags = 4
@@ -90,6 +96,11 @@ animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 30 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "Bella",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 52 ), ExtResource( 51 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "Jinx",
 "speed": 10.0
 } ]
 
@@ -135,6 +146,11 @@ animations = [ {
 "frames": [ ExtResource( 38 ), ExtResource( 35 ), ExtResource( 37 ) ],
 "loop": true,
 "name": "Wey",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": true,
+"name": "Bobby",
 "speed": 10.0
 } ]
 
@@ -232,14 +248,14 @@ stream = ExtResource( 36 )
 position = Vector2( 523, 192 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
-animation = "Betty"
+animation = "Jinx"
 centered = false
 
 [node name="Blue_Sellect" type="AnimatedSprite" parent="."]
 position = Vector2( 259, 192 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 5 )
-animation = "Sting"
+animation = "Bobby"
 centered = false
 
 [node name="GoldenBack" type="TextureButton" parent="."]

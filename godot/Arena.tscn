@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=2]
+[gd_scene load_steps=166 format=2]
 
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_HUB_PC.png" type="Texture" id=3]
@@ -347,6 +347,9 @@ animations = [ {
 "name": "Flash",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 455, 256 )
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 6 )
@@ -730,6 +733,14 @@ texture_normal = ExtResource( 136 )
 texture_pressed = ExtResource( 138 )
 texture_hover = ExtResource( 139 )
 
+[node name="Ball_Zone" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball_Zone"]
+position = Vector2( 455, 256 )
+shape = SubResource( 29 )
+
 [connection signal="reset" from="." to="Ball" method="_on_Arena_reset"]
 [connection signal="animation_finished" from="Explode" to="." method="_on_Explode_animation_finished"]
 [connection signal="animation_finished" from="Explode2" to="." method="_on_Explode2_animation_finished"]
@@ -748,3 +759,4 @@ texture_hover = ExtResource( 139 )
 [connection signal="animation_finished" from="StartTimerAnimation" to="." method="_on_StartTimerAnimation_animation_finished"]
 [connection signal="pressed" from="Pause/Quit" to="Pause" method="_on_Quit_pressed"]
 [connection signal="pressed" from="Pause/Restart" to="Pause" method="_on_Restart_pressed"]
+[connection signal="body_exited" from="Ball_Zone" to="." method="_on_Ball_Zone_body_exited"]

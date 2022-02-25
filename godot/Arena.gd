@@ -30,8 +30,8 @@ var PU_RandomType
 var PU_out = Vector2(-100,-100)
 var Red_ID = Global.Red_ID
 var Blue_ID = Global.Blue_ID
-var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), preload ("res://Bella.tscn"), preload ("res://Vi.tscn"), preload ("res://Mey.tscn"), preload ("res://Betty.tscn")]
-var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn"), preload ("res://Wey.tscn"), preload("res://Sting.tscn")]
+var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), preload ("res://Bella.tscn"), preload ("res://Vi.tscn"), preload ("res://Mey.tscn"), preload ("res://Betty.tscn"), preload ("res://Jinx.tscn")]
+var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn"), preload ("res://Wey.tscn"), preload("res://Sting.tscn"), preload ("res://Bobby.tscn")]
 var Ship
 var Ship2
 func _ready():
@@ -318,3 +318,7 @@ func _on_StartTimerAnimation_animation_finished():
 		$TimeNormal.set_paused(false)
 		
 
+
+
+func _on_Ball_Zone_body_exited(body):
+	body.reset()

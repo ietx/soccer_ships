@@ -3,8 +3,8 @@ extends Node2D
 
 var Red_ID = Global.Red_ID
 var Blue_ID = Global.Blue_ID
-var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), preload ("res://Bella.tscn"), preload ("res://Vi.tscn"), preload ("res://Mey.tscn"), preload ("res://Betty.tscn")]
-var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn"), preload ("res://Wey.tscn"), preload ("res://Sting.tscn")]
+var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), preload ("res://Bella.tscn"), preload ("res://Vi.tscn"), preload ("res://Mey.tscn"), preload ("res://Betty.tscn"), preload ("res://Jinx.tscn")]
+var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn"), preload ("res://Wey.tscn"), preload("res://Sting.tscn"), preload ("res://Bobby.tscn")]
 var Ship
 var Ship2
 
@@ -180,3 +180,7 @@ func _on_Start_Timer_Animation_animation_finished():
 	Ship2.unfreeze()
 	$Start_Timer_Animation.set_visible(false)
 	start = true
+
+
+func _on_Ball_Zone_body_exited(body):
+	body.reset()

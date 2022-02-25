@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=2]
+[gd_scene load_steps=162 format=2]
 
 [ext_resource path="res://Assets/321/Gold/321_Golden19.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_Stars_1.png" type="Texture" id=2]
@@ -336,6 +336,9 @@ animations = [ {
 "name": "3",
 "speed": 8.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 455, 256 )
 
 [node name="Golden Gol" type="Node2D"]
 script = ExtResource( 6 )
@@ -680,6 +683,14 @@ texture_normal = ExtResource( 137 )
 texture_pressed = ExtResource( 138 )
 texture_hover = ExtResource( 135 )
 
+[node name="Ball_Zone" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball_Zone"]
+position = Vector2( 455, 256 )
+shape = SubResource( 28 )
+
 [connection signal="Golden_Gol" from="." to="Ball" method="_on_Golden_Gol_Golden_Gol"]
 [connection signal="animation_finished" from="Explode" to="." method="_on_Explode_animation_finished"]
 [connection signal="animation_finished" from="Explode2" to="." method="_on_Explode2_animation_finished"]
@@ -698,3 +709,4 @@ texture_hover = ExtResource( 135 )
 [connection signal="animation_finished" from="Start_Timer_Animation" to="." method="_on_Start_Timer_Animation_animation_finished"]
 [connection signal="pressed" from="Pause/Quit" to="Pause" method="_on_Quit_pressed"]
 [connection signal="pressed" from="Pause/Restart" to="Pause" method="_on_Restart_pressed"]
+[connection signal="body_exited" from="Ball_Zone" to="." method="_on_Ball_Zone_body_exited"]

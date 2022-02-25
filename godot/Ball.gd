@@ -15,7 +15,9 @@ func _ready():
 	inicial_position = get_global_transform().origin
 	print (inicial_position)
 
-
+func reset():
+	reset = true
+	
 func _on_Arena_reset():
 	reset = true
 #	sleeping = true
