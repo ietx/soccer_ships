@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Naves/Blue/Base/SS_Spike_Blue_Base3.png" type="Texture" id=2]
@@ -53,6 +53,12 @@
 [ext_resource path="res://Assets/Naves/Jinx/Jinx_Base2.png" type="Texture" id=51]
 [ext_resource path="res://Assets/Naves/Jinx/Jinx_Base1.png" type="Texture" id=52]
 [ext_resource path="res://Assets/Naves/Jinx/Jinx_Base3.png" type="Texture" id=53]
+[ext_resource path="res://Assets/Naves/Telly/Telly_Base2.png" type="Texture" id=54]
+[ext_resource path="res://Assets/Naves/Bayron/Bayron_Base2.png" type="Texture" id=55]
+[ext_resource path="res://Assets/Naves/Telly/Telly_Base1.png" type="Texture" id=56]
+[ext_resource path="res://Assets/Naves/Bayron/Bayron_Base3.png" type="Texture" id=57]
+[ext_resource path="res://Assets/Naves/Telly/Telly_Base3.png" type="Texture" id=58]
+[ext_resource path="res://Assets/Naves/Bayron/Bayron_Base1.png" type="Texture" id=59]
 
 [sub_resource type="StreamTexture" id=6]
 flags = 4
@@ -96,6 +102,11 @@ animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 30 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "Bella",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 59 ), ExtResource( 55 ), ExtResource( 57 ) ],
+"loop": true,
+"name": "Bayron",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 52 ), ExtResource( 51 ), ExtResource( 53 ) ],
@@ -151,6 +162,11 @@ animations = [ {
 "frames": [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
 "loop": true,
 "name": "Bobby",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 56 ), ExtResource( 54 ), ExtResource( 58 ) ],
+"loop": true,
+"name": "Telly",
 "speed": 10.0
 } ]
 
@@ -242,14 +258,14 @@ stream = ExtResource( 36 )
 position = Vector2( 523, 192 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
-animation = "Jinx"
+animation = "Bayron"
 centered = false
 
 [node name="Blue_Sellect" type="AnimatedSprite" parent="."]
 position = Vector2( 259, 192 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 5 )
-animation = "Bobby"
+animation = "Telly"
 centered = false
 
 [node name="Back" type="TextureButton" parent="."]

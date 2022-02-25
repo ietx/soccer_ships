@@ -2,7 +2,7 @@ extends Control
 
 # RED
 var List_ID = 0
-var Last_ID = 6
+var Last_ID = 7
 var First_ID = 0
 
 # BLUE
@@ -41,6 +41,8 @@ func _process(delta):
 		$Red_Sellect.play("Betty")
 	elif List_ID == 6:
 		$Red_Sellect.play("Jinx")
+	elif List_ID == 7:
+		$Red_Sellect.play("Bayron")
 		
 	
 	## BLUE ##
@@ -71,6 +73,8 @@ func _process(delta):
 		$Blue_Sellect.play("Sting")
 	elif List2_ID == 6:
 		$Blue_Sellect.play("Bobby")
+	elif List2_ID == 7:
+		$Blue_Sellect.play("Telly")
 
 
 func _on_TextureButton_pressed():

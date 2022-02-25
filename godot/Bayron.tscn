@@ -1,0 +1,137 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Ship.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Naves/Bayron/Bayron_Ré3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Naves/Bayron/Bayron_Ré1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Naves/Bayron/Bayron_Ré2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Naves/Bayron/Bayron_Base2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Naves/Bayron/Bayron_Base3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Naves/Bayron/Bayron_Base1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/FX/Explosion_BLUE5.png" type="Texture" id=14]
+[ext_resource path="res://Assets/FX/Explosion_BLUE1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/FX/Explosion_BLUE3.png" type="Texture" id=16]
+[ext_resource path="res://Assets/FX/Explosion_BLUE2.png" type="Texture" id=17]
+[ext_resource path="res://Assets/FX/Explosion_BLUE4.png" type="Texture" id=18]
+[ext_resource path="res://Assets/FX/Explosion_RED4.png" type="Texture" id=19]
+[ext_resource path="res://Assets/FX/Explosion_RED5.png" type="Texture" id=20]
+[ext_resource path="res://Assets/FX/Explosion_RED2.png" type="Texture" id=21]
+[ext_resource path="res://Assets/FX/Explosion_RED1.png" type="Texture" id=22]
+[ext_resource path="res://Assets/FX/Explosion_RED3.png" type="Texture" id=23]
+
+[sub_resource type="PhysicsMaterial" id=6]
+friction = 0.0
+bounce = 0.5
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "Stop",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "Dash",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Break",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Still",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Thrust",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Explode",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=4]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 4.99999
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id=9]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 10.7641, 8.67277 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "Explode",
+"speed": 5.0
+} ]
+
+[node name="Ship" type="RigidBody2D"]
+rotation = 4.71239
+collision_mask = 54
+physics_material_override = SubResource( 6 )
+gravity_scale = 0.0
+script = ExtResource( 1 )
+engine_thrust = -130
+spin_thrust = 2400
+
+[node name="Angel_Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.199841, -0.800163 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+animation = "Still"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+material = SubResource( 4 )
+position = Vector2( 34, -13 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+material = SubResource( 4 )
+position = Vector2( -34, -13 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+material = SubResource( 4 )
+position = Vector2( 0, -1 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.23978e-05, -13 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2( 20, -11 )
+rotation = -0.070937
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2( -20, -11 )
+rotation = 0.141372
+shape = SubResource( 10 )
+
+[node name="Explode" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 8 )
+animation = "Explode"
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( -4.19617e-05, -45 )
+
+[connection signal="PU_Used_Red" from="." to="." method="_on_Ship_PU_Used_Red"]
+[connection signal="body_entered" from="." to="." method="_on_Ship_body_entered"]
+[connection signal="timeout" from="Angel_Timer" to="." method="_on_Angel_Timer_timeout"]
+[connection signal="animation_finished" from="Explode" to="." method="_on_Explode_animation_finished"]
