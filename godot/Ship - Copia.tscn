@@ -21,7 +21,7 @@
 
 [sub_resource type="PhysicsMaterial" id=6]
 friction = 0.0
-bounce = 0.5
+bounce = 0.2
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -29,6 +29,11 @@ animations = [ {
 "loop": false,
 "name": "Stop",
 "speed": 6.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Still",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": false,
@@ -39,11 +44,6 @@ animations = [ {
 "loop": true,
 "name": "Break",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "Still",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,

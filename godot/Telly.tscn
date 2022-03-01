@@ -15,7 +15,7 @@
 
 [sub_resource type="PhysicsMaterial" id=6]
 friction = 0.0
-bounce = 0.5
+bounce = 0.2
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -24,10 +24,20 @@ animations = [ {
 "name": "Stop",
 "speed": 6.0
 }, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Still",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": false,
 "name": "Explode",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "Dash",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 7 ) ],
 "loop": true,
@@ -37,16 +47,6 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Break",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Still",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": false,
-"name": "Dash",
 "speed": 10.0
 } ]
 

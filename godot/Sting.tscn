@@ -15,7 +15,7 @@
 
 [sub_resource type="PhysicsMaterial" id=6]
 friction = 0.0
-bounce = 0.5
+bounce = 0.2
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -24,30 +24,30 @@ animations = [ {
 "name": "Stop",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "Thrust",
-"speed": 10.0
+"name": "Still",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Explode",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "Dash",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
-"name": "Still",
-"speed": 5.0
+"name": "Thrust",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Break",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": false,
-"name": "Explode",
-"speed": 5.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -108,13 +108,11 @@ one_shot = true
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -12.5711, -11.5 )
 rotation = 0.785398
-scale = Vector2( 1, 1 )
 shape = SubResource( 9 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2( 12.571, -11.5 )
 rotation = -0.785398
-scale = Vector2( 1, 1 )
 shape = SubResource( 9 )
 
 [connection signal="body_entered" from="." to="." method="_on_Ship_2_body_entered"]

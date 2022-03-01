@@ -21,9 +21,9 @@ animations = [ {
 "name": "Blue",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "Red",
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "Blue_Hit",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
@@ -31,9 +31,9 @@ animations = [ {
 "name": "Red_Hit",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ) ],
-"loop": false,
-"name": "Blue_Hit",
+"frames": [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Red",
 "speed": 12.0
 } ]
 
@@ -56,6 +56,7 @@ position = Vector2( -1, 0 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
 animation = "Blue"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -19,7 +19,7 @@ func start(muz_pos, rot, dir, ship):
 		
 func _physics_process(delta):
 	ani_playing = str($Sprite.get_animation())
-	print(ani_playing)
+#	print(ani_playing)
 	if area_enter == false:
 		position += velocity * delta
 	else:
