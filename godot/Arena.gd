@@ -37,6 +37,8 @@ var Ship2
 var StartTimer_frame
 func _ready():
 	
+		
+		
 	#### SHIP SPAWN ####
 	
 	Ship = Red_choices[Red_ID].instance()
@@ -73,14 +75,18 @@ func _process(delta):
 #	Tree_Two_One_GO = stepify($StartTimer.get_time_left(), 0.1)
 	
 	if StartTimer_frame == 4:
-		$StartTimerAnimation/Tree.play()
+		if Global.FX_off == false:
+			$FX/Tree.play() 
 	elif StartTimer_frame == 8:
-		$StartTimerAnimation/Two.play()
+		if Global.FX_off == false:
+			$FX/Two.play()
 	elif StartTimer_frame == 12:
-		$StartTimerAnimation/One.play()
+		if Global.FX_off == false:
+			$FX/One.play()
 	elif StartTimer_frame == 16:
-		$StartTimerAnimation/GO.play()
-	
+		if Global.FX_off == false:
+			$FX/GO.play()
+
 	
 		
 #	#Para o cronômetro durante o gol
@@ -139,7 +145,8 @@ func _process(delta):
 	#Anmiação do gol
 	
 	if gol_frame == 4:
-		$Gol_Animation/Gol_FX.play()
+		if Global.FX_off == false:
+			$FX/Gol_FX.play()
 		
 	if gol_frame == 23:
 		$Gol_Animation.stop()
@@ -195,7 +202,8 @@ func _on_TimeNormal_timeout():
 
 
 func _on_Green_Shine_body_entered(body):
-	print (body.name)
+	if Global.FX_off == false:
+		$FX/PU_0_IN.play()
 	body.power_up(0)
 	if body.name == "Ship 2":
 		$HUD/PU_Light_Blue.play("Green")
@@ -207,6 +215,7 @@ func _on_Green_Shine_body_entered(body):
 #	elif body == $Ship2:
 #		emit_signal("Dash_PowUp2")
 #		$HUD/PU_Light_Blue.play("Green")
+	$Shine_Star/Timer_PU.stop()
 	$Shine_Star/Green_Shine.position = PU_out
 	$Shine_Star/Timer_PU.start()
 	$Shine_Star/Green_Shine/AnimatedSprite.stop()
@@ -216,7 +225,8 @@ func _on_Green_Shine_body_entered(body):
 
 
 func _on_Red_Shine_body_entered(body):
-	print (body.name)
+	if Global.FX_off == false:
+		$FX/PU_1_IN.play()
 	body.power_up(1)
 	if body.name == "Ship 2":
 		$HUD/PU_Light_Blue.play("Red")
@@ -228,6 +238,7 @@ func _on_Red_Shine_body_entered(body):
 #	elif body == $Ship2:
 #		emit_signal("Still_PowUp2")
 #		$HUD/PU_Light_Blue.play("Red")
+	$Shine_Star/Timer_PU.stop()
 	$Shine_Star/Red_Shine.position = PU_out
 	$Shine_Star/Timer_PU.start()
 	$Shine_Star/Red_Shine/AnimatedSprite.stop()
@@ -236,6 +247,8 @@ func _on_Red_Shine_body_entered(body):
 	pass # Replace with function body.
 
 func _on_Blue_Shine_body_entered(body):
+	if Global.FX_off == false:
+		$FX/PU_2_IN.play()
 	print (body.name)
 	body.power_up(2)
 	if body.name == "Ship 2":
@@ -248,6 +261,7 @@ func _on_Blue_Shine_body_entered(body):
 #	elif body == $Ship2:
 #		emit_signal("Shoot_PowUp2")
 #		$HUD/PU_Light_Blue.play("Blue")
+	$Shine_Star/Timer_PU.stop()
 	$Shine_Star/Blue_Shine.position = PU_out
 	$Shine_Star/Timer_PU.start()
 	$Shine_Star/Blue_Shine/AnimatedSprite.stop()

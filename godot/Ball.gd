@@ -37,8 +37,8 @@ func _on_Golden_Gol_Golden_Gol():
 
 
 func _on_Ball_body_entered(body):
-	print (body.name)
-	if body.name == "Ship" or body.name == "Ship 2":
-		$Ball_Ship.play()
-	elif body.name == "Areana Limits" or  body.name == "Goal":
-		$Ball_Wall.play(0.26)
+	if Global.FX_off == false:
+		if body.name == "Ship" or body.name == "Ship 2":
+			$Ball_Ship.play()
+		elif body.name == "Areana Limits" or  body.name == "Goal":
+			$Ball_Wall.play(0.26)

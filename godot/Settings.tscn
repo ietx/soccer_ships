@@ -54,6 +54,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="FX_switch" type="TextureButton" parent="."]
+margin_left = 499.0
+margin_top = 275.0
+margin_right = 1119.0
+margin_bottom = 395.0
+rect_scale = Vector2( 0.2, 0.2 )
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Back" type="TextureButton" parent="."]
 margin_left = 532.0
 margin_top = 368.0
@@ -126,4 +139,5 @@ stream = ExtResource( 14 )
 
 [connection signal="pressed" from="Controls" to="." method="_on_Controls_pressed"]
 [connection signal="toggled" from="Music_Switch" to="." method="_on_Music_Switch_toggled"]
+[connection signal="toggled" from="FX_switch" to="." method="_on_FX_switch_toggled"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

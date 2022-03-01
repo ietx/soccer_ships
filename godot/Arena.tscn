@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=2]
+[gd_scene load_steps=173 format=2]
 
 [ext_resource path="res://Assets/Sounds/FX/Soccer Ships - Goal.wav" type="AudioStream" id=1]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=2]
@@ -142,6 +142,9 @@
 [ext_resource path="res://Assets/Menus/Menu_Pause/Botão_Quit1.png" type="Texture" id=140]
 [ext_resource path="res://Assets/Sounds/Recordings/Soccer Ships - Go.wav" type="AudioStream" id=141]
 [ext_resource path="res://Assets/Sounds/Recordings/Soccer Ships - 3.wav" type="AudioStream" id=142]
+[ext_resource path="res://Assets/Sounds/FX/Soccer Ships - PowerUP 1.wav" type="AudioStream" id=143]
+[ext_resource path="res://Assets/Sounds/FX/Soccer Ships - PowerUP 2.wav" type="AudioStream" id=144]
+[ext_resource path="res://Assets/Sounds/FX/Soccer Ships - Stun.wav" type="AudioStream" id=145]
 
 [sub_resource type="SpriteFrames" id=24]
 animations = [ {
@@ -226,14 +229,14 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 81 ) ],
 "loop": true,
 "name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
@@ -249,14 +252,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 81 ) ],
 "loop": true,
 "name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "Red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
@@ -323,16 +326,6 @@ animations = [ {
 "name": "321GO",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 95 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 92 ) ],
-"loop": false,
-"name": "Go",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 102 ) ],
-"loop": false,
-"name": "3",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 108 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 107 ) ],
 "loop": false,
 "name": "1",
@@ -341,6 +334,16 @@ animations = [ {
 "frames": [ ExtResource( 103 ), ExtResource( 105 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 111 ) ],
 "loop": false,
 "name": "2",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 95 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 92 ) ],
+"loop": false,
+"name": "Go",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 102 ) ],
+"loop": false,
+"name": "3",
 "speed": 8.0
 } ]
 
@@ -686,27 +689,12 @@ __meta__ = {
 "_editor_description_": "'"
 }
 
-[node name="Gol_FX" type="AudioStreamPlayer" parent="Gol_Animation"]
-stream = ExtResource( 1 )
-
 [node name="StartTimerAnimation" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 451, 89 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 23 )
 animation = "321GO"
-
-[node name="Tree" type="AudioStreamPlayer" parent="StartTimerAnimation"]
-stream = ExtResource( 142 )
-
-[node name="Two" type="AudioStreamPlayer" parent="StartTimerAnimation"]
-stream = ExtResource( 9 )
-
-[node name="One" type="AudioStreamPlayer" parent="StartTimerAnimation"]
-stream = ExtResource( 7 )
-
-[node name="GO" type="AudioStreamPlayer" parent="StartTimerAnimation"]
-stream = ExtResource( 141 )
 
 [node name="Flash" type="AnimatedSprite" parent="."]
 visible = false
@@ -761,6 +749,32 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball_Zone"]
 position = Vector2( 455, 256 )
 shape = SubResource( 29 )
+
+[node name="FX" type="Node2D" parent="."]
+
+[node name="Gol_FX" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 1 )
+
+[node name="Tree" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 142 )
+
+[node name="Two" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 9 )
+
+[node name="One" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 7 )
+
+[node name="GO" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 141 )
+
+[node name="PU_0_IN" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 143 )
+
+[node name="PU_1_IN" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 144 )
+
+[node name="PU_2_IN" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 145 )
 
 [connection signal="reset" from="." to="Ball" method="_on_Arena_reset"]
 [connection signal="animation_finished" from="Explode" to="." method="_on_Explode_animation_finished"]
