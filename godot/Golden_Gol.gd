@@ -46,7 +46,8 @@ func _ready():
 	#####################
 	
 	$Start_Animation.set_visible(true)
-	$Sound.play()
+	if Global.music_off == false:
+		$Sound.play()
 	$Goals.play("Gold_Shine")
 	$Start_Animation.play("Golden_Gol")
 

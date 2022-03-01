@@ -35,7 +35,6 @@ var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tsc
 var Ship
 var Ship2
 var StartTimer_frame
-
 func _ready():
 	
 	#### SHIP SPAWN ####
@@ -56,9 +55,11 @@ func _ready():
 	Ship2.position = Vector2(135, 256)
 	
 	#####################
-	
-	$John.play()
-#	$StartTimer.start()
+	if Global.music_off == false:
+		$John.play()
+	else:
+		pass
+#
 	$Gol_Animation.playing = false
 	$Lightning_Animation.play("Thunder")
 	$StartTimerAnimation.set_visible(true)
