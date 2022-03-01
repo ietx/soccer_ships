@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Soccer Ships - Go Metal.wav-a0c080ac5e9256fae5f11dcbb0362259.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Recordings/Soccer Ships - Go Metal.wav"
+dest_files=[ "res://.import/Soccer Ships - Go Metal.wav-a0c080ac5e9256fae5f11dcbb0362259.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Soccer Ships - Welcome to Soccer Ships Metal.wav-12eb4de40c58124431b941c71f49a854.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Recordings/Soccer Ships - Welcome to Soccer Ships Metal.wav"
+dest_files=[ "res://.import/Soccer Ships - Welcome to Soccer Ships Metal.wav-12eb4de40c58124431b941c71f49a854.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

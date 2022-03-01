@@ -26,7 +26,6 @@ func _integrate_forces(state):
 	
 func _process(delta):
 	linear_vel = get_linear_velocity()
-	print (linear_vel)
 	if abs (get_linear_velocity().x) > max_speed or abs (get_linear_velocity().y) > max_speed:
 		var new_speed = get_linear_velocity().normalized()
 		new_speed *= max_speed
@@ -35,3 +34,11 @@ func _process(delta):
 func _on_Golden_Gol_Golden_Gol():
 	$Sprite.play("Gold")
 	pass # Replace with function body.
+
+
+func _on_Ball_body_entered(body):
+	print (body.name)
+	if body.name == "Ship" or body.name == "Ship 2":
+		$Ball_Ship.play()
+	elif body.name == "Areana Limits" or  body.name == "Goal":
+		$Ball_Wall.play(0.26)

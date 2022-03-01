@@ -34,6 +34,8 @@ var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), pre
 var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn"), preload ("res://Wey.tscn"), preload("res://Sting.tscn"), preload ("res://Bobby.tscn"), preload ("res://Telly.tscn"), preload ("res://Ky.tscn")]
 var Ship
 var Ship2
+var StartTimer_frame
+
 func _ready():
 	
 	#### SHIP SPAWN ####
@@ -65,11 +67,19 @@ func _ready():
 	
 func _process(delta):
 	
-#	GO!_frame = $StartTimerAnimation.get_frame()
+	StartTimer_frame = $StartTimerAnimation.get_frame()
 	gol_frame = $Gol_Animation.get_frame()
 #	Tree_Two_One_GO = stepify($StartTimer.get_time_left(), 0.1)
 	
-
+	if StartTimer_frame == 4:
+		$StartTimerAnimation/Tree.play()
+	elif StartTimer_frame == 8:
+		$StartTimerAnimation/Two.play()
+	elif StartTimer_frame == 12:
+		$StartTimerAnimation/One.play()
+	elif StartTimer_frame == 16:
+		$StartTimerAnimation/GO.play()
+	
 	
 		
 #	#Para o cronômetro durante o gol
@@ -126,6 +136,10 @@ func _process(delta):
 			$HUD/Time.modulate = (Color(1,1,1,1))
 	
 	#Anmiação do gol
+	
+	if gol_frame == 4:
+		$Gol_Animation/Gol_FX.play()
+		
 	if gol_frame == 23:
 		$Gol_Animation.stop()
 		$Gol_Animation.set_frame(0)
@@ -146,6 +160,7 @@ func _on_Blue_Goal_body_entered(body):
 	$Gol_Animation.play("Gol_R")
 	Ship.freeze()
 	Ship2.freeze()
+	
 
 
 
@@ -160,6 +175,7 @@ func _on_Red_Goal_body_entered(body):
 	$Gol_Animation.play("Gol_B")
 	Ship.freeze()
 	Ship2.freeze()
+	
 
 
 

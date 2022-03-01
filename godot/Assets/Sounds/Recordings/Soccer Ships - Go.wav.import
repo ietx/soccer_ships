@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Soccer Ships - Go.wav-f85ee15b13689f67d162778663f0ce07.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Recordings/Soccer Ships - Go.wav"
+dest_files=[ "res://.import/Soccer Ships - Go.wav-f85ee15b13689f67d162778663f0ce07.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
