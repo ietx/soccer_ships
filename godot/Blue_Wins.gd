@@ -9,7 +9,8 @@ var Ship2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Stage.play()
+	if Global.music_off == false:
+		$Stage.play()
 	
 #### SHIP SPAWN ####
 	

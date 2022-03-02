@@ -291,10 +291,35 @@ func _on_Timer_PU_timeout():
 
 #Desliga a luz do HUB do PU
 
-func _on_Ship_PU_Used_Red():
+func _on_Ship_PU_Used_Red(power_up, pos, rot):
+	if power_up == 0:
+		$PU_Animation/Dash1.set_visible(true)
+		$PU_Animation/Dash1.position = pos
+		$PU_Animation/Dash1.rotation = rot
+		$PU_Animation/Dash1.play("Dash")
+	elif power_up == 1:
+		$PU_Animation/Stop1.set_visible(true)
+		$PU_Animation/Stop1.position = pos
+		$PU_Animation/Stop1.rotation = rot
+		$PU_Animation/Stop1.play("Stop")
+		
 	$HUD/PU_Light_Red.play("Off")
 
-func _on_Ship2_PU_Used_Blue():
+func _on_Ship2_PU_Used_Blue(power_up, pos, rot):
+	
+	if power_up == 0:
+		$PU_Animation/Dash2.set_visible(true)
+		$PU_Animation/Dash2.position = pos
+		$PU_Animation/Dash2.rotation = rot
+		$PU_Animation/Dash2.play("Dash")
+		pass
+	elif power_up == 1:
+		$PU_Animation/Stop2.set_visible(true)
+		$PU_Animation/Stop2.position = pos
+		$PU_Animation/Stop2.rotation = rot
+		$PU_Animation/Stop2.play("Stop")
+		
+		
 	$HUD/PU_Light_Blue.play("Off")
 
 
@@ -353,3 +378,24 @@ func _on_StartTimerAnimation_animation_finished():
 
 func _on_Ball_Zone_body_exited(body):
 	body.reset()
+
+####### POWER UP END ANIMATIONS #########
+
+func _on_Dash1_animation_finished():
+	$PU_Animation/Dash1.set_visible(false)
+	$PU_Animation/Dash1.stop()
+	$PU_Animation/Dash1.set_frame(0)
+func _on_Dash2_animation_finished():
+	$PU_Animation/Dash2.set_visible(false)
+	$PU_Animation/Dash2.stop()
+	$PU_Animation/Dash2.set_frame(0)
+func _on_Stop1_animation_finished():
+	$PU_Animation/Stop1.set_visible(false)
+	$PU_Animation/Stop1.stop()
+	$PU_Animation/Stop1.set_frame(0)
+func _on_Stop2_animation_finished():
+	$PU_Animation/Stop2.set_visible(false)
+	$PU_Animation/Stop2.stop()
+	$PU_Animation/Stop2.set_frame(0)
+	
+####################################

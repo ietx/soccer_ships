@@ -8,6 +8,8 @@ var thrust = Vector2()
 var rot = 0
 var inicial_position
 var inicial_rot
+var current_position
+var current_rot
 var reset = false
 export var power_up = 0
 var PU_Switch = false
@@ -19,12 +21,10 @@ onready var bullet = preload("res://Bullet.tscn")
 var angel = false
 var reborn = false
 signal Explode2
-var ani_power_up = "OFF"
+
 
 func _ready():
-#	Freeze = false
 	inicial_position = Vector2(135, 256)
-#	get_global_transform().origin
 	inicial_rot = get_rotation()
 
 func reset_pos():
@@ -34,6 +34,9 @@ func reset_pos():
 	
 func _physics_process(delta):
 	
+	current_position = get_global_position()
+	current_rot = get_rotation()
+	
 	if GG == true:
 		PU_Switch == true
 	
@@ -41,39 +44,30 @@ func _physics_process(delta):
 		if Input.is_action_pressed("Seta"):
 			thrust = Vector2(0, - engine_thrust)
 			$Sprite.play("Thrust")
-			ani_power_up = "OFF"
+		
 		elif Input.is_action_pressed("Break_2"):
 			thrust = Vector2(0,  engine_thrust)
 			$Sprite.play("Break")
-			ani_power_up = "OFF"
+	
 		elif Input.is_action_just_pressed("Dash_2"):
 			if power_up == 0 and PU_Switch == true:
 				thrust = Vector2(0, -300 * engine_thrust)
-				ani_power_up = "Dash"
-#				$Sprite.play("Dash")
-				if GG == false:
-					PU_Switch = false
-					emit_signal("PU_Used_Blue")
+				emit_signal("PU_Used_Blue", power_up, current_position, current_rot)
+
 			elif power_up == 1 and PU_Switch == true:
 				sleeping = true
-				ani_power_up = "Stop"
-#				$Sprite.play("Stop")
-				if GG == false:
-					PU_Switch = false
-					emit_signal("PU_Used_Blue")
+				emit_signal("PU_Used_Blue", power_up, current_position, current_rot)
+				
 			elif power_up == 2 and PU_Switch == true:
 				shoot()
-				if GG == false:
+				emit_signal("PU_Used_Blue", power_up, current_position, current_rot)
+				
+			if GG == false:
 					PU_Switch = false
-					emit_signal("PU_Used_Blue")
+					
 		else:
 			thrust = Vector2()
-			if ani_power_up == "OFF":
-				$Sprite.play("Still")
-			elif ani_power_up == "Dash":
-				$Sprite.play("Dash")
-			elif ani_power_up == "OFF":
-				$Sprite.play("Stop")
+			$Sprite.play("Still")
 		
 		rot = 0
 		if Input.is_action_pressed("Rto_L_2"):
@@ -96,7 +90,7 @@ func _integrate_forces(state):
 		$Angel_Timer.stop()
 		
 	if angel == true:
-		state.transform = Transform2D(0, Vector2(-100, -100_))
+		state.transform = Transform2D(0, Vector2(-1000, -1000))
 		state.linear_velocity = Vector2()
 		
 func shoot():
@@ -139,31 +133,12 @@ func freeze():
 			rot = 0
 		if Input.is_action_pressed("Rto_L_2"):
 			rot = 0
-
+	
 func unfreeze():
 	Freeze = false
 #
 func _on_Golden_Gol_Unfreeze_2():
 	Freeze = false
-#
-#
-#func _on_Arena_Unfreeze_2():
-#	Freeze = false
-#
-#
-#func _on_Arena_Freeze_2():
-#	Freeze = true
-#	sleeping = true
-#	if Input.is_action_pressed("Seta"):
-#		thrust = Vector2(0, 0)
-#		$Sprite.play("Still")
-#	elif Input.is_action_pressed("Break_2"):
-#		thrust = Vector2(0,  0)
-#		$Sprite.play("Still")
-#	if Input.is_action_pressed("Rto_L_2"):
-#		rot = 0
-#	if Input.is_action_pressed("Rot_R_2"):
-#		rot = 0
 #
 #
 func red_wins_unfreeze():
@@ -172,7 +147,6 @@ func red_wins_unfreeze():
 	set_max_contacts_reported(10)
 	set_contact_monitor(true)
 
-
 func _on_Ship_2_body_entered(body):
 
 	if body is RigidBody2D:
@@ -180,17 +154,12 @@ func _on_Ship_2_body_entered(body):
 		$Explode.set_visible(true)
 		$Explode.play("Explode")
 
-
-
 func _on_Explode_animation_finished():
 	queue_free()
-	pass # Replace with function body.
-
 
 func blue_wins_unfreeze():
 	Freeze = false
-
-
+	
 func _on_Angel_Timer_timeout():
 	angel = false
 	reborn = true

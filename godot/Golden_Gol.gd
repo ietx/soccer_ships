@@ -34,12 +34,14 @@ func _ready():
 	Ship = Red_choices[Red_ID].instance()
 	Ship.connect("Explode", self, "_on_Ship_Explode")
 	Ship.connect("Shoot", self, "_on_Ship_Shoot")
+	Ship.connect("PU_Used_Red", self, "_on_Ship_PU_Used_Red")
 	$Ships_Node.add_child(Ship)
 	Ship.position = Vector2(775, 256)
 	
 	Ship2 = Blue_choices[Blue_ID].instance()
 	Ship2.connect("Explode2", self, "_on_Ship2_Explode2")
 	Ship2.connect("Shoot2", self, "_on_Ship2_Shoot2")
+	Ship2.connect("PU_Used_Blue", self, "_on_Ship2_PU_Used_Blue")
 	$Ships_Node.add_child(Ship2)
 	Ship2.position = Vector2(135, 256)
 	
@@ -66,6 +68,10 @@ func _process(delta):
 	
 	#GOL ANIMATION
 	gol_frame = $Gol_Animation.get_frame()
+	if gol_frame == 4:
+		if Global.FX_off == false:
+			$FX/Gol_FX.play()
+	
 	if gol_frame == 23:
 		if Winner == "Red":
 			get_tree().change_scene("res://Red_Wins.tscn")
@@ -185,3 +191,49 @@ func _on_Start_Timer_Animation_animation_finished():
 
 func _on_Ball_Zone_body_exited(body):
 	body.reset()
+
+func _on_Ship_PU_Used_Red(power_up, pos, rot):
+	if power_up == 0:
+		$PU_Animation/Dash1.set_visible(true)
+		$PU_Animation/Dash1.position = pos
+		$PU_Animation/Dash1.rotation = rot
+		$PU_Animation/Dash1.play("Dash")
+	elif power_up == 1:
+		$PU_Animation/Stop1.set_visible(true)
+		$PU_Animation/Stop1.position = pos
+		$PU_Animation/Stop1.rotation = rot
+		$PU_Animation/Stop1.play("Stop")
+
+func _on_Ship2_PU_Used_Blue(power_up, pos, rot):
+	
+	if power_up == 0:
+		$PU_Animation/Dash2.set_visible(true)
+		$PU_Animation/Dash2.position = pos
+		$PU_Animation/Dash2.rotation = rot
+		$PU_Animation/Dash2.play("Dash")
+	elif power_up == 1:
+		$PU_Animation/Stop2.set_visible(true)
+		$PU_Animation/Stop2.position = pos
+		$PU_Animation/Stop2.rotation = rot
+		$PU_Animation/Stop2.play("Stop")
+		
+####### POWER UP END ANIMATIONS #########
+
+func _on_Dash1_animation_finished():
+	$PU_Animation/Dash1.set_visible(false)
+	$PU_Animation/Dash1.stop()
+	$PU_Animation/Dash1.set_frame(0)
+func _on_Dash2_animation_finished():
+	$PU_Animation/Dash2.set_visible(false)
+	$PU_Animation/Dash2.stop()
+	$PU_Animation/Dash2.set_frame(0)
+func _on_Stop1_animation_finished():
+	$PU_Animation/Stop1.set_visible(false)
+	$PU_Animation/Stop1.stop()
+	$PU_Animation/Stop1.set_frame(0)
+func _on_Stop2_animation_finished():
+	$PU_Animation/Stop2.set_visible(false)
+	$PU_Animation/Stop2.stop()
+	$PU_Animation/Stop2.set_frame(0)
+	
+####################################
