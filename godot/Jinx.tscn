@@ -39,6 +39,11 @@ animations = [ {
 "name": "Explode",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Break",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "Dash",
@@ -47,11 +52,6 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Thrust",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Break",
 "speed": 10.0
 } ]
 
