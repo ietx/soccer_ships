@@ -39,6 +39,11 @@ animations = [ {
 "name": "Explode",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Break",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "Dash",
@@ -48,11 +53,6 @@ animations = [ {
 "loop": true,
 "name": "Thrust",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Break",
-"speed": 10.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -75,32 +75,32 @@ collision_mask = 54
 physics_material_override = SubResource( 6 )
 gravity_scale = 0.0
 script = ExtResource( 1 )
-engine_thrust = -230
-spin_thrust = 3500
+engine_thrust = -220
+spin_thrust = 3200
 
 [node name="Angel_Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1, 0 )
+position = Vector2( 0.999947, 8.00006 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
 animation = "Still"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( -7.62939e-06, -8 )
+position = Vector2( -6.10352e-05, 6.10352e-05 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( 10, 7.99999 )
+position = Vector2( 9.99995, 16 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 material = SubResource( 4 )
-position = Vector2( -11, 8.00001 )
+position = Vector2( -11.0001, 16.0001 )
 shape = SubResource( 7 )
 
 [node name="Explode" type="AnimatedSprite" parent="."]
@@ -110,7 +110,7 @@ frames = SubResource( 8 )
 animation = "Explode"
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( -3.8147e-05, -39 )
+position = Vector2( -9.15527e-05, -30.9999 )
 
 [connection signal="PU_Used_Red" from="." to="." method="_on_Ship_PU_Used_Red"]
 [connection signal="body_entered" from="." to="." method="_on_Ship_body_entered"]
