@@ -4,6 +4,7 @@ var reset = false
 var inicial_position
 var linear_vel
 var max_speed = 500
+var real_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +26,7 @@ func _integrate_forces(state):
 #		sleeping = false
 	
 func _process(delta):
+	real_position = get_global_position()
 	linear_vel = get_linear_velocity()
 	if abs (get_linear_velocity().x) > max_speed or abs (get_linear_velocity().y) > max_speed:
 		var new_speed = get_linear_velocity().normalized()
@@ -42,3 +44,15 @@ func _on_Ball_body_entered(body):
 			$Ball_Ship.play()
 		elif body.name == "Areana Limits" or  body.name == "Goal":
 			$Ball_Wall.play(0.26)
+			$Electric.set_visible(true)
+			if real_position.y > 455:
+				$Electric.play("Red")
+			else:
+				$Electric.play("Blue")
+
+
+func _on_Electric_animation_finished():
+	$Electric.stop()
+	$Electric.set_visible(false)
+	$Electric.set_frame(0)
+	
