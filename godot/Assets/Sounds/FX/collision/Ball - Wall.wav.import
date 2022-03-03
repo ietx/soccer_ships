@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ball - Wall.wav-98732102ddd267d69a3fd3da01d1e384.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/FX/collision/Ball - Wall.wav"
+dest_files=[ "res://.import/Ball - Wall.wav-98732102ddd267d69a3fd3da01d1e384.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

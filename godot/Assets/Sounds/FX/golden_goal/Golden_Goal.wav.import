@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Golden_Goal.wav-ae98c883f1677bfa18a3c4627acbff3d.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/FX/golden_goal/Golden_Goal.wav"
+dest_files=[ "res://.import/Golden_Goal.wav-ae98c883f1677bfa18a3c4627acbff3d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

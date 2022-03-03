@@ -74,18 +74,12 @@ func _process(delta):
 	gol_frame = $Gol_Animation.get_frame()
 #	Tree_Two_One_GO = stepify($StartTimer.get_time_left(), 0.1)
 	
-	if StartTimer_frame == 4:
+	if StartTimer_frame == 4 or StartTimer_frame == 8 or StartTimer_frame == 12:
 		if Global.FX_off == false:
-			$FX/Tree.play() 
-	elif StartTimer_frame == 8:
-		if Global.FX_off == false:
-			$FX/Two.play()
-	elif StartTimer_frame == 12:
-		if Global.FX_off == false:
-			$FX/One.play()
+			$FX/Honk_Low.play() 
 	elif StartTimer_frame == 16:
 		if Global.FX_off == false:
-			$FX/GO.play()
+			$FX/Honk_High.play()
 
 	
 		
@@ -297,11 +291,13 @@ func _on_Ship_PU_Used_Red(power_up, pos, rot):
 		$PU_Animation/Dash1.position = pos
 		$PU_Animation/Dash1.rotation = rot
 		$PU_Animation/Dash1.play("Dash")
+		$FX/PU_1_USED.play()
 	elif power_up == 1:
 		$PU_Animation/Stop1.set_visible(true)
 		$PU_Animation/Stop1.position = pos
 		$PU_Animation/Stop1.rotation = rot
 		$PU_Animation/Stop1.play("Stop")
+		$FX/PU_2_USED.play()
 		
 	$HUD/PU_Light_Red.play("Off")
 
@@ -312,12 +308,14 @@ func _on_Ship2_PU_Used_Blue(power_up, pos, rot):
 		$PU_Animation/Dash2.position = pos
 		$PU_Animation/Dash2.rotation = rot
 		$PU_Animation/Dash2.play("Dash")
-		pass
+		$FX/PU_1_USED.play()
+		 
 	elif power_up == 1:
 		$PU_Animation/Stop2.set_visible(true)
 		$PU_Animation/Stop2.position = pos
 		$PU_Animation/Stop2.rotation = rot
 		$PU_Animation/Stop2.play("Stop")
+		$FX/PU_2_USED.play()
 		
 		
 	$HUD/PU_Light_Blue.play("Off")
@@ -326,12 +324,14 @@ func _on_Ship2_PU_Used_Blue(power_up, pos, rot):
 ########## SHOOTING ###########
 
 func _on_Ship_Shoot(bullet, muz_pos, rot, dir, ship):
+	$FX/PU_3_USED.play()
 	var b = bullet.instance()
 	add_child(b)
 	b.start(muz_pos, rot, dir, ship)
 	
 
 func _on_Ship2_Shoot2(bullet, muz_pos, rot, dir, ship):
+	$FX/PU_3_USED.play()
 	var b = bullet.instance()
 	add_child(b)
 	b.start(muz_pos, rot, dir, ship)
@@ -339,6 +339,7 @@ func _on_Ship2_Shoot2(bullet, muz_pos, rot, dir, ship):
 
 
 func _on_Ship_Explode(pos, rot):
+	$FX/Ship_Explode.play()
 	$Explode.set_visible(true)
 	$Explode.position = pos
 	$Explode.rotation = rot
@@ -349,6 +350,7 @@ func _on_Explode_animation_finished():
 	$Explode.set_frame(0)
 
 func _on_Ship2_Explode2(pos, rot):
+	$FX/Ship_Explode.play()
 	$Explode2.set_visible(true)
 	$Explode2.position = pos
 	$Explode2.rotation = rot

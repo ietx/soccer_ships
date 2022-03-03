@@ -43,13 +43,15 @@ func _on_Ball_body_entered(body):
 	if Global.FX_off == false:
 		if body.name == "Ship" or body.name == "Ship 2":
 			$Ball_Ship.play()
-		elif body.name == "Areana Limits" or  body.name == "Goal":
-			$Ball_Wall.play(0.26)
+		elif body.name == "Areana Limits":
+			$Ball_Wall.play()
 			$Electric.set_visible(true)
 			if real_position.x > 455:
 				$Electric.play("Red")
 			else:
 				$Electric.play("Blue")
+		elif body.name == "Goal":
+			$Ball_Post.play()
 
 
 func _on_Electric_animation_finished():
