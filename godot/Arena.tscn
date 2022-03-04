@@ -1,4 +1,4 @@
-[gd_scene load_steps=203 format=2]
+[gd_scene load_steps=204 format=2]
 
 [ext_resource path="res://Assets/Sounds/FX/Soccer Ships - Goal.wav" type="AudioStream" id=1]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Fundo_1_PC.png" type="Texture" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://Arena.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Slow.wav" type="AudioStream" id=7]
 [ext_resource path="res://Assets/Fonts/Pixel/FreePixel.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Assets/Sounds/FX/countdown/Honk_Low.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/FX/power_up_activation/Flash.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul1.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Gols/Vermelho/Soccer_Ships_Gol_Anima_Azul2.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Gols/Azul/Soccer_Ships_Gol_Anima_Vermelho22.png" type="Texture" id=12]
@@ -142,8 +142,8 @@
 [ext_resource path="res://Assets/Menus/Menu_Pause/Botão_Quit1.png" type="Texture" id=140]
 [ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Laser.wav" type="AudioStream" id=141]
 [ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Flash.wav" type="AudioStream" id=142]
-[ext_resource path="res://Assets/Sounds/FX/countdown/Honk_High.wav" type="AudioStream" id=143]
-[ext_resource path="res://Assets/Sounds/FX/power_up_activation/Flash.wav" type="AudioStream" id=144]
+[ext_resource path="res://Assets/Sounds/FX/Soccer Ships - PowerUP 1.wav" type="AudioStream" id=143]
+[ext_resource path="res://Assets/Sounds/FX/Soccer Ships - PowerUP 2.wav" type="AudioStream" id=144]
 [ext_resource path="res://Assets/Sounds/FX/power_up_activation/Laser.wav" type="AudioStream" id=145]
 [ext_resource path="res://Assets/FX/Boost/Boost_BLUE5.png" type="Texture" id=146]
 [ext_resource path="res://Assets/FX/Boost/Boost_BLUE1.png" type="Texture" id=147]
@@ -171,6 +171,7 @@
 [ext_resource path="res://Assets/FX/Full_Stop/Full_Stop_BLUE5.png" type="Texture" id=169]
 [ext_resource path="res://Assets/Sounds/FX/power_up_activation/Slow.wav" type="AudioStream" id=170]
 [ext_resource path="res://Assets/Sounds/FX/explosion/Explosion.wav" type="AudioStream" id=171]
+[ext_resource path="res://Assets/Sounds/FX/goal/goal.wav" type="AudioStream" id=172]
 
 [sub_resource type="SpriteFrames" id=30]
 animations = [ {
@@ -837,13 +838,19 @@ shape = SubResource( 29 )
 [node name="FX" type="Node2D" parent="."]
 
 [node name="Gol_FX" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 172 )
+volume_db = -5.0
+
+[node name="Gol_FX2" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 1 )
 
 [node name="Honk_Low" type="AudioStreamPlayer" parent="FX"]
-stream = ExtResource( 9 )
+stream = ExtResource( 144 )
+volume_db = 10.0
 
 [node name="Honk_High" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 143 )
+volume_db = 5.0
 
 [node name="PU_0_IN" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 142 )
@@ -855,7 +862,7 @@ stream = ExtResource( 7 )
 stream = ExtResource( 141 )
 
 [node name="PU_1_USED" type="AudioStreamPlayer" parent="FX"]
-stream = ExtResource( 144 )
+stream = ExtResource( 9 )
 
 [node name="PU_2_USED" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 170 )

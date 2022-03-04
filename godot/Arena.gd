@@ -141,6 +141,7 @@ func _process(delta):
 	if gol_frame == 4:
 		if Global.FX_off == false:
 			$FX/Gol_FX.play()
+			$FX/Gol_FX2.play()
 		
 	if gol_frame == 23:
 		$Gol_Animation.stop()

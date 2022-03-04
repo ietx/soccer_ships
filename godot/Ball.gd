@@ -5,6 +5,7 @@ var inicial_position
 var linear_vel
 var max_speed = 500
 var real_position
+var gg = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +36,7 @@ func _process(delta):
 		linear_velocity = new_speed
 		
 func _on_Golden_Gol_Golden_Gol():
+	gg = true
 	$Sprite.play("Gold")
 	pass # Replace with function body.
 
@@ -46,10 +48,13 @@ func _on_Ball_body_entered(body):
 		elif body.name == "Areana Limits":
 			$Ball_Wall.play()
 			$Electric.set_visible(true)
-			if real_position.x > 455:
+			
+			if real_position.x > 455 and gg == false:
 				$Electric.play("Red")
-			else:
+			elif real_position.x < 455 and gg == false:
 				$Electric.play("Blue")
+			elif gg == true:
+				$Electric.play("Golden")
 		elif body.name == "Goal":
 			$Ball_Post.play()
 
