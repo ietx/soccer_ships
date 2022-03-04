@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MK - High.wav-0c2107957a45a918184b14d1d75a0634.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/FX/countdown/MK - High.wav"
+dest_files=[ "res://.import/MK - High.wav-0c2107957a45a918184b14d1d75a0634.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

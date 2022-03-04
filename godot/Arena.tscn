@@ -142,8 +142,8 @@
 [ext_resource path="res://Assets/Menus/Menu_Pause/Botão_Quit1.png" type="Texture" id=140]
 [ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Laser.wav" type="AudioStream" id=141]
 [ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Flash.wav" type="AudioStream" id=142]
-[ext_resource path="res://Assets/Sounds/FX/Soccer Ships - PowerUP 1.wav" type="AudioStream" id=143]
-[ext_resource path="res://Assets/Sounds/FX/Soccer Ships - PowerUP 2.wav" type="AudioStream" id=144]
+[ext_resource path="res://Assets/Sounds/FX/countdown/MK - High.wav" type="AudioStream" id=143]
+[ext_resource path="res://Assets/Sounds/FX/countdown/MK - Low.wav" type="AudioStream" id=144]
 [ext_resource path="res://Assets/Sounds/FX/power_up_activation/Laser.wav" type="AudioStream" id=145]
 [ext_resource path="res://Assets/FX/Boost/Boost_BLUE5.png" type="Texture" id=146]
 [ext_resource path="res://Assets/FX/Boost/Boost_BLUE1.png" type="Texture" id=147]
@@ -846,11 +846,9 @@ stream = ExtResource( 1 )
 
 [node name="Honk_Low" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 144 )
-volume_db = 10.0
 
 [node name="Honk_High" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 143 )
-volume_db = 5.0
 
 [node name="PU_0_IN" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 142 )

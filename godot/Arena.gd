@@ -76,7 +76,7 @@ func _process(delta):
 	
 	if StartTimer_frame == 4 or StartTimer_frame == 8 or StartTimer_frame == 12:
 		if Global.FX_off == false:
-			$FX/Honk_Low.play() 
+			$FX/Honk_Low.play(0.2) 
 	elif StartTimer_frame == 16:
 		if Global.FX_off == false:
 			$FX/Honk_High.play()
