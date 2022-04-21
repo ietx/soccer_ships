@@ -26,14 +26,14 @@ bounce = 0.49
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Gold",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Gold",
 "speed": 5.0
 } ]
 
@@ -95,5 +95,10 @@ scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 4 )
 animation = "Golden"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]
 [connection signal="animation_finished" from="Electric" to="." method="_on_Electric_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

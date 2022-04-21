@@ -6,6 +6,7 @@ var linear_vel
 var max_speed = 500
 var real_position
 var gg = false
+var can_bounce = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,8 +28,8 @@ func _integrate_forces(state):
 #		sleeping = false
 	
 func _process(delta):
+	print($Timer.get_time_left())
 	real_position = get_global_position()
-	print (real_position)
 	linear_vel = get_linear_velocity()
 	if abs (get_linear_velocity().x) > max_speed or abs (get_linear_velocity().y) > max_speed:
 		var new_speed = get_linear_velocity().normalized()
@@ -44,10 +45,16 @@ func _on_Golden_Gol_Golden_Gol():
 func _on_Ball_body_entered(body):
 	if Global.FX_off == false:
 		if body.name == "Ship" or body.name == "Ship 2":
-			$Ball_Ship.play()
+			if can_bounce == true:
+				$Timer.start()
+				$Ball_Ship.play()
+				can_bounce = false
 		elif body.name == "Areana Limits":
-			$Ball_Wall.play()
-			$Electric.set_visible(true)
+			if can_bounce == true:
+				$Timer.start()
+				$Ball_Wall.play()
+				$Electric.set_visible(true)
+				can_bounce = false
 			
 			if real_position.x > 455 and gg == false:
 				$Electric.play("Red")
@@ -64,3 +71,8 @@ func _on_Electric_animation_finished():
 	$Electric.set_visible(false)
 	$Electric.set_frame(0)
 	
+
+
+func _on_Timer_timeout():
+	can_bounce = true
+	pass # Replace with function body.

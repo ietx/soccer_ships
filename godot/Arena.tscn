@@ -380,14 +380,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=23]
 animations = [ {
+"frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 105 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 108 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 107 ), ExtResource( 95 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 133 ), ExtResource( 132 ), ExtResource( 93 ), ExtResource( 92 ) ],
+"loop": false,
+"name": "321GO",
+"speed": 6.0
+}, {
 "frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 102 ) ],
 "loop": false,
 "name": "3",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 103 ), ExtResource( 105 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 111 ) ],
-"loop": false,
-"name": "2",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 108 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 107 ) ],
@@ -395,10 +395,10 @@ animations = [ {
 "name": "1",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 105 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 108 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 107 ), ExtResource( 95 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 133 ), ExtResource( 132 ), ExtResource( 93 ), ExtResource( 92 ) ],
+"frames": [ ExtResource( 103 ), ExtResource( 105 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 111 ) ],
 "loop": false,
-"name": "321GO",
-"speed": 6.0
+"name": "2",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 95 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 92 ) ],
 "loop": false,
