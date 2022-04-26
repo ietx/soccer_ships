@@ -696,5 +696,6 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="How_to_Plat_Button" to="." method="_on_How_to_Plat_Button_pressed"]
 [connection signal="pressed" from="Setting_Button" to="." method="_on_Setting_Button_pressed"]
 [connection signal="pressed" from="GG_Button" to="." method="_on_GG_Button_pressed"]

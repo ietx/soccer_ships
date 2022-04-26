@@ -27,7 +27,7 @@ func _integrate_forces(state):
 		reset = false
 #		sleeping = false
 	
-func _process(delta):
+func _process(_delta):
 	print($Timer.get_time_left())
 	real_position = get_global_position()
 	linear_vel = get_linear_velocity()

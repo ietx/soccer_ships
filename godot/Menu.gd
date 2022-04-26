@@ -46,3 +46,7 @@ func _on_GG_Button_pressed():
 
 func _on_Setting_Button_pressed():
 	get_tree().change_scene("res://Settings.tscn")
+
+
+func _on_How_to_Plat_Button_pressed():
+	get_tree().change_scene("res://How_to_Play.tscn")

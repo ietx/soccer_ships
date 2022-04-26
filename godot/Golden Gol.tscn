@@ -213,24 +213,24 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=24]
 animations = [ {
-"frames": [ ExtResource( 102 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 103 ) ],
 "loop": true,
 "name": "Blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 99 ), ExtResource( 100 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ) ],
-"loop": false,
-"name": "Rolling",
+"frames": [ ExtResource( 102 ) ],
+"loop": true,
+"name": "Red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 104 ) ],
 "loop": true,
 "name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 99 ), ExtResource( 100 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ) ],
+"loop": false,
+"name": "Rolling",
 "speed": 5.0
 } ]
 
@@ -299,14 +299,14 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 90 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 89 ) ],
 "loop": true,
 "name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 90 ) ],
+"loop": true,
+"name": "Red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 87 ) ],
@@ -322,14 +322,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 90 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 89 ) ],
 "loop": true,
 "name": "Blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 90 ) ],
+"loop": true,
+"name": "Red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 87 ) ],
@@ -377,11 +377,6 @@ animations = [ {
 "name": "1",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 117 ) ],
-"loop": false,
-"name": "3",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 116 ) ],
 "loop": false,
 "name": "Go",
@@ -390,6 +385,11 @@ animations = [ {
 "frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 109 ) ],
 "loop": false,
 "name": "2",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 117 ) ],
+"loop": false,
+"name": "3",
 "speed": 8.0
 } ]
 
