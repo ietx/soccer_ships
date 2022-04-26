@@ -10,9 +10,9 @@ config_version=4
 
 [application]
 
-config/name="Soccer_Ships"
-run/main_scene="res://Menu.tscn"
-config/icon="res://icon.png"
+config/name="Soccer Ships"
+run/main_scene="res://Chapa_Games.tscn"
+config/icon="res://Assets/Naves/Omni/OMNI.png"
 
 [autoload]
 

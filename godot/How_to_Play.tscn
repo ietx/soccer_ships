@@ -253,14 +253,14 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 79 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
@@ -276,14 +276,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 81 ) ],
-"loop": true,
-"name": "Blue",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 79 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "Blue",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 82 ) ],
@@ -675,7 +675,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="Pause"]
 margin_right = 910.0
 margin_bottom = 512.0
-color = Color( 0, 0, 0, 0.709804 )
+color = Color( 0, 0, 0, 0.721569 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -690,14 +690,14 @@ __meta__ = {
 }
 
 [node name="Quit" type="TextureButton" parent="Pause"]
-margin_left = 860.0
-margin_top = 464.0
-margin_right = 876.0
-margin_bottom = 480.0
+margin_left = 30.0
+margin_top = 22.0
+margin_right = 46.0
+margin_bottom = 38.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 76 )
-texture_pressed = ExtResource( 75 )
-texture_hover = ExtResource( 74 )
+texture_pressed = ExtResource( 74 )
+texture_hover = ExtResource( 75 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
