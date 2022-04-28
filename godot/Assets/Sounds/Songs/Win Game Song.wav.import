@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Win Game Song.wav-68bb94f4fc518576ad1b109eac5beef6.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Songs/Win Game Song.wav"
+dest_files=[ "res://.import/Win Game Song.wav-68bb94f4fc518576ad1b109eac5beef6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

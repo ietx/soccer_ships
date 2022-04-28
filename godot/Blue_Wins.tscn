@@ -1,6 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://GG_ParallaxBackground.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sounds/Songs/Win Game Song - More Excited.wav" type="AudioStream" id=2]
 [ext_resource path="res://Blue_Wins.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fundos/Win_Menu/BG_Preto.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fundos/Win_Menu/Blue_Wins_Stars_2.png" type="Texture" id=6]
@@ -9,7 +10,6 @@
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_2_PC.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_3_PC.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Fundos/Win_Menu/Blue_Wins_Texto.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sounds/John Frusciante - Stage.mp3" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3208.39, 97.8572 )
@@ -120,7 +120,6 @@ texture = ExtResource( 10 )
 centered = false
 
 [node name="Stage" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 12 )
-volume_db = 20.0
+stream = ExtResource( 2 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

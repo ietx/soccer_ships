@@ -71,7 +71,7 @@
 [ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp6.png" type="Texture" id=69]
 [ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp3.png" type="Texture" id=70]
 [ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp5.png" type="Texture" id=71]
-[ext_resource path="res://Assets/Sounds/john8bit.wav" type="AudioStream" id=72]
+[ext_resource path="res://Assets/Sounds/Songs/Game Song.wav" type="AudioStream" id=72]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Esttrelas_PC.png" type="Texture" id=73]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_1_PC.png" type="Texture" id=74]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_2_PC.png" type="Texture" id=75]
@@ -142,8 +142,8 @@
 [ext_resource path="res://Assets/Menus/Menu_Pause/Botão_Quit1.png" type="Texture" id=140]
 [ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Laser.wav" type="AudioStream" id=141]
 [ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Flash.wav" type="AudioStream" id=142]
-[ext_resource path="res://Assets/Sounds/FX/countdown/MK - High.wav" type="AudioStream" id=143]
-[ext_resource path="res://Assets/Sounds/FX/countdown/MK - Low.wav" type="AudioStream" id=144]
+[ext_resource path="res://Assets/Sounds/FX/countdown/Count Down - Low.wav" type="AudioStream" id=143]
+[ext_resource path="res://Assets/Sounds/FX/countdown/Count Down - High.wav" type="AudioStream" id=144]
 [ext_resource path="res://Assets/Sounds/FX/power_up_activation/Laser.wav" type="AudioStream" id=145]
 [ext_resource path="res://Assets/FX/Boost/Boost_BLUE5.png" type="Texture" id=146]
 [ext_resource path="res://Assets/FX/Boost/Boost_BLUE1.png" type="Texture" id=147]
@@ -298,14 +298,14 @@ animations = [ {
 "name": "Red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 82 ) ],
-"loop": true,
-"name": "Off",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "Off",
 "speed": 5.0
 } ]
 
@@ -321,14 +321,14 @@ animations = [ {
 "name": "Red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 82 ) ],
-"loop": true,
-"name": "Off",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "Off",
 "speed": 5.0
 } ]
 
@@ -390,11 +390,6 @@ animations = [ {
 "name": "1",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 95 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 92 ) ],
-"loop": false,
-"name": "Go",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 103 ), ExtResource( 105 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 109 ), ExtResource( 111 ) ],
 "loop": false,
 "name": "2",
@@ -403,6 +398,11 @@ animations = [ {
 "frames": [ ExtResource( 104 ), ExtResource( 106 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 102 ) ],
 "loop": false,
 "name": "3",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 95 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 92 ) ],
+"loop": false,
+"name": "Go",
 "speed": 8.0
 } ]
 
@@ -846,9 +846,11 @@ stream = ExtResource( 1 )
 
 [node name="Honk_Low" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 144 )
+volume_db = 5.0
 
 [node name="Honk_High" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 143 )
+volume_db = 5.0
 
 [node name="PU_0_IN" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 142 )
@@ -893,6 +895,7 @@ volume_db = 10.0
 [connection signal="animation_finished" from="Gol_Animation" to="." method="_on_Gol_Animation_animation_finished"]
 [connection signal="frame_changed" from="Gol_Animation" to="." method="_on_Gol_Animation_frame_changed"]
 [connection signal="animation_finished" from="StartTimerAnimation" to="." method="_on_StartTimerAnimation_animation_finished"]
+[connection signal="frame_changed" from="StartTimerAnimation" to="." method="_on_StartTimerAnimation_frame_changed"]
 [connection signal="pressed" from="Pause/Quit" to="Pause" method="_on_Quit_pressed"]
 [connection signal="pressed" from="Pause/Restart" to="Pause" method="_on_Restart_pressed"]
 [connection signal="body_exited" from="Ball_Zone" to="." method="_on_Ball_Zone_body_exited"]

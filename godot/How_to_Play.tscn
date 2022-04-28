@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=2]
+[gd_scene load_steps=168 format=2]
 
 [ext_resource path="res://Assets/Sounds/FX/Soccer Ships - Goal.wav" type="AudioStream" id=1]
 [ext_resource path="res://Assets/Menus/Menu_How_To_Play/SS_Arena_HTP_BG1.png" type="Texture" id=2]
@@ -76,6 +76,7 @@
 [ext_resource path="res://Assets/Menus/Menu_How_To_Play/Botão_Back_Metalic3.png" type="Texture" id=74]
 [ext_resource path="res://Assets/Menus/Menu_How_To_Play/Botão_Back_Metalic2.png" type="Texture" id=75]
 [ext_resource path="res://Assets/Menus/Menu_How_To_Play/Botão_Back_Metalic1.png" type="Texture" id=76]
+[ext_resource path="res://Assets/Sounds/Songs/How to Paly Song.wav" type="AudioStream" id=77]
 [ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub2.png" type="Texture" id=79]
 [ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub3.png" type="Texture" id=80]
 [ext_resource path="res://Assets/Fundos/Hub/Soccer_Ships_Power_Hub4.png" type="Texture" id=81]
@@ -253,47 +254,47 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 81 ) ],
 "loop": true,
 "name": "Blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 82 ) ],
+"frames": [ ExtResource( 79 ) ],
 "loop": true,
-"name": "Off",
+"name": "Red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "Off",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "Red",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 81 ) ],
 "loop": true,
 "name": "Blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 82 ) ],
+"frames": [ ExtResource( 79 ) ],
 "loop": true,
-"name": "Off",
+"name": "Red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 80 ) ],
 "loop": true,
 "name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "Off",
 "speed": 5.0
 } ]
 
@@ -652,7 +653,9 @@ one_shot = true
 autostart = true
 
 [node name="John" type="AudioStreamPlayer" parent="."]
-volume_db = -1.0
+pause_mode = 2
+stream = ExtResource( 77 )
+volume_db = 5.0
 
 [node name="Gol_Animation" type="AnimatedSprite" parent="."]
 position = Vector2( 455, 256 )

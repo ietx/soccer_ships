@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Count Down - High.wav-a347db4087a01f78f85608b2cb88d981.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/FX/countdown/Count Down - High.wav"
+dest_files=[ "res://.import/Count Down - High.wav-a347db4087a01f78f85608b2cb88d981.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

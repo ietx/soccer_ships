@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ship Selection Song.wav-02afe4c7e3a10b43d4bc2630f2b2eee7.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Songs/Ship Selection Song.wav"
+dest_files=[ "res://.import/Ship Selection Song.wav-02afe4c7e3a10b43d4bc2630f2b2eee7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

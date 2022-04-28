@@ -35,6 +35,8 @@ var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tsc
 var Ship
 var Ship2
 var StartTimer_frame
+var honk_played = false
+
 func _ready():
 	
 		
@@ -57,11 +59,7 @@ func _ready():
 	Ship2.position = Vector2(135, 256)
 	
 	#####################
-	if Global.music_off == false:
-		$John.play()
-	else:
-		pass
-#
+
 	$Gol_Animation.playing = false
 	$Lightning_Animation.play("Thunder")
 	$StartTimerAnimation.set_visible(true)
@@ -74,12 +72,7 @@ func _process(delta):
 	gol_frame = $Gol_Animation.get_frame()
 #	Tree_Two_One_GO = stepify($StartTimer.get_time_left(), 0.1)
 	
-	if StartTimer_frame == 4 or StartTimer_frame == 8 or StartTimer_frame == 12:
-		if Global.FX_off == false:
-			$FX/Honk_Low.play(0.2) 
-	elif StartTimer_frame == 16:
-		if Global.FX_off == false:
-			$FX/Honk_High.play()
+	
 
 	
 		
@@ -372,6 +365,8 @@ func _on_StartTimerAnimation_animation_finished():
 	Ship2.unfreeze()
 	if start == false: #Se for o comeco da partida PRIMEIRO 3 2 1 GO
 		$TimeNormal.start() 
+		if Global.music_off == false:
+			$John.play()
 		start = true
 	else: #Se for durante a partida qualquer 321 GO
 		$TimeNormal.set_paused(false)
@@ -402,3 +397,12 @@ func _on_Stop2_animation_finished():
 	$PU_Animation/Stop2.set_frame(0)
 	
 ####################################
+
+
+func _on_StartTimerAnimation_frame_changed():
+	if StartTimer_frame == 4 or StartTimer_frame == 8 or StartTimer_frame == 12:
+		if Global.FX_off == false:
+			$FX/Honk_Low.play() 
+	elif StartTimer_frame == 16:
+		if Global.FX_off == false:
+			$FX/Honk_High.play()

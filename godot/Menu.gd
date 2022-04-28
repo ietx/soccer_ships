@@ -50,3 +50,8 @@ func _on_Setting_Button_pressed():
 
 func _on_How_to_Plat_Button_pressed():
 	get_tree().change_scene("res://How_to_Play.tscn")
+
+
+func _on_Blind_finished():
+	if Global.music_off == false:
+		$menu_song.play()

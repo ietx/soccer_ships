@@ -71,7 +71,7 @@
 [ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Boost_PowerUp6.png" type="Texture" id=69]
 [ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp3.png" type="Texture" id=70]
 [ext_resource path="res://Assets/Power_Ups/Soccer_Ships_Stop_PowerUp5.png" type="Texture" id=71]
-[ext_resource path="res://Assets/Sounds/Flying.mp3" type="AudioStream" id=72]
+[ext_resource path="res://Assets/Sounds/Songs/Golden Goal Song.wav" type="AudioStream" id=72]
 [ext_resource path="res://GG_ParallaxBackground.gd" type="Script" id=73]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_1_PC.png" type="Texture" id=74]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Nebulosa_2_PC.png" type="Texture" id=75]
@@ -309,14 +309,14 @@ animations = [ {
 "name": "Red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 87 ) ],
-"loop": true,
-"name": "Off",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 88 ) ],
 "loop": true,
 "name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 87 ) ],
+"loop": true,
+"name": "Off",
 "speed": 5.0
 } ]
 
@@ -332,14 +332,14 @@ animations = [ {
 "name": "Red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 87 ) ],
-"loop": true,
-"name": "Off",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 88 ) ],
 "loop": true,
 "name": "Green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 87 ) ],
+"loop": true,
+"name": "Off",
 "speed": 5.0
 } ]
 
@@ -377,11 +377,6 @@ animations = [ {
 "name": "1",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 116 ) ],
-"loop": false,
-"name": "Go",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 109 ) ],
 "loop": false,
 "name": "2",
@@ -390,6 +385,11 @@ animations = [ {
 "frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 117 ) ],
 "loop": false,
 "name": "3",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 116 ) ],
+"loop": false,
+"name": "Go",
 "speed": 8.0
 } ]
 
