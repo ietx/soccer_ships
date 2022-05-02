@@ -20,7 +20,11 @@ signal Shoot
 onready var bullet = preload("res://Bullet.tscn")
 var angel = false
 var reborn = false
+var blue_wins = false
+var red_wins = false
+var local_collision_pos = Vector3()
 signal Explode
+signal emit_particles
 
 func _ready():
 	inicial_position = Vector2(775, 256)
@@ -47,8 +51,12 @@ func _physics_process(delta):
 		elif Input.is_action_pressed("Break"):
 			thrust = Vector2(0, - engine_thrust)
 			$Sprite.play("Break")
-	
-		elif Input.is_action_just_pressed("Dash"):
+
+		else:
+			$Sprite.play("Still")
+			thrust = Vector2()
+			
+		if Input.is_action_just_pressed("Dash"):
 			if power_up == 0 and PU_Switch == true:
 				thrust = Vector2(0, 300 * engine_thrust)
 				emit_signal("PU_Used_Red", power_up, current_position, current_rot)
@@ -63,11 +71,6 @@ func _physics_process(delta):
 			
 			if GG == false:
 					PU_Switch = false
-	
-		else:
-			$Sprite.play("Still")
-			thrust = Vector2()
-			
 		
 		rot = 0
 		if Input.is_action_pressed("Rotate_Right"):
@@ -76,7 +79,9 @@ func _physics_process(delta):
 			rot -= 1
 		else:
 			rot - 0
-	
+	else:
+		set_physics_process(false)
+
 		
 		
 	set_applied_force(thrust.rotated(rotation))
@@ -93,7 +98,10 @@ func _integrate_forces(state):
 	if angel == true:
 		state.transform = Transform2D(0, Vector2(-1000, -1000))
 		state.linear_velocity = Vector2()
-		
+	
+	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 
+		local_collision_pos = state.get_contact_local_position(0)
+	
 func shoot():
 	var rot = get_rotation()
 	var ship = "Red"
@@ -138,6 +146,7 @@ func freeze():
 
 func unfreeze():
 	Freeze = false
+	set_physics_process(true)
 	
 ########################
 
@@ -149,14 +158,17 @@ func red_wins_unfreeze():
 	
 func _on_Ship_body_entered(body):
 	if body is RigidBody2D:
-		$Sprite.set_visible(false)
-		$Explode.set_visible(true)
-		$Explode.play("Explode")
+		if body.name == "Ship 2":
+			print(local_collision_pos)
+			emit_signal("emit_particles", local_collision_pos)
+		if blue_wins == true:
+			$Sprite.set_visible(false)
+			$Explode.set_visible(true)
+			$Explode.play("Explode")
 
 func blue_wins_unfreeze():
 	Freeze = false
-	set_max_contacts_reported(10)
-	set_contact_monitor(true)
+	blue_wins = true
 
 func _on_Explode_animation_finished():
 	queue_free()

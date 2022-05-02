@@ -30,14 +30,9 @@ animations = [ {
 "name": "Stop",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "Still",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "Dash",
+"name": "Thrust",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 1 ) ],
@@ -45,10 +40,15 @@ animations = [ {
 "name": "Break",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Thrust",
+"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Dash",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Still",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": false,

@@ -13,7 +13,7 @@
 [ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back1.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Menus/Botão_Back/Botão_Back2.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Menus/Menu_Settings/Botão_Controls3.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Sounds/John Frusciante - Motiern 58.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Sounds/Songs/How to Paly Song.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Menus/Menu_Settings/Botão_Controls2.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Planetas_PC.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Fundos/Soccer_Ships_Arena_Esttrelas_PC.png" type="Texture" id=23]

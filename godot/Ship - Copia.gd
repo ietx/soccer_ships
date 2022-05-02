@@ -48,8 +48,12 @@ func _physics_process(delta):
 		elif Input.is_action_pressed("Break_2"):
 			thrust = Vector2(0,  engine_thrust)
 			$Sprite.play("Break")
-	
-		elif Input.is_action_just_pressed("Dash_2"):
+			
+		else:
+			thrust = Vector2()
+			$Sprite.play("Still")
+		
+		if Input.is_action_just_pressed("Dash_2"):
 			if power_up == 0 and PU_Switch == true:
 				thrust = Vector2(0, -300 * engine_thrust)
 				emit_signal("PU_Used_Blue", power_up, current_position, current_rot)
@@ -64,18 +68,14 @@ func _physics_process(delta):
 				
 			if GG == false:
 					PU_Switch = false
-					
-		else:
-			thrust = Vector2()
-			$Sprite.play("Still")
-		
+	
 		rot = 0
 		if Input.is_action_pressed("Rto_L_2"):
 			rot -= 1
 		if Input.is_action_pressed("Rot_R_2"):
 			rot += 1
-		else:
-			rot - 0 
+	else:
+		set_physics_process(false)
 	
 	set_applied_force(thrust.rotated(rotation))
 	set_applied_torque(rot * spin_thrust)
@@ -136,6 +136,7 @@ func freeze():
 	
 func unfreeze():
 	Freeze = false
+	set_physics_process(true)
 #
 func _on_Golden_Gol_Unfreeze_2():
 	Freeze = false

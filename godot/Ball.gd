@@ -28,7 +28,7 @@ func _integrate_forces(state):
 #		sleeping = false
 	
 func _process(_delta):
-	print($Timer.get_time_left())
+
 	real_position = get_global_position()
 	linear_vel = get_linear_velocity()
 	if abs (get_linear_velocity().x) > max_speed or abs (get_linear_velocity().y) > max_speed:

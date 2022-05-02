@@ -5,6 +5,7 @@ var Red_ID = Global.Red_ID
 var Blue_ID = Global.Blue_ID
 var Red_choices = [preload("res://Ship.tscn"), preload ("res://Annie.tscn"), preload ("res://Bella.tscn"), preload ("res://Vi.tscn"), preload ("res://Mey.tscn"), preload ("res://Betty.tscn"), preload ("res://Jinx.tscn"), preload ("res://Bayron.tscn"), preload ("res://Santi.tscn"), preload ("res://UFB.tscn")]
 var Blue_choices = [preload("res://Ship - Copia.tscn"), preload("res://Tamir.tscn"), preload("res://Pearl.tscn"), preload("res://Hope.tscn"), preload ("res://Wey.tscn"), preload("res://Sting.tscn"), preload ("res://Bobby.tscn"), preload ("res://Telly.tscn"), preload ("res://Ky.tscn"), preload ("res://Rei.tscn")]
+var particles = preload("res://Crash_Particles.tscn")
 var Ship
 var Ship2
 
@@ -15,7 +16,7 @@ var time = -9 #Cronometro do jogo.- 11 é o tempo que demora a animacao do Start
 var minu
 var sec
 var gol_frame
-var Tree_Two_One_GO
+var Tree_Two_One_GO_frame
 
 
 
@@ -35,6 +36,7 @@ func _ready():
 	Ship.connect("Explode", self, "_on_Ship_Explode")
 	Ship.connect("Shoot", self, "_on_Ship_Shoot")
 	Ship.connect("PU_Used_Red", self, "_on_Ship_PU_Used_Red")
+	Ship.connect("emit_particles", self, "ship_crash")
 	$Ships_Node.add_child(Ship)
 	Ship.position = Vector2(775, 256)
 	
@@ -68,9 +70,12 @@ func _process(delta):
 	
 	#GOL ANIMATION
 	gol_frame = $Gol_Animation.get_frame()
+	Tree_Two_One_GO_frame = $Start_Timer_Animation.get_frame()
+	
 	if gol_frame == 4:
 		if Global.FX_off == false:
 			$FX/Gol_FX.play()
+			$FX/Gol_FX2.play()
 	
 	if gol_frame == 23:
 		if Winner == "Red":
@@ -150,11 +155,15 @@ func _on_Start_Timer_timeout():
 	
 
 func _on_Ship_Shoot(bullet, muz_pos, rot, dir, ship):
+	if Global.FX_off == false:
+		$FX/PU_3_USED.play()
 	var b = bullet.instance()
 	add_child(b)
 	b.start(muz_pos, rot, dir, ship)
 
 func _on_Ship2_Shoot2(bullet, muz_pos, rot, dir, ship):
+	if Global.FX_off == false:
+		$FX/PU_3_USED.play()
 	var b = bullet.instance()
 	add_child(b)
 	b.start(muz_pos, rot, dir, ship)
@@ -162,6 +171,8 @@ func _on_Ship2_Shoot2(bullet, muz_pos, rot, dir, ship):
 
 
 func _on_Ship_Explode(pos, rot):
+	if Global.FX_off == false:
+		$FX/Ship_Explode.play()
 	$Explode.set_visible(true)
 	$Explode.position = pos
 	$Explode.rotation = rot
@@ -172,6 +183,8 @@ func _on_Explode_animation_finished():
 	$Explode.set_frame(0)
 
 func _on_Ship2_Explode2(pos, rot):
+	if Global.FX_off == false:
+		$FX/Ship_Explode.play()
 	$Explode2.set_visible(true)
 	$Explode2.position = pos
 	$Explode2.rotation = rot
@@ -198,11 +211,15 @@ func _on_Ship_PU_Used_Red(power_up, pos, rot):
 		$PU_Animation/Dash1.position = pos
 		$PU_Animation/Dash1.rotation = rot
 		$PU_Animation/Dash1.play("Dash")
+		if Global.FX_off == false:
+			$FX/PU_1_USED.play()
 	elif power_up == 1:
 		$PU_Animation/Stop1.set_visible(true)
 		$PU_Animation/Stop1.position = pos
 		$PU_Animation/Stop1.rotation = rot
 		$PU_Animation/Stop1.play("Stop")
+		if Global.FX_off == false:
+			$FX/PU_2_USED.play()
 
 func _on_Ship2_PU_Used_Blue(power_up, pos, rot):
 	
@@ -211,11 +228,15 @@ func _on_Ship2_PU_Used_Blue(power_up, pos, rot):
 		$PU_Animation/Dash2.position = pos
 		$PU_Animation/Dash2.rotation = rot
 		$PU_Animation/Dash2.play("Dash")
+		if Global.FX_off == false:
+			$FX/PU_1_USED.play()
 	elif power_up == 1:
 		$PU_Animation/Stop2.set_visible(true)
 		$PU_Animation/Stop2.position = pos
 		$PU_Animation/Stop2.rotation = rot
 		$PU_Animation/Stop2.play("Stop")
+		if Global.FX_off == false:
+			$FX/PU_2_USED.play()
 		
 ####### POWER UP END ANIMATIONS #########
 
@@ -237,3 +258,18 @@ func _on_Stop2_animation_finished():
 	$PU_Animation/Stop2.set_frame(0)
 	
 ####################################
+
+func ship_crash(pos):
+	var p = particles.instance()
+	add_child(p)
+	p.emitting = true
+	p.position = pos
+
+
+func _on_Start_Timer_Animation_frame_changed():
+	if Tree_Two_One_GO_frame == 2 or Tree_Two_One_GO_frame == 6 or Tree_Two_One_GO_frame == 10:
+		if Global.FX_off == false:
+			$FX/Honk_Low.play() 
+	elif Tree_Two_One_GO_frame == 14:
+		if Global.FX_off == false:
+			$FX/Honk_High.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=190 format=2]
+[gd_scene load_steps=200 format=2]
 
 [ext_resource path="res://Assets/321/Gold/321_Golden19.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fundos/GOLDEN/SS_GOLDEN_Map_Stars_1.png" type="Texture" id=2]
@@ -162,6 +162,16 @@
 [ext_resource path="res://Assets/FX/Full_Stop/Full_Stop_BLUE3.png" type="Texture" id=160]
 [ext_resource path="res://Assets/FX/Full_Stop/Full_Stop_BLUE6.png" type="Texture" id=161]
 [ext_resource path="res://Assets/FX/Full_Stop/Full_Stop_BLUE5.png" type="Texture" id=162]
+[ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Slow.wav" type="AudioStream" id=163]
+[ext_resource path="res://Assets/Sounds/FX/power_up_activation/Flash.wav" type="AudioStream" id=164]
+[ext_resource path="res://Assets/Sounds/FX/countdown/Count Down - Low.wav" type="AudioStream" id=165]
+[ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Flash.wav" type="AudioStream" id=166]
+[ext_resource path="res://Assets/Sounds/FX/countdown/Count Down - High.wav" type="AudioStream" id=167]
+[ext_resource path="res://Assets/Sounds/FX/power_up_pickup/Laser.wav" type="AudioStream" id=168]
+[ext_resource path="res://Assets/Sounds/FX/power_up_activation/Laser.wav" type="AudioStream" id=169]
+[ext_resource path="res://Assets/Sounds/FX/explosion/Explosion.wav" type="AudioStream" id=170]
+[ext_resource path="res://Assets/Sounds/FX/goal/goal.wav" type="AudioStream" id=171]
+[ext_resource path="res://Assets/Sounds/FX/power_up_activation/Slow.wav" type="AudioStream" id=172]
 
 [sub_resource type="SpriteFrames" id=29]
 animations = [ {
@@ -244,14 +254,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 54 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 57 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 40 ) ],
-"loop": false,
-"name": "Gol_R",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 21 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 15 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 16 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 18 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 36 ) ],
 "loop": false,
 "name": "Gol_B",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 54 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 41 ), ExtResource( 44 ), ExtResource( 57 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "Gol_R",
 "speed": 12.0
 } ]
 
@@ -367,6 +377,11 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
+"frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 117 ) ],
+"loop": false,
+"name": "3",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 123 ), ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 113 ), ExtResource( 116 ) ],
 "loop": false,
 "name": "321GO",
@@ -377,19 +392,14 @@ animations = [ {
 "name": "1",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 109 ) ],
-"loop": false,
-"name": "2",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 108 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 115 ), ExtResource( 117 ) ],
-"loop": false,
-"name": "3",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 120 ), ExtResource( 122 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 116 ) ],
 "loop": false,
 "name": "Go",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 109 ) ],
+"loop": false,
+"name": "2",
 "speed": 8.0
 } ]
 
@@ -777,7 +787,42 @@ shape = SubResource( 28 )
 [node name="FX" type="Node2D" parent="."]
 
 [node name="Gol_FX" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 171 )
+volume_db = -5.0
+
+[node name="Gol_FX2" type="AudioStreamPlayer" parent="FX"]
 stream = ExtResource( 140 )
+
+[node name="Honk_Low" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 167 )
+volume_db = 5.0
+
+[node name="Honk_High" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 165 )
+volume_db = 5.0
+
+[node name="PU_0_IN" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 166 )
+
+[node name="PU_1_IN" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 163 )
+
+[node name="PU_2_IN" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 168 )
+
+[node name="PU_1_USED" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 164 )
+
+[node name="PU_2_USED" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 172 )
+
+[node name="PU_3_USED" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 169 )
+volume_db = 10.0
+
+[node name="Ship_Explode" type="AudioStreamPlayer" parent="FX"]
+stream = ExtResource( 170 )
+volume_db = 10.0
 
 [connection signal="Golden_Gol" from="." to="Ball" method="_on_Golden_Gol_Golden_Gol"]
 [connection signal="animation_finished" from="PU_Animation/Dash1" to="." method="_on_Dash1_animation_finished"]
@@ -799,6 +844,7 @@ stream = ExtResource( 140 )
 [connection signal="timeout" from="Shine_Star/Timer_PU" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]
 [connection signal="animation_finished" from="Start_Timer_Animation" to="." method="_on_Start_Timer_Animation_animation_finished"]
+[connection signal="frame_changed" from="Start_Timer_Animation" to="." method="_on_Start_Timer_Animation_frame_changed"]
 [connection signal="pressed" from="Pause/Quit" to="Pause" method="_on_Quit_pressed"]
 [connection signal="pressed" from="Pause/Restart" to="Pause" method="_on_Restart_pressed"]
 [connection signal="body_exited" from="Ball_Zone" to="." method="_on_Ball_Zone_body_exited"]
