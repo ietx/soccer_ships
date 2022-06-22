@@ -94,6 +94,7 @@ func _process(delta):
 		$Start_Animation.set_frame(0)
 		$Roleta.set_visible(true)
 		$Roleta.play("Rolling")
+		$FX/Roulette.play(.5)
 	
 	#ROLETA ANIMATION
 	if Roleta_Frame == 10 and Roleta_Animation == "Rolling":

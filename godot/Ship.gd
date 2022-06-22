@@ -157,10 +157,13 @@ func red_wins_unfreeze():
 	Freeze = false
 	
 func _on_Ship_body_entered(body):
+	
 	if body is RigidBody2D:
+		print(body)
 		if body.name == "Ship 2":
-			print(local_collision_pos)
 			emit_signal("emit_particles", local_collision_pos)
+			if Global.FX_off == false:
+				$Crash.play()
 		if blue_wins == true:
 			$Sprite.set_visible(false)
 			$Explode.set_visible(true)

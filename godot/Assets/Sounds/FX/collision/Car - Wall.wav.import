@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Car - Wall.wav-d61235f071b89dec8cc4044955c7e7fa.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/FX/collision/Car - Wall.wav"
+dest_files=[ "res://.import/Car - Wall.wav-d61235f071b89dec8cc4044955c7e7fa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

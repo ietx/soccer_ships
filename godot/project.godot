@@ -13,6 +13,7 @@ config_version=4
 config/name="Soccer Ships"
 run/main_scene="res://Chapa_Games.tscn"
 config/icon="res://Assets/Naves/Omni/OMNI.png"
+config/windows_native_icon="res://Assets/OMNI.ico"
 
 [autoload]
 
@@ -20,8 +21,12 @@ Global="*res://Global.gd"
 
 [display]
 
-window/size/width=910
-window/size/height=512
+window/size/width=912
+window/size/height=513
+window/size/borderless=true
+window/size/fullscreen=true
+window/dpi/allow_hidpi=true
+mouse_cursor/custom_image="res://Assets/particle.png"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
